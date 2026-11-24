@@ -105,7 +105,7 @@ footer a{color:var(--muted)}
 <script>
 (function(){
   var q = new URLSearchParams(location.search);
-  var names = { tint: "2-Day Beginner Window Tint Bootcamp", ppf: "3-Day PPF Pro Intensive", bundle: "Film Pro Bundle: Tint + PPF" };
+  var names = { tint: "2-Day Beginner Window Tint Bootcamp", ppf: "3-Day Clear & Color PPF Course", bundle: "Film Pro Bundle: Tint + PPF" };
   var course = names[q.get("course")] || "Vehicle Wrap Training class";
   var start = q.get("start"), end = q.get("end") || start, label = q.get("label");
   if (q.get("course")) document.getElementById("summary").textContent = "You're enrolled in the " + course + (label ? " (" + label + ")" : "") + ". Check your email for your receipt.";
