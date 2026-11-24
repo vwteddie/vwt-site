@@ -5,7 +5,7 @@ Static, mobile-first landing page (14306 Wicks Blvd, San Leandro, CA 94577 · 51
 | File | What it is |
 |---|---|
 | `index.html` | The Black Friday landing page |
-| `thank-you.html` | Post-purchase page: confirmation, next steps, what to bring, calendar, map, bring-a-buddy |
+| `thank-you.html` | Post-purchase page: confirmation, next steps, what to bring, calendar, map |
 | `privacy.html` | Privacy policy (needed for Meta ads). It's a template, so have it reviewed |
 | `terms.html` | Terms and refund policy. **Your refund policy still has to be written in** |
 | `public/images/class/` | Web-ready class photos (`-640.webp` for phones, `-1280.webp` for desktop). These are what the page loads |
