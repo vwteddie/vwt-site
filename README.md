@@ -1,6 +1,6 @@
 # VWT Black Friday Landing Page
 
-Static, mobile-first landing page for Vehicle Wrap Training LLC. No build step: upload the files to any host (Shopify page, Netlify, GitHub Pages, your current host).
+Static, mobile-first landing page (14306 Wicks Blvd, San Leandro, CA 94577 · 510-935-6111) for Vehicle Wrap Training LLC. No build step: upload the files to any host (Shopify page, Netlify, GitHub Pages, your current host).
 
 | File | What it is |
 |---|---|
@@ -17,7 +17,7 @@ Everything lives in the `window.VWT` CONFIG block near the top of `index.html`:
 1. **`pixelId`**: your Meta Pixel ID (numbers only). The pixel stays off until it's set.
 2. **`links.tint` / `links.ppf` / `links.bundle` / `links.deposit`**: your new Shopify product URLs. Until they're set, buttons scroll to the pricing section.
 3. **`courses.ppf.regular` and `courses.bundle.regular`**: only use a price you've actually charged. Leave `null` and no strikethrough is shown.
-4. **`classes`**: real dates and real seats left, e.g. `{ course: "tint", label: "Dec 6–7, 2026", start: "2026-12-06", seatsLeft: 2 }`.
+4. **`classes`**: real dates and real seats left, e.g. `{ course: "tint", start: "2026-12-05", end: "2026-12-06", seatsLeft: 2 }`. These fill the **class calendar** and the "Next class · X of 4 seats left" line on each price card. Add `url:` to send that date to a specific Cowlendar product page; otherwise it uses the course link from `links`. Open the page with `?demo=1` to preview the calendar with sample dates (they never show without that).
 5. **`heroVideo`**: a short, muted MP4 loop (aim for under 3 MB, 720p). It loads after the page appears, so it won't slow the first view.
 6. **`gallery`** and **`eddiePhoto`**: use compressed `.webp` images (about 1080px wide, under 150 KB each).
 7. **Reviews**: in `index.html`, search for `REVIEWS` and paste each review's text **word for word** from Google or your site. Cards with empty text show a dashed placeholder.
@@ -42,3 +42,11 @@ To send buyers to `thank-you.html`, add a link on Shopify's order status page, f
 ## Countdown behavior
 
 The countdown runs to **Nov 30, 2026, 11:59:59 PM PT** and doesn't reset. After it ends, the page switches to regular prices automatically: the countdown and strikethroughs are removed, and "Black Friday" wording changes to regular enrollment wording. Remember to **also** change the Shopify product prices after the deal ends.
+
+## Class calendar + Cowlendar
+
+Cowlendar runs inside Shopify, and I couldn't find a documented way to embed its widget on an outside site. So this page has its own calendar, and every "Book" button opens the Shopify product page where Cowlendar's date picker and checkout live.
+
+1. In Shopify, set up each course product with Cowlendar (app embed turned on in your theme).
+2. Paste those product URLs into `links.tint`, `links.ppf` and `links.bundle`, or into a class's `url:`.
+3. Each time a seat sells, update `seatsLeft` (Cowlendar doesn't update this page automatically).

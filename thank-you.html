@@ -81,10 +81,9 @@ footer a{color:var(--muted)}
 
   <div class="card">
     <h2>Where to go</h2>
-    <p><b>Vehicle Wrap Training LLC</b><br>6773 Sierra Ct, Suite B, Dublin, CA 94568</p>
-    <p class="muted">In the Sierra Trinity complex. The entrance is wheelchair accessible.</p>
-    <iframe loading="lazy" title="Map to Vehicle Wrap Training" src="https://www.google.com/maps?q=6773+Sierra+Ct+Suite+B,+Dublin,+CA+94568&output=embed"></iframe>
-    <div class="row"><a class="btn ghost" href="https://maps.google.com/?q=6773+Sierra+Ct+Suite+B+Dublin+CA+94568" target="_blank" rel="noopener">Get directions</a></div>
+    <p><b>Vehicle Wrap Training LLC</b><br>14306 Wicks Blvd, San Leandro, CA 94577</p>
+    <iframe loading="lazy" title="Map to Vehicle Wrap Training" src="https://www.google.com/maps?q=14306+Wicks+Blvd,+San+Leandro,+CA+94577&output=embed"></iframe>
+    <div class="row"><a class="btn ghost" href="https://maps.google.com/?q=14306+Wicks+Blvd+San+Leandro+CA+94577" target="_blank" rel="noopener">Get directions</a></div>
   </div>
 
   <div class="card buddy">
@@ -92,12 +91,12 @@ footer a{color:var(--muted)}
     <p class="muted">Know someone who'd love this? When two of you sign up together, you each save $100. Send them the link, then text Eddie so he can apply it.</p>
     <div class="row">
       <button class="btn" id="share">Share with a friend</button>
-      <a class="btn ghost" href="sms:+15102131877?&body=Hi%20Eddie%2C%20I%20just%20signed%20up%20and%20my%20buddy%20wants%20to%20join%20too">Text Eddie</a>
+      <a class="btn ghost" href="sms:+15109356111?&body=Hi%20Eddie%2C%20I%20just%20signed%20up%20and%20my%20buddy%20wants%20to%20join%20too">Text Eddie</a>
     </div>
   </div>
 </main>
 
-<footer>Questions? Text or call <a href="sms:+15102131877">510-213-1877</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
+<footer>Questions? Text or call <a href="sms:+15109356111">510-935-6111</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
 
 <script>
 (function(){
@@ -107,16 +106,16 @@ footer a{color:var(--muted)}
   var start = q.get("start"), end = q.get("end") || start, label = q.get("label");
   if (q.get("course")) document.getElementById("summary").textContent = "You're enrolled in the " + course + (label ? " (" + label + ")" : "") + ". Check your email for your receipt.";
 
-  var addr = "6773 Sierra Ct, Suite B, Dublin, CA 94568";
+  var addr = "14306 Wicks Blvd, San Leandro, CA 94577";
   var ymd = function(s){ return s.replace(/-/g, "") };
   var plusDay = function(s){ var d = new Date(s + "T12:00:00"); d.setDate(d.getDate() + 1); return d.toISOString().slice(0,10) };
   var gcal = document.getElementById("gcal"), ics = document.getElementById("ics");
   if (start){
     var dates = ymd(start) + "/" + ymd(plusDay(end));
-    gcal.href = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent("VWT: " + course) + "&dates=" + dates + "&location=" + encodeURIComponent(addr) + "&details=" + encodeURIComponent("Questions? Text Eddie at 510-213-1877");
+    gcal.href = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent("VWT: " + course) + "&dates=" + dates + "&location=" + encodeURIComponent(addr) + "&details=" + encodeURIComponent("Questions? Text Eddie at 510-935-6111");
     ics.onclick = function(){
       var body = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//VWT//Class//EN","BEGIN:VEVENT","UID:" + Date.now() + "@vehiclewraptraining.com","DTSTAMP:" + new Date().toISOString().replace(/[-:]/g,"").slice(0,15) + "Z",
-        "DTSTART;VALUE=DATE:" + ymd(start),"DTEND;VALUE=DATE:" + ymd(plusDay(end)),"SUMMARY:VWT: " + course,"LOCATION:" + addr.replace(/,/g,"\\,"),"DESCRIPTION:Questions? Text Eddie at 510-213-1877","END:VEVENT","END:VCALENDAR"].join("\r\n");
+        "DTSTART;VALUE=DATE:" + ymd(start),"DTEND;VALUE=DATE:" + ymd(plusDay(end)),"SUMMARY:VWT: " + course,"LOCATION:" + addr.replace(/,/g,"\\,"),"DESCRIPTION:Questions? Text Eddie at 510-935-6111","END:VEVENT","END:VCALENDAR"].join("\r\n");
       var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([body], { type: "text/calendar" })); a.download = "vwt-class.ics"; a.click();
     };
   } else {
@@ -126,7 +125,7 @@ footer a{color:var(--muted)}
 
   document.getElementById("share").onclick = function(){
     var url = location.origin + location.pathname.replace(/thank-you\.html$/, "");
-    var msg = "I just signed up for tint/PPF training at Vehicle Wrap Training in Dublin. Sign up with me and we both save $100: " + url;
+    var msg = "I just signed up for tint/PPF training at Vehicle Wrap Training in San Leandro. Sign up with me and we both save $100: " + url;
     if (navigator.share) navigator.share({ title: "Vehicle Wrap Training", text: msg }).catch(function(){});
     else location.href = "sms:?&body=" + encodeURIComponent(msg);
   };
