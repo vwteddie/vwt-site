@@ -1,0 +1,44 @@
+# VWT Black Friday Landing Page
+
+Static, mobile-first landing page for Vehicle Wrap Training LLC. No build step: upload the files to any host (Shopify page, Netlify, GitHub Pages, your current host).
+
+| File | What it is |
+|---|---|
+| `index.html` | The Black Friday landing page |
+| `thank-you.html` | Post-purchase page: confirmation, next steps, what to bring, calendar, map, bring-a-buddy |
+| `privacy.html` | Privacy policy (needed for Meta ads). It's a template, so have it reviewed |
+| `terms.html` | Terms and refund policy. **Your refund policy still has to be written in** |
+| `assets/` | Put your hero video, Eddie's photo and class photos here |
+
+## Fill these in before running ads
+
+Everything lives in the `window.VWT` CONFIG block near the top of `index.html`:
+
+1. **`pixelId`**: your Meta Pixel ID (numbers only). The pixel stays off until it's set.
+2. **`links.tint` / `links.ppf` / `links.bundle` / `links.deposit`**: your new Shopify product URLs. Until they're set, buttons scroll to the pricing section.
+3. **`courses.ppf.regular` and `courses.bundle.regular`**: only use a price you've actually charged. Leave `null` and no strikethrough is shown.
+4. **`classes`**: real dates and real seats left, e.g. `{ course: "tint", label: "Dec 6–7, 2026", start: "2026-12-06", seatsLeft: 2 }`.
+5. **`heroVideo`**: a short, muted MP4 loop (aim for under 3 MB, 720p). It loads after the page appears, so it won't slow the first view.
+6. **`gallery`** and **`eddiePhoto`**: use compressed `.webp` images (about 1080px wide, under 150 KB each).
+7. **Reviews**: in `index.html`, search for `REVIEWS` and paste each review's text **word for word** from Google or your site. Cards with empty text show a dashed placeholder.
+8. **FAQ**: the lunch answer and refund policy (search for `[YES/NO` and `[POLICY`).
+9. **`terms.html`**: write your refund and reschedule policy.
+
+## Tracking
+
+| Event | Fires when |
+|---|---|
+| PageView | Page loads |
+| ViewContent | Pricing cards scroll into view (once) |
+| InitiateCheckout | Any buy, deposit or financing click |
+| Lead | Any text, call or email click |
+| Purchase | **On Shopify's own thank-you page.** Install the Shopify "Facebook & Instagram" app with the same Pixel ID. `thank-you.html` doesn't fire Purchase, so sales aren't counted twice. |
+
+UTM parameters and `fbclid` from the ad URL are copied onto every checkout link automatically.
+
+To send buyers to `thank-you.html`, add a link on Shopify's order status page, for example:
+`thank-you.html?course=tint&start=2026-12-06&end=2026-12-07&label=Dec%206%E2%80%937`
+
+## Countdown behavior
+
+The countdown runs to **Nov 30, 2026, 11:59:59 PM PT** and doesn't reset. After it ends, the page switches to regular prices automatically: the countdown and strikethroughs are removed, and "Black Friday" wording changes to regular enrollment wording. Remember to **also** change the Shopify product prices after the deal ends.

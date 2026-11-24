@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Black Friday: Tint & PPF Training | Vehicle Wrap Training (Dublin, CA)</title>
+<meta name="description" content="Hands-on window tint and PPF training in Dublin, CA with a 14-year pro. Only 4 students per class. Black Friday pricing ends Cyber Monday.">
+<meta property="og:title" content="Black Friday: Learn Tint & PPF From a 14-Year Pro">
+<meta property="og:description" content="Only 4 students per class. Hands-on training in Dublin, CA. Up to 45% off through Cyber Monday.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#111113">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!--
+  ============================================================
+  EDIT HERE FIRST: everything you need to fill in lives in this CONFIG block.
+  Anything still in [BRACKETS] or left "" is a placeholder.
+  ============================================================
+-->
+<script>
+window.VWT = {
+  // Meta Pixel ID, numbers only, e.g. "123456789012345". The pixel stays off until this is set.
+  pixelId: "[PIXEL ID]",
+
+  // Deal end: Cyber Monday, Nov 30 2026, 11:59:59 PM Pacific (PST = UTC-8)
+  dealEnds: "2026-11-30T23:59:59-08:00",
+
+  // Shopify checkout links. Leave "" until the product exists; buttons will scroll to pricing.
+  links: {
+    tint:    "", // [NEW BLACK FRIDAY TINT PRODUCT LINK]
+    ppf:     "", // [NEW BLACK FRIDAY PPF PRODUCT LINK]
+    bundle:  "", // [NEW BUNDLE PRODUCT LINK]
+    deposit: "", // [DEPOSIT PRODUCT LINK]
+    financing: "https://coachingloan.com/vehicle-wrap-training-llc/"
+  },
+
+  // regular: a price you've ACTUALLY charged before. null = no strikethrough shown (FTC/Meta safe).
+  courses: {
+    tint:   { name: "2-Day Beginner Window Tint Bootcamp", short: "Tint Bootcamp", days: 2, regular: 895,  sale: 497 },
+    bundle: { name: "Film Pro Bundle: Tint + PPF",          short: "Film Pro Bundle", days: 5, regular: null, sale: 1297 }, // [TINT + PPF REGULAR]
+    ppf:    { name: "3-Day PPF Pro Intensive",              short: "PPF Intensive", days: 3, regular: null, sale: 997 }   // [REAL REGULAR PRICE]
+  },
+
+  // Upcoming classes. seatsLeft must be real. Use course: "tint" | "ppf" | "bundle".
+  // Example: { course: "tint", label: "Dec 6–7, 2026", start: "2026-12-06", seatsLeft: 2 },
+  classes: [
+    // [LIST DATES, with seats left per class]
+  ],
+
+  // Gallery: put files in /assets/gallery/ and list them here. type: "img" or "video".
+  // Example: { type: "img", src: "assets/gallery/class-1.webp", alt: "Student tinting a back window" },
+  gallery: [],
+
+  // Hero video: a short (under 3 MB) muted MP4 loop of class. Leave "" to use the animated background.
+  heroVideo: "",      // [HERO VIDEO] e.g. "assets/hero.mp4"
+  heroPoster: "",     // optional still image shown while the video loads, e.g. "assets/hero.webp"
+  eddiePhoto: ""      // e.g. "assets/eddie.webp"
+};
+</script>
+
+<style>
+:root{
+  --bg:#111113; --bg2:#18181b; --card:#1f1f23; --line:#2e2e34;
+  --text:#fff; --muted:#b4b4bd; --dim:#7c7c86;
+  --orange:#ff6a00; --orange2:#ff9a3c; --green:#22c55e; --red:#ef4444; --gold:#ffc44d;
+  --radius:16px; --wrap:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font:400 17px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3,.display{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.5px;line-height:1.02}
+h2{font-size:clamp(34px,6vw,58px);margin-bottom:14px}
+h3{font-size:24px}
+.eyebrow{display:inline-block;font:800 13px/1 Inter,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.lead{color:var(--muted);font-size:18px;max-width:640px}
+section{padding:72px 0}
+.center{text-align:center}.center .lead{margin:0 auto}
+.o{color:var(--orange)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:16px 30px;border-radius:999px;border:0;cursor:pointer;
+  background:linear-gradient(180deg,var(--orange2),var(--orange));color:#111;font:800 18px/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.6px;text-decoration:none;
+  box-shadow:0 10px 30px -8px rgba(255,106,0,.7),inset 0 -3px 0 rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px -8px rgba(255,106,0,.85)}
+.btn.big{min-height:66px;font-size:20px;padding:18px 40px}
+.btn.block{width:100%}
+.btn.ghost{background:transparent;color:#fff;border:2px solid var(--line);box-shadow:none}
+.btn.pulse{animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,106,0,.6)}70%{box-shadow:0 0 0 18px rgba(255,106,0,0)}100%{box-shadow:0 0 0 0 rgba(255,106,0,0)}}
+.textlink{color:var(--orange2);font-weight:600;text-underline-offset:3px}
+.cta-row{margin-top:32px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.cta-note{font-size:14px;color:var(--dim)}
+
+/* Top bar */
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#c2410c,var(--orange),#c2410c);color:#111;font:800 13px/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.5px}
+.topbar .wrap{display:flex;align-items:center;justify-content:center;gap:12px;min-height:44px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px;text-align:center}
+.topbar .mini{font-variant-numeric:tabular-nums;background:#111;color:#fff;padding:5px 10px;border-radius:8px;white-space:nowrap}
+
+/* Hero */
+.hero{position:relative;min-height:min(calc(100svh - 44px),860px);display:flex;align-items:center;overflow:hidden;padding:40px 0 56px;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:
+  radial-gradient(60% 50% at 80% 10%,rgba(255,106,0,.35),transparent 70%),
+  radial-gradient(50% 50% at 0% 100%,rgba(255,106,0,.18),transparent 70%),
+  linear-gradient(180deg,#0b0b0d,#111113)}
+.hero-bg video{width:100%;height:100%;object-fit:cover;opacity:.38}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.55),rgba(17,17,19,.95))}
+.sweep{position:absolute;inset:-50%;z-index:-1;background:conic-gradient(from 0deg,transparent 0 80%,rgba(255,106,0,.12) 88%,transparent 96%);animation:spin 14s linear infinite;pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.giant{position:absolute;right:-2vw;top:50%;transform:translateY(-50%);z-index:-1;font-family:Anton,Impact,sans-serif;font-size:clamp(180px,34vw,460px);line-height:.8;
+  color:transparent;-webkit-text-stroke:2px rgba(255,106,0,.22);user-select:none;pointer-events:none;white-space:nowrap}
+.hero-inner{position:relative;max-width:820px}
+.bf-tag{display:inline-flex;align-items:center;gap:8px;background:#000;border:1px solid var(--orange);color:var(--orange2);padding:8px 14px;border-radius:999px;font:800 12px/1 Inter,sans-serif;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.bf-tag i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+.hero h1{font-size:clamp(38px,7vw,80px);margin-bottom:14px;text-shadow:0 4px 40px rgba(0,0,0,.6)}
+.hero h1 .hl{background:linear-gradient(180deg,#ffd29a,var(--orange) 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{font-size:clamp(17px,2.2vw,21px);color:#e2e2e8;max-width:620px;margin-bottom:20px}
+.offer{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 14px;margin-bottom:20px}
+.offer .upto{font:800 14px/1 Inter,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--gold);align-self:center;writing-mode:vertical-rl;transform:rotate(180deg)}
+.offer .pct{font-family:Anton,sans-serif;font-size:clamp(52px,8vw,84px);line-height:.9;color:var(--gold);text-shadow:0 0 30px rgba(255,196,77,.35)}
+.offer .pct small{font-size:.45em}
+.offer .from{color:var(--muted);font-weight:600}
+.offer .from s{color:var(--dim)}
+.offer .from b{color:#fff;font-size:22px}
+
+.countdown{display:flex;gap:10px;margin-bottom:24px}
+.countdown .u{background:linear-gradient(180deg,#26262b,#151518);border:1px solid #34343b;border-radius:14px;min-width:76px;padding:12px 8px 8px;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 10px 30px -12px #000}
+.countdown .n{display:block;font-family:Anton,sans-serif;font-size:clamp(36px,6vw,52px);line-height:1;font-variant-numeric:tabular-nums}
+.countdown .l{display:block;font:800 10px/1 Inter,sans-serif;letter-spacing:2px;color:var(--dim);margin-top:6px;text-transform:uppercase}
+.countdown.ended .u{opacity:.4}
+.cd-label{font:800 12px/1 Inter,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+.gbadge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:999px;padding:10px 16px;text-decoration:none;font-size:14px}
+.gbadge .stars{color:var(--gold);letter-spacing:1px}
+.gbadge b{font-size:16px}
+
+/* Marquee */
+.marquee{background:#000;border-block:1px solid #26262b;overflow:hidden;white-space:nowrap}
+.marquee .track{display:inline-flex;animation:mq 28s linear infinite;padding:14px 0}
+.marquee span{font-family:Anton,sans-serif;font-size:22px;letter-spacing:1px;text-transform:uppercase;padding:0 18px;color:#fff}
+.marquee span.st{color:var(--orange)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* Trust strip */
+.trust{background:var(--bg2);padding:22px 0;border-bottom:1px solid var(--line)}
+.trust ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 28px}
+.trust li{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px}
+.ico{width:22px;height:22px;flex:none;color:var(--orange)}
+
+/* Compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
+.cmp{border-radius:var(--radius);padding:26px;border:1px solid var(--line);background:var(--card)}
+.cmp h3{margin-bottom:16px;font-size:22px}
+.cmp.them{opacity:.85}
+.cmp.us{border-color:var(--orange);background:linear-gradient(180deg,rgba(255,106,0,.12),var(--card) 60%);box-shadow:0 20px 60px -30px rgba(255,106,0,.6)}
+.cmp ul{list-style:none;display:grid;gap:12px}
+.cmp li{display:flex;gap:10px;align-items:flex-start}
+.x{color:var(--red);font-weight:800;flex:none;width:22px;text-align:center}
+.ck{color:var(--green);flex:none;width:22px;height:22px}
+
+/* Pricing */
+#pricing{background:radial-gradient(70% 40% at 50% 0%,rgba(255,106,0,.14),transparent 70%),var(--bg)}
+.buddy{display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;margin:26px auto 0;max-width:720px;background:#1b1b1f;border:1px dashed var(--orange);border-radius:14px;padding:14px 18px;font-weight:600;text-align:center}
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;align-items:stretch}
+.pcard{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 24px}
+.pcard.best{border:2px solid var(--orange);background:linear-gradient(180deg,rgba(255,106,0,.16),var(--card) 45%);transform:scale(1.03);box-shadow:0 30px 80px -30px rgba(255,106,0,.7);z-index:1}
+.ribbon{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--orange);color:#111;font:800 12px/1 Inter,sans-serif;letter-spacing:2px;text-transform:uppercase;padding:9px 16px;border-radius:999px;white-space:nowrap}
+.pcard .days{color:var(--orange2);font:800 12px/1 Inter,sans-serif;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.pcard h3{font-size:26px;margin-bottom:14px;min-height:2.1em}
+.pcard .was{color:var(--dim);font-size:18px;min-height:27px}
+.pcard .was s{text-decoration-color:var(--red);text-decoration-thickness:2px}
+.pcard .now{font-family:Anton,sans-serif;font-size:64px;line-height:1;margin:2px 0 4px}
+.pcard .save{display:inline-block;background:rgba(34,197,94,.14);color:var(--green);font-weight:800;font-size:13px;padding:5px 10px;border-radius:8px;margin-bottom:16px;min-height:26px}
+.pcard .save:empty{visibility:hidden}
+.pcard ul{list-style:none;display:grid;gap:9px;margin:6px 0 22px;font-size:15px;color:#e4e4ea}
+.pcard li{display:flex;gap:9px}
+.pcard .foot{margin-top:auto;display:grid;gap:10px;text-align:center}
+.pcard .plan{font-size:13px;color:var(--dim)}
+.seats-note{font-size:14px;color:var(--gold);font-weight:600;min-height:20px}
+
+.schedule{margin-top:40px;background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.schedule h3{font-size:20px;margin-bottom:12px}
+.srow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:15px}
+.srow:first-of-type{border-top:0}
+.pill{font:800 12px/1 Inter,sans-serif;padding:7px 10px;border-radius:999px;white-space:nowrap}
+.pill.low{background:rgba(239,68,68,.16);color:#fca5a5}
+.pill.ok{background:rgba(34,197,94,.14);color:var(--green)}
+.pill.full{background:#2a2a2f;color:var(--dim)}
+
+/* Included */
+.incl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+.incl div{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.incl b{display:block;margin-bottom:2px}
+.incl p{font-size:14px;color:var(--muted)}
+
+/* Curriculum */
+.tabs{display:flex;gap:8px;margin:30px 0 18px;overflow-x:auto;scrollbar-width:none}
+.tab{flex:none;min-height:48px;padding:0 20px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:#fff;font:800 14px/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.6px;cursor:pointer}
+.tab[aria-selected=true]{background:var(--orange);color:#111;border-color:var(--orange)}
+.panel[hidden]{display:none}
+.day{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+.day summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:18px 20px;min-height:64px}
+.day summary::-webkit-details-marker{display:none}
+.day .dn{font-family:Anton,sans-serif;font-size:15px;background:#000;color:var(--orange);border:1px solid var(--orange);border-radius:10px;padding:6px 10px;flex:none}
+.day .dt{font-weight:800;flex:1}
+.day .chev{transition:transform .2s;color:var(--dim)}
+.day[open] .chev{transform:rotate(180deg)}
+.day ul{list-style:none;padding:0 20px 20px 20px;display:grid;gap:10px}
+.day li{display:flex;gap:10px;color:#e4e4ea}
+.hours{font-size:14px;color:var(--dim);margin-top:6px}
+
+/* Gallery */
+.gallery{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,340px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 16px;margin:30px -20px 0;scrollbar-width:thin}
+.gallery > *{scroll-snap-align:start;border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:var(--card);border:1px solid var(--line)}
+.gallery img,.gallery video{width:100%;height:100%;object-fit:cover}
+.ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--dim);font-size:14px;text-align:center;padding:16px;
+  background:repeating-linear-gradient(45deg,#1c1c20 0 14px,#202025 14px 28px)}
+.ph b{color:var(--muted)}
+
+/* Reviews */
+.reviews{columns:3 300px;column-gap:16px;margin-top:32px}
+.rev{break-inside:avoid;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:16px}
+.rev .stars{color:var(--gold);letter-spacing:2px;margin-bottom:10px}
+.rev p{color:#e8e8ee}
+.rev .who{margin-top:14px;display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.rev .who b{color:#fff}
+.rev.todo p{color:var(--dim);font-style:italic;border:1px dashed #3a3a42;border-radius:10px;padding:12px}
+.rating-big{display:flex;align-items:center;gap:16px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.rating-big .num{font-family:Anton,sans-serif;font-size:72px;line-height:1}
+.rating-big .stars{color:var(--gold);font-size:26px;letter-spacing:3px}
+
+/* Fit */
+.fit{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-top:32px}
+.fit .cmp ul{gap:14px}
+
+/* Instructor */
+.inst{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
+.inst .photo{aspect-ratio:4/5;border-radius:20px;overflow:hidden;border:1px solid var(--line);position:relative}
+.inst .photo img{width:100%;height:100%;object-fit:cover}
+.inst .badge14{position:absolute;bottom:16px;left:16px;background:var(--orange);color:#111;border-radius:14px;padding:10px 14px;font-family:Anton,sans-serif;font-size:28px;line-height:1}
+.inst .badge14 small{display:block;font:800 11px/1.2 Inter,sans-serif;letter-spacing:1px;text-transform:uppercase}
+.inst p{color:var(--muted);margin-bottom:14px}
+.inst p b{color:#fff}
+
+/* Payback */
+.payback{background:linear-gradient(135deg,#1a1308,#18181b 60%);border-block:1px solid #3a2a14}
+.math{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.math div{background:rgba(0,0,0,.35);border:1px solid #3a2a14;border-radius:16px;padding:22px;text-align:center}
+.math .big{font-family:Anton,sans-serif;font-size:44px;color:var(--gold);line-height:1;margin-bottom:6px}
+.math p{color:var(--muted);font-size:15px}
+.disclaimer{font-size:13px;color:var(--dim);margin-top:18px;max-width:760px}
+
+/* FAQ */
+.faq{max-width:820px;margin:30px auto 0}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:20px 4px;font-weight:800;font-size:18px;min-height:64px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--orange);font-size:28px;font-weight:400;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq .a{padding:0 4px 22px;color:var(--muted)}
+.faq .a a{color:var(--orange2)}
+.todo-inline{color:var(--gold);font-weight:600}
+
+/* Final */
+.final{position:relative;overflow:hidden;text-align:center;background:radial-gradient(60% 60% at 50% 100%,rgba(255,106,0,.3),transparent 70%),#0b0b0d}
+.final h2{font-size:clamp(40px,7vw,80px)}
+.final .countdown{justify-content:center;margin:26px 0}
+.final-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:900px;margin:0 auto}
+.final-btns .btn{font-size:15px;padding:14px 16px;flex-direction:column;gap:4px;line-height:1.15}
+.final-btns .btn small{font-weight:600;font-size:12px;text-transform:none;letter-spacing:0;opacity:.8}
+
+/* Footer */
+footer{background:#08080a;padding:48px 0 120px;color:var(--dim);font-size:14px;border-top:1px solid var(--line)}
+footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px}
+footer b{color:#fff;display:block;margin-bottom:8px}
+footer a{color:var(--muted);text-decoration:none;display:block;padding:4px 0}
+footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
+
+/* Sticky mobile bar + text button */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;align-items:center;gap:12px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(12,12,14,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.sticky .p{flex:1;line-height:1.15}
+.sticky .p b{font-family:Anton,sans-serif;font-size:24px;font-weight:400}
+.sticky .p s{color:var(--dim);font-size:14px;margin-left:4px}
+.sticky .p small{display:block;color:var(--gold);font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
+.sticky .btn{min-height:52px;padding:12px 20px;font-size:16px}
+.textfab{position:fixed;right:16px;bottom:24px;z-index:61;display:flex;align-items:center;gap:8px;background:#fff;color:#111;text-decoration:none;font-weight:800;font-size:15px;
+  border-radius:999px;padding:14px 18px;box-shadow:0 10px 30px -6px rgba(0,0,0,.6)}
+.textfab svg{width:22px;height:22px;color:var(--green)}
+
+@media (max-width:900px){
+  .prices{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto}
+  .pcard.best{transform:none;order:-1}
+  .incl,.math{grid-template-columns:1fr 1fr}
+  .inst{grid-template-columns:1fr}
+  .inst .photo{max-width:420px}
+  .fit{grid-template-columns:1fr}
+  .final-btns{grid-template-columns:1fr;max-width:420px}
+  footer .cols{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  section{padding:56px 0}
+  .wrap{padding:0 16px}
+  .compare,.incl,.math{grid-template-columns:1fr}
+  .countdown{gap:8px}
+  .countdown .u{min-width:0;flex:1}
+  .hero{padding:24px 0 40px;min-height:auto}
+  .hide-sm{display:none}
+  .tab{flex:1;padding:0 8px;font-size:12px;letter-spacing:0}
+  .topbar{font-size:12px}.topbar .wrap{flex-wrap:nowrap;gap:8px;min-height:40px}
+  .bf-tag{margin-bottom:14px;font-size:11px;letter-spacing:1.5px}
+  .hero .sub{margin-bottom:16px}
+  .offer{margin-bottom:14px}
+  .countdown{margin-bottom:18px}
+  .countdown .u{padding:8px 4px 6px}
+  .countdown .n{font-size:32px}
+  .hero-cta .btn{width:100%}
+  .giant{top:16%;right:-10vw;opacity:.8}
+  .sticky{display:flex}
+  .textfab{bottom:calc(84px + env(safe-area-inset-bottom));padding:12px 14px}
+  .textfab span{display:none}
+  .gallery{margin:30px -16px 0;padding:6px 16px 16px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- 1. TOP BAR -->
+<div class="topbar" role="region" aria-label="Black Friday deal">
+  <div class="wrap">
+    <span id="topMsg">Black Friday: up to 45% off<span class="hide-sm">. Ends Cyber Monday</span></span>
+    <span class="mini" id="cdMini" aria-live="off">--d --h --m --s</span>
+  </div>
+</div>
+
+<!-- 2. HERO -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="sweep" aria-hidden="true"></div>
+  <div class="giant" aria-hidden="true">45%</div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="bf-tag"><i></i>Black Friday 2026 · Dublin, CA</span>
+      <h1>Learn Tint &amp; PPF From a <span class="hl">14-Year Pro.</span> Only 4 Students Per Class.</h1>
+      <p class="sub">Hands-on training in Dublin, CA. Your hands on real cars, not watching from the back.</p>
+
+      <div class="offer" id="heroOffer">
+        <span class="upto">Up to</span><span class="pct">45%<small> OFF</small></span>
+        <span class="from">Tint Bootcamp <s>$895</s> <b>$497</b></span>
+      </div>
+
+      <div class="cd-label" id="cdLabel">Black Friday pricing ends in</div>
+      <div class="countdown" data-countdown>
+        <div class="u"><span class="n" data-d>00</span><span class="l">Days</span></div>
+        <div class="u"><span class="n" data-h>00</span><span class="l">Hours</span></div>
+        <div class="u"><span class="n" data-m>00</span><span class="l">Min</span></div>
+        <div class="u"><span class="n" data-s>00</span><span class="l">Sec</span></div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#pricing" class="btn big pulse">Claim My Seat
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="gbadge" href="https://www.google.com/maps/place/Vehicle+Wrap+Training+LLC/@37.7081689,-121.9129174,17z/data=!4m6!3m5!1s0x808f95d36ed6edbd:0x478d7a3640602878" target="_blank" rel="noopener">
+          <b>4.8</b><span class="stars">★★★★★</span><span>41 Google reviews</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track" id="mq"></div>
+</div>
+
+<!-- 3. TRUST STRIP -->
+<div class="trust">
+  <div class="wrap">
+    <ul>
+      <li><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.4 21.7l1.8-7.3L1.5 9.5 9 8.9z"/></svg>4.8 stars on Google</li>
+      <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg>14+ years experience</li>
+      <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.6c2.6.2 4.4 1.9 5 5.4"/></svg>4 students max</li>
+      <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/></svg>Lifetime support</li>
+      <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>Tools included</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 4. WHY VWT -->
+<section id="why">
+  <div class="wrap center">
+    <span class="eyebrow">Why VWT is different</span>
+    <h2>Most classes let you watch.<br><span class="o">Ours puts film in your hands.</span></h2>
+    <p class="lead">Here's how a typical tint or PPF class compares to training at VWT.</p>
+    <div class="compare" style="text-align:left">
+      <div class="cmp them">
+        <h3>Typical class</h3>
+        <ul>
+          <li><span class="x">✕</span>6–8+ students fighting for one car</li>
+          <li><span class="x">✕</span>$1,400–$1,900 for a short course</li>
+          <li><span class="x">✕</span>Mostly demos. You watch from the back</li>
+          <li><span class="x">✕</span>Support ends when class ends</li>
+        </ul>
+      </div>
+      <div class="cmp us">
+        <h3 class="o">VWT</h3>
+        <ul>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg>4 students max, one-on-one style</li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg>Black Friday: tint from $497, PPF from $997</li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg>Mostly hands-on, on real vehicles</li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg>Lifetime support hotline and community</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-row"><a href="#pricing" class="btn">See Black Friday Prices</a></div>
+  </div>
+</section>
+
+<!-- 5. PRICING -->
+<section id="pricing">
+  <div class="wrap center">
+    <span class="eyebrow" id="priceEyebrow">Black Friday pricing</span>
+    <h2>Pick your course</h2>
+    <p class="lead">Hold any seat with a $200 deposit. Installment plans at checkout, or financing.</p>
+    <div class="buddy">👯 Bring a buddy: <span class="o">$100 off each</span> when two of you sign up together. <a class="textlink" href="sms:+15102131877?&body=Hi%20Eddie%2C%20my%20buddy%20and%20I%20want%20to%20sign%20up%20together%20for%20Black%20Friday" data-lead>Text Eddie to set it up</a></div>
+    <div class="prices" id="prices" style="text-align:left"></div>
+
+    <div class="schedule" style="text-align:left">
+      <h3>Upcoming classes</h3>
+      <div id="schedule"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Included -->
+<section id="included" style="background:var(--bg2)">
+  <div class="wrap center">
+    <span class="eyebrow">Every course includes</span>
+    <h2>No surprise costs</h2>
+    <p class="lead">Here's everything that comes with your seat, before and after class.</p>
+    <div class="incl" style="text-align:left">
+      <div><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>Loaner pro tools in class</b><p>Use pro-grade tools during class. No need to buy anything first.</p></span></div>
+      <div><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>Free starter kit</b><p>Yours to keep, given at enrollment.</p></span></div>
+      <div><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>VWT certificate</b><p>A certificate of completion to show customers and employers.</p></span></div>
+      <div><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>Lifetime support hotline</b><p>Stuck on a job months later? Call the VWT support hotline.</p></span></div>
+      <div><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>Lifetime online course + community</b><p>Rewatch lessons anytime and learn alongside other grads.</p></span></div>
+      <div><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>Business help</b><p>Pricing, business setup, account setup and marketing guidance.</p></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CURRICULUM -->
+<section id="learn">
+  <div class="wrap">
+    <span class="eyebrow">What you'll learn</span>
+    <h2>Day by day, <span class="o">no fluff</span></h2>
+    <p class="lead">Classes run about 6–7 hours a day. Most of that time, you're working on real vehicles.</p>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-tint" id="t-tint">Tint · 2 Days</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-ppf" id="t-ppf">PPF · 3 Days</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-bundle" id="t-bundle">Bundle · 5 Days</button>
+    </div>
+
+    <div class="panel" id="p-tint" role="tabpanel" aria-labelledby="t-tint">
+      <details class="day" open><summary><span class="dn">Day 1</span><span class="dt">Foundations &amp; side windows</span><span class="chev">▾</span></summary>
+        <ul><li>✅ Film types and how to choose them</li><li>✅ California tint law: what's legal and what isn't</li><li>✅ Glass prep and cleaning</li><li>✅ Cutting patterns</li><li>✅ Installing side windows</li></ul></details>
+      <details class="day"><summary><span class="dn">Day 2</span><span class="dt">Back glass, full car &amp; business</span><span class="chev">▾</span></summary>
+        <ul><li>✅ Shrinking and installing back glass</li><li>✅ A full car, start to finish, on the clock</li><li>✅ Pricing your work</li><li>✅ Getting your first customers</li></ul></details>
+    </div>
+
+    <div class="panel" id="p-ppf" role="tabpanel" aria-labelledby="t-ppf" hidden>
+      <details class="day" open><summary><span class="dn">Day 1</span><span class="dt">Film science &amp; flat panels</span><span class="chev">▾</span></summary>
+        <ul><li>✅ PPF film science</li><li>✅ Paint prep</li><li>✅ Slip vs. tack solutions</li><li>✅ Squeegee technique on hoods and fenders</li></ul></details>
+      <details class="day"><summary><span class="dn">Day 2</span><span class="dt">Complex parts &amp; edges</span><span class="chev">▾</span></summary>
+        <ul><li>✅ Bumpers, mirrors and headlights</li><li>✅ Wrapping edges</li><li>✅ Relief cuts</li><li>✅ Pre-cut kits vs. bulk film</li></ul></details>
+      <details class="day"><summary><span class="dn">Day 3</span><span class="dt">Full front end &amp; pricing</span><span class="chev">▾</span></summary>
+        <ul><li>✅ A full front end on a real car</li><li>✅ Fixing common mistakes</li><li>✅ Pricing PPF jobs</li></ul></details>
+    </div>
+
+    <div class="panel" id="p-bundle" role="tabpanel" aria-labelledby="t-bundle" hidden>
+      <p style="color:var(--muted);margin-bottom:14px">The Film Pro Bundle is the full Tint Bootcamp (2 days) plus the full PPF Intensive (3 days): 5 days total.</p>
+      <details class="day" open><summary><span class="dn">Days 1–2</span><span class="dt">Window Tint Bootcamp</span><span class="chev">▾</span></summary>
+        <ul><li>✅ Film types, CA tint law, glass prep, cutting patterns, side windows</li><li>✅ Back glass shrinking, a full car on the clock, pricing and first customers</li></ul></details>
+      <details class="day"><summary><span class="dn">Days 3–5</span><span class="dt">PPF Pro Intensive</span><span class="chev">▾</span></summary>
+        <ul><li>✅ Film science, paint prep, slip vs. tack, squeegee technique</li><li>✅ Bumpers, mirrors, headlights, edges, relief cuts, kits vs. bulk</li><li>✅ A full front end on a real car, fixing mistakes, pricing PPF</li></ul></details>
+    </div>
+    <p class="hours">Exact daily hours are confirmed when you book.</p>
+    <div class="cta-row"><a href="#pricing" class="btn">Claim My Seat</a><span class="cta-note">$200 holds your seat</span></div>
+  </div>
+</section>
+
+<!-- 7. GALLERY -->
+<section id="gallery" style="background:var(--bg2)">
+  <div class="wrap">
+    <span class="eyebrow">Inside the class</span>
+    <h2>Real students. Real cars. <span class="o">Real results.</span></h2>
+    <div class="gallery" id="galleryEl" aria-label="Class photos and videos, swipe to see more"></div>
+  </div>
+</section>
+
+<!-- 8. REVIEWS -->
+<section id="reviews">
+  <div class="wrap center">
+    <span class="eyebrow">Reviews</span>
+    <h2>What students say</h2>
+    <div class="rating-big"><span class="num">4.8</span><div style="text-align:left"><div class="stars">★★★★★</div><div style="color:var(--muted)">41 Google reviews · 39 are 5-star</div></div></div>
+    <div class="reviews" id="reviewsEl" style="text-align:left"></div>
+    <div class="cta-row">
+      <a class="btn ghost" href="https://www.google.com/maps/place/Vehicle+Wrap+Training+LLC/@37.7081689,-121.9129174,17z/data=!4m6!3m5!1s0x808f95d36ed6edbd:0x478d7a3640602878" target="_blank" rel="noopener">Read all 41 reviews on Google</a>
+      <a href="#pricing" class="btn">Claim My Seat</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. WHO IT'S FOR -->
+<section id="fit" style="background:var(--bg2)">
+  <div class="wrap">
+    <span class="eyebrow">Who it's for</span>
+    <h2>Is this class right for you?</h2>
+    <div class="fit">
+      <div class="cmp us">
+        <h3>This is for you if you're…</h3>
+        <ul>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>Starting a side business</b>: you want a hands-on skill you can sell on weekends.</span></li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>A detailer</b> adding a high-profit service your customers already ask about.</span></li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>A shop employee</b> who wants to level up and earn more.</span></li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>A wrap installer</b> adding tint or PPF to your menu.</span></li>
+        </ul>
+      </div>
+      <div class="cmp them">
+        <h3>It's not for you if…</h3>
+        <ul>
+          <li><span class="x">✕</span>You want a get-rich-quick shortcut. This is a real skill that takes practice.</li>
+          <li><span class="x">✕</span>You'd rather watch videos than get your hands on film.</li>
+          <li><span class="x">✕</span>You aren't willing to practice after class.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-row"><a href="#pricing" class="btn">That's Me: Claim My Seat</a></div>
+  </div>
+</section>
+
+<!-- 10. INSTRUCTOR -->
+<section id="eddie">
+  <div class="wrap">
+    <div class="inst">
+      <div class="photo" id="eddiePhoto">
+        <div class="ph" style="height:100%"><b>[EDDIE PHOTO]</b>Add assets/eddie.webp</div>
+        <div class="badge14">14+<small>Years installing</small></div>
+      </div>
+      <div>
+        <span class="eyebrow">Meet your instructor</span>
+        <h2>Eddie Hurtado</h2>
+        <p><b>Founder of Vehicle Wrap Training LLC</b> and a professional vehicle wrap and film installer for 14+ years.</p>
+        <p>Eddie teaches the up-to-date techniques and best practices he uses on customer cars, one-on-one style. With 4 students max, he can watch your hands, fix your technique and answer every question.</p>
+        <p>Students' reviews mention his patience and his knowledge again and again.</p>
+        <div class="gallery" id="eddieWork" aria-label="Eddie's shop work" style="grid-auto-columns:min(60%,220px);margin-top:18px"></div>
+        <div class="cta-row" style="align-items:flex-start"><a href="#pricing" class="btn">Train With Eddie</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. PAYBACK -->
+<section class="payback" id="payback">
+  <div class="wrap">
+    <span class="eyebrow">What you could make back</span>
+    <h2>One job can cover a <span class="o">big part of the class</span></h2>
+    <p class="lead">Tint and PPF are services customers pay real money for. Here's how the math <i>could</i> work, using example prices. You set your own rates for your market.</p>
+    <div class="math">
+      <div><div class="big">$497</div><p>Black Friday Tint Bootcamp</p></div>
+      <div><div class="big">1–2</div><p>Full-car tint jobs at local market rates could cover much of it</p></div>
+      <div><div class="big">1</div><p>PPF front end often runs into four figures and could cover a big part of the PPF class</p></div>
+    </div>
+    <p class="disclaimer">This is an example, not a promise or a guarantee of income. Results depend on your skill, effort, local market, pricing and how many customers you find. Most new installers need practice before they're quick and confident.</p>
+    <div class="cta-row" style="align-items:flex-start"><a href="#pricing" class="btn">Start Learning</a></div>
+  </div>
+</section>
+
+<!-- 12. FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">FAQ</span><h2>Questions, answered</h2></div>
+    <div class="faq">
+      <details><summary>Do I need experience?</summary><div class="a">No. The classes are built for beginners. We start from the basics and build up to full cars.</div></details>
+      <details><summary>Do I need tools?</summary><div class="a">No. Pro tools are provided during class, and you get a free starter kit when you enroll.</div></details>
+      <details><summary>What happens after class?</summary><div class="a">You get a VWT certificate of completion, plus lifetime support through the VWT support hotline and lifetime access to the online course and community.</div></details>
+      <details><summary>Can I pay over time?</summary><div class="a">Yes. Hold your seat with a $200 deposit, choose an installment plan at checkout, or <a href="https://coachingloan.com/vehicle-wrap-training-llc/" target="_blank" rel="noopener" data-checkout="financing">apply for financing</a>.</div></details>
+      <details><summary>Where is it?</summary><div class="a">6773 Sierra Ct, Suite B, Dublin, CA 94568, in the Sierra Trinity complex. The entrance is wheelchair accessible. <a href="https://maps.google.com/?q=6773+Sierra+Ct+Suite+B+Dublin+CA+94568" target="_blank" rel="noopener">Get directions</a></div></details>
+      <details><summary>Where do I stay if I'm from out of town?</summary><div class="a">Nearby hotels include La Quinta Inn &amp; Suites Dublin, Holiday Inn Dublin, DoubleTree Pleasanton and the Pleasanton Marriott.</div></details>
+      <details><summary>Is lunch included?</summary><div class="a"><span class="todo-inline">[YES/NO: fill in]</span></div></details>
+      <details><summary>What is the refund or reschedule policy?</summary><div class="a"><span class="todo-inline">[POLICY: fill in]</span> See our <a href="terms.html#refunds">terms and refund policy</a>.</div></details>
+      <details><summary>How many students are in each class?</summary><div class="a">4 max. That's what lets Eddie train you one-on-one style.</div></details>
+      <details><summary>Still have a question?</summary><div class="a">Text or call Eddie at <a href="sms:+15102131877" data-lead>510-213-1877</a> or email <a href="mailto:vehiclewraptrainingllc@gmail.com" data-lead>vehiclewraptrainingllc@gmail.com</a>.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- 13. FINAL CTA -->
+<section class="final" id="final">
+  <div class="wrap">
+    <span class="eyebrow">Last call</span>
+    <h2>Only 4 seats per class.<br><span class="o" id="finalSub">Black Friday pricing ends Cyber Monday.</span></h2>
+    <div class="countdown" data-countdown>
+      <div class="u"><span class="n" data-d>00</span><span class="l">Days</span></div>
+      <div class="u"><span class="n" data-h>00</span><span class="l">Hours</span></div>
+      <div class="u"><span class="n" data-m>00</span><span class="l">Min</span></div>
+      <div class="u"><span class="n" data-s>00</span><span class="l">Sec</span></div>
+    </div>
+    <p class="seats-note" id="finalSeats" style="margin-bottom:20px"></p>
+    <div class="final-btns" id="finalBtns"></div>
+    <p class="cta-note" style="margin-top:16px">Or <a class="textlink" href="#" data-checkout="deposit" data-course="deposit">hold my seat with $200</a> · Payment plans available</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <b>Vehicle Wrap Training LLC</b>
+        6773 Sierra Ct, Suite B, Dublin, CA 94568<br>
+        <a href="tel:+15102131877" data-lead>510-213-1877</a>
+        <a href="mailto:vehiclewraptrainingllc@gmail.com" data-lead>vehiclewraptrainingllc@gmail.com</a>
+        <a href="https://vehiclewraptraining.com">vehiclewraptraining.com</a>
+      </div>
+      <div>
+        <b>Courses</b>
+        <a href="#pricing">Tint Bootcamp</a><a href="#pricing">PPF Intensive</a><a href="#pricing">Film Pro Bundle</a>
+      </div>
+      <div>
+        <b>Legal</b>
+        <a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="terms.html#refunds">Refund Policy</a>
+      </div>
+    </div>
+    <p class="legal">© <span id="yr">2026</span> Vehicle Wrap Training LLC. Income examples are illustrations, not guarantees. This site is not part of or endorsed by Facebook, Instagram or Meta Platforms, Inc.</p>
+  </div>
+</footer>
+
+<!-- 14. STICKY MOBILE BAR + TEXT EDDIE -->
+<div class="sticky" id="sticky">
+  <div class="p"><span>From </span><b id="stickyPrice">$497</b><s id="stickyWas">$895</s><small id="stickyCd">Ends in --</small></div>
+  <a href="#pricing" class="btn">Claim My Seat</a>
+</div>
+<a class="textfab" href="sms:+15102131877?&body=Hi%20Eddie%2C%20I%20have%20a%20question%20about%20the%20Black%20Friday%20class" data-lead aria-label="Text Eddie">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.4 1.3 4.6 3.4 6L4.5 21l4.3-2.4c1 .3 2.1.4 3.2.4 5.5 0 10-3.6 10-8s-4.5-8-10-8z"/></svg><span>Text Eddie</span>
+</a>
+
+<script>
+(function(){
+  var C = window.VWT, $ = function(s,r){return (r||document).querySelector(s)}, $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var END = Date.parse(C.dealEnds);
+  var isOver = function(){ return Date.now() >= END };
+  var money = function(n){ return "$" + n.toLocaleString("en-US") };
+  var check = '<svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg>';
+
+  /* ---------- Meta Pixel (only loads with a real numeric ID) ---------- */
+  var pixelOn = /^\d{6,}$/.test(C.pixelId);
+  if (pixelOn) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', C.pixelId); fbq('track', 'PageView');
+  }
+  function track(ev, data){ if (pixelOn && window.fbq) fbq('track', ev, data||{}); }
+
+  /* ---------- UTM passthrough ---------- */
+  var KEEP = /^(utm_|fbclid$|gclid$|ttclid$)/;
+  function withUtm(url){
+    if (!url) return "";
+    try {
+      var u = new URL(url, location.href), q = new URLSearchParams(location.search);
+      q.forEach(function(v,k){ if (KEEP.test(k) && !u.searchParams.has(k)) u.searchParams.set(k,v) });
+      return u.toString();
+    } catch(e){ return url }
+  }
+
+  /* ---------- Price helpers (switch to regular after deadline, never reset) ---------- */
+  function priceFor(key){
+    var c = C.courses[key];
+    if (!isOver()) return { now: money(c.sale), was: c.regular ? money(c.regular) : "", save: c.regular ? "Save " + money(c.regular - c.sale) : "" };
+    return { now: c.regular ? money(c.regular) : "Call", was: "", save: "" };
+  }
+  function seatsFor(key){
+    var list = C.classes.filter(function(k){ return k.course === key && k.seatsLeft > 0 });
+    if (!C.classes.length) return "4 seats max per class";
+    if (!list.length) return "All current dates are full. Text Eddie for the waitlist";
+    var n = list[0];
+    return "Next: " + n.label + " · " + n.seatsLeft + " of 4 seats left";
+  }
+
+  /* ---------- Pricing cards ---------- */
+  var order = ["tint","bundle","ppf"];
+  var bullets = {
+    tint:   ["2 days, about 6–7 hrs/day","Film types, CA tint law, glass prep","Side windows + back glass shrinking","A full car on the clock","Pricing + first customers"],
+    bundle: ["Everything in Tint + PPF: 5 days","Full car tint + full PPF front end","Biggest savings of the three","Offer both services from day one","Pricing + business setup help"],
+    ppf:    ["3 days, about 6–7 hrs/day","Paint prep, slip vs. tack, squeegee work","Bumpers, mirrors, headlights, edges","A full front end on a real car","Pricing PPF jobs"]
+  };
+  var shared = ["Loaner pro tools + free starter kit","Certificate + lifetime support"];
+  function renderPrices(){
+    var over = isOver();
+    $("#prices").innerHTML = order.map(function(key){
+      var c = C.courses[key], p = priceFor(key), best = key === "bundle";
+      return '<div class="pcard' + (best ? " best" : "") + '">' +
+        (best ? '<span class="ribbon">★ Best Value</span>' : "") +
+        '<div class="days">' + c.days + '-day course</div>' +
+        '<h3>' + c.name + '</h3>' +
+        '<div class="was">' + (p.was ? 'Regular <s>' + p.was + '</s>' : (over ? "Regular price" : "Black Friday price")) + '</div>' +
+        '<div class="now">' + p.now + '</div>' +
+        '<span class="save">' + p.save + '</span>' +
+        '<ul>' + bullets[key].concat(shared).map(function(b){ return "<li>" + check + "<span>" + b + "</span></li>" }).join("") + '</ul>' +
+        '<div class="foot">' +
+          '<div class="seats-note">' + seatsFor(key) + '</div>' +
+          '<a class="btn block' + (best ? " pulse" : "") + '" href="#" data-checkout="' + key + '" data-course="' + key + '">' + (best ? "Get the Bundle" : "Claim My Seat") + '</a>' +
+          '<a class="textlink" href="#" data-checkout="deposit" data-course="' + key + '">Hold my seat with $200</a>' +
+          '<span class="plan">Payment plans available · <a class="textlink" href="#" data-checkout="financing">Financing</a></span>' +
+        '</div></div>';
+    }).join("");
+
+    $("#finalBtns").innerHTML = order.map(function(key){
+      var c = C.courses[key], p = priceFor(key);
+      return '<a class="btn' + (key === "bundle" ? " pulse" : "") + '" href="#" data-checkout="' + key + '" data-course="' + key + '">' + c.short + ' · ' + p.now + '<small>' + seatsFor(key) + '</small></a>';
+    }).join("");
+    $("#finalSeats").textContent = C.classes.length ? "" : "Seats fill on a first-come basis. 4 per class, max.";
+    wireLinks();
+  }
+
+  /* ---------- Schedule ---------- */
+  function renderSchedule(){
+    var el = $("#schedule");
+    if (!C.classes.length){ el.innerHTML = '<p style="color:var(--muted)">New 2026–2027 dates are posted soon. <span class="todo-inline">[ADD DATES IN CONFIG]</span> Text Eddie at <a class="textlink" href="sms:+15102131877" data-lead>510-213-1877</a> to ask about the next class.</p>'; return; }
+    el.innerHTML = C.classes.map(function(k){
+      var pill = k.seatsLeft <= 0 ? '<span class="pill full">Full</span>' : k.seatsLeft <= 2 ? '<span class="pill low">' + k.seatsLeft + ' of 4 left</span>' : '<span class="pill ok">' + k.seatsLeft + ' of 4 left</span>';
+      return '<div class="srow"><span><b>' + C.courses[k.course].short + '</b><br><span style="color:var(--muted)">' + k.label + '</span></span>' + pill + '</div>';
+    }).join("");
+  }
+
+  /* ---------- Checkout + lead links ---------- */
+  function wireLinks(){
+    $$("[data-checkout]").forEach(function(a){
+      var key = a.getAttribute("data-checkout"), url = withUtm(C.links[key]);
+      if (url) { a.href = url; if (key === "financing") { a.target = "_blank"; a.rel = "noopener"; } }
+      else a.href = "#pricing";
+      if (a._wired) return; a._wired = true;
+      a.addEventListener("click", function(){
+        var course = a.getAttribute("data-course") || key, c = C.courses[course];
+        track("InitiateCheckout", { content_name: c ? c.name : key, content_category: key === "deposit" ? "deposit" : "course", value: key === "deposit" ? 200 : (c ? (isOver() && c.regular ? c.regular : c.sale) : undefined), currency: "USD" });
+        if (!C.links[key] && key !== "financing") console.warn("[VWT] No checkout link set for '" + key + "' in CONFIG.");
+      });
+    });
+  }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest && e.target.closest("[data-lead]");
+    if (a) track("Lead", { content_name: a.href.indexOf("sms:")===0 ? "text" : a.href.indexOf("tel:")===0 ? "call" : "email" });
+  });
+
+  /* ViewContent once the pricing section is on screen */
+  if ("IntersectionObserver" in window){
+    var seen = false, io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting && !seen){ seen = true; track("ViewContent", { content_name: "Black Friday pricing", content_category: "pricing" }); io.disconnect(); } });
+    }, { threshold: .3 });
+    io.observe($("#prices"));
+  }
+
+  /* ---------- Countdown ---------- */
+  var pad = function(n){ return (n < 10 ? "0" : "") + n };
+  var lastOver = isOver();
+  function tick(){
+    var ms = Math.max(0, END - Date.now()), s = Math.floor(ms/1000);
+    var d = Math.floor(s/86400), h = Math.floor(s%86400/3600), m = Math.floor(s%3600/60), x = s%60;
+    $$("[data-countdown]").forEach(function(el){
+      $("[data-d]",el).textContent = pad(d); $("[data-h]",el).textContent = pad(h); $("[data-m]",el).textContent = pad(m); $("[data-s]",el).textContent = pad(x);
+      el.classList.toggle("ended", ms === 0);
+    });
+    var txt = ms ? d + "d " + pad(h) + "h " + pad(m) + "m " + pad(x) + "s" : "Ended";
+    $("#cdMini").textContent = txt; $("#stickyCd").textContent = ms ? "Ends in " + (d ? d + "d " : "") + pad(h) + "h " + pad(m) + "m " + pad(x) + "s" : "Regular pricing";
+    if (isOver() !== lastOver){ lastOver = true; applyOver(); }
+  }
+  function applyOver(){
+    if (!isOver()) return;
+    $("#topMsg").textContent = "Black Friday has ended. Regular pricing is now in effect";
+    $("#cdMini").style.display = "none";
+    $("#cdLabel").textContent = "Black Friday pricing has ended";
+    $$("[data-countdown]").forEach(function(el){ el.style.display = "none" });
+    $("#heroOffer").innerHTML = '<span class="from">Tint Bootcamp <b>' + priceFor("tint").now + '</b> · Only 4 students per class</span>';
+    $(".giant").style.display = "none";
+    $(".bf-tag").innerHTML = "<i></i>Now enrolling · Dublin, CA";
+    $("#priceEyebrow").textContent = "Course pricing";
+    $("#finalSub").textContent = "Book your seat before it fills.";
+    $("#stickyPrice").textContent = priceFor("tint").now; $("#stickyWas").textContent = "";
+    renderPrices();
+  }
+
+  /* ---------- Marquee ---------- */
+  var mq = ["Black Friday","Tint $497","4 students max","PPF $997","Bundle $1,297","Lifetime support","Tools included","Ends Cyber Monday"];
+  var mqHtml = mq.map(function(t){ return "<span>" + t + '</span><span class="st">★</span>' }).join("");
+  $("#mq").innerHTML = mqHtml + mqHtml;
+
+  /* ---------- Hero video (lazy, after first paint) ---------- */
+  function loadHeroVideo(){
+    if (!C.heroVideo || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var save = navigator.connection && navigator.connection.saveData; if (save) return;
+    var v = document.createElement("video");
+    v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true; v.setAttribute("playsinline",""); v.preload = "auto";
+    if (C.heroPoster) v.poster = C.heroPoster;
+    v.src = C.heroVideo; $("#heroBg").appendChild(v); v.play().catch(function(){});
+  }
+  addEventListener("load", function(){ setTimeout(loadHeroVideo, 300) });
+
+  /* ---------- Gallery ---------- */
+  function renderGallery(){
+    var g = $("#galleryEl");
+    if (!C.gallery.length){
+      var labels = ["Student tinting side glass","Back glass shrink","PPF on a hood","Bumper wrap","Full front end","Class photo"];
+      g.innerHTML = labels.map(function(l){ return '<div class="ph"><b>[CLASS PHOTO/VIDEO]</b>' + l + '</div>' }).join("");
+    } else {
+      g.innerHTML = C.gallery.map(function(m){
+        return m.type === "video"
+          ? '<div><video muted loop playsinline preload="none" data-lazy="' + m.src + '" aria-label="' + (m.alt||"") + '"></video></div>'
+          : '<div><img loading="lazy" decoding="async" src="' + m.src + '" alt="' + (m.alt||"") + '"></div>';
+      }).join("");
+      if ("IntersectionObserver" in window){
+        var vio = new IntersectionObserver(function(es){ es.forEach(function(e){ var v = e.target;
+          if (e.isIntersecting){ if (!v.src) v.src = v.dataset.lazy; v.play().catch(function(){}) } else v.pause(); }) }, { threshold: .5 });
+        $$("video[data-lazy]", g).forEach(function(v){ vio.observe(v) });
+      }
+    }
+    $("#eddieWork").innerHTML = [1,2,3].map(function(i){ return '<div class="ph" style="aspect-ratio:1"><b>[SHOP WORK ' + i + ']</b></div>' }).join("");
+    if (C.eddiePhoto) $("#eddiePhoto .ph").outerHTML = '<img src="' + C.eddiePhoto + '" alt="Eddie Hurtado, VWT founder and instructor" loading="lazy">';
+  }
+
+  /* ---------- Reviews: paste text WORD FOR WORD. Empty text shows a placeholder card. ---------- */
+  var REVIEWS = [
+    { name: "Nhat",     src: "Google", note: "6-day course, Jan 2026: cutting, installing and finishing", text: "" },
+    { name: "Uriel",    src: "Google", note: "Came in nervous, left confident after the 6-day course",   text: "" },
+    { name: "Julio",    src: "Google", note: "Works in the film industry: best training he's had",        text: "" },
+    { name: "[NAME]",   src: "Google", note: "Review about hands-on learning and the smaller class size", text: "" },
+    { name: "[NAME]",   src: "Google", note: "Review calling Eddie knowledgeable and fun to work with",   text: "" },
+    { name: "Aaron Carnali",  src: "Website", note: "Website testimonial", text: "" },
+    { name: "Dj Singh",       src: "Website", note: "Website testimonial", text: "" },
+    { name: "Giovanni",       src: "Website", note: "Website testimonial", text: "" },
+    { name: "Ricardo Cortez", src: "Website", note: "Website testimonial", text: "" }
+  ];
+  function esc(s){ return s.replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c] }) }
+  function renderReviews(){
+    $("#reviewsEl").innerHTML = REVIEWS.map(function(r){
+      var todo = !r.text;
+      return '<div class="rev' + (todo ? " todo" : "") + '"><div class="stars">★★★★★</div>' +
+        '<p>' + (todo ? "[Paste this review word for word: " + esc(r.note) + "]" : "“" + esc(r.text) + "”") + '</p>' +
+        '<div class="who"><b>' + esc(r.name) + '</b><span>' + r.src + ' review</span></div></div>';
+    }).join("");
+  }
+
+  /* ---------- Tabs ---------- */
+  $$(".tab").forEach(function(t){
+    t.addEventListener("click", function(){
+      $$(".tab").forEach(function(o){ o.setAttribute("aria-selected", o === t); $("#" + o.getAttribute("aria-controls")).hidden = o !== t; });
+    });
+  });
+
+  $("#yr").textContent = new Date().getFullYear();
+  renderPrices(); renderSchedule(); renderGallery(); renderReviews();
+  applyOver(); tick(); setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>

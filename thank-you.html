@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>You're In! | Vehicle Wrap Training</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#111113">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<!--
+  Link here from Shopify (Settings > Checkout > Order status page "Additional scripts",
+  or a button on the order status page), e.g.:
+  thank-you.html?course=tint&start=2026-12-06&end=2026-12-07&label=Dec%206%E2%80%937
+  The Purchase event is NOT fired on this page: Shopify's Facebook & Instagram app fires it on
+  Shopify's own thank-you page. Firing it here too would double-count sales.
+-->
+<style>
+:root{--bg:#111113;--card:#1f1f23;--line:#2e2e34;--muted:#b4b4bd;--dim:#7c7c86;--orange:#ff6a00;--orange2:#ff9a3c;--green:#22c55e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:#fff;font:400 17px/1.55 Inter,system-ui,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+h1,h2{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:1.05}
+h1{font-size:clamp(44px,9vw,76px)}h2{font-size:28px;margin-bottom:14px}
+.hero{text-align:center;padding:64px 0 36px;background:radial-gradient(60% 60% at 50% 0%,rgba(34,197,94,.22),transparent 70%)}
+.big-ck{width:84px;height:84px;border-radius:50%;background:var(--green);display:grid;place-items:center;margin:0 auto 20px;box-shadow:0 0 50px rgba(34,197,94,.5)}
+.hero p{color:var(--muted);margin-top:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:16px}
+ol,ul{padding-left:22px;display:grid;gap:10px;color:#e4e4ea}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:14px 24px;border-radius:999px;background:linear-gradient(180deg,var(--orange2),var(--orange));color:#111;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;border:0;cursor:pointer;font-size:15px}
+.btn.ghost{background:transparent;color:#fff;border:2px solid var(--line)}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+iframe{width:100%;height:280px;border:0;border-radius:12px;margin-top:14px;filter:grayscale(.3)}
+.buddy{border-color:var(--orange);background:linear-gradient(180deg,rgba(255,106,0,.14),var(--card))}
+.muted{color:var(--muted)}
+.todo{color:#ffc44d;font-weight:600}
+footer{text-align:center;color:var(--dim);font-size:14px;padding:36px 0 60px}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="big-ck"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="3.5"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
+    <h1>Your seat is confirmed!</h1>
+    <p id="summary">Welcome to Vehicle Wrap Training. Check your email for your Shopify receipt.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="card">
+    <h2>Next steps</h2>
+    <ol>
+      <li>Watch for your order confirmation email from our Shopify store.</li>
+      <li>Eddie will text you within 24 hours to confirm your class date and answer questions.</li>
+      <li>Save the date to your calendar (button below).</li>
+      <li>If you paid a $200 deposit, the balance is due before class. Installment and financing options are still available.</li>
+      <li>Log in to the online course and community. Your access details come by email.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>What to bring</h2>
+    <ul>
+      <li>Comfortable clothes and closed-toe shoes you can stand in all day</li>
+      <li>A notebook or your phone for notes and photos</li>
+      <li>Water and snacks <span class="todo">[UPDATE IF LUNCH IS INCLUDED]</span></li>
+      <li>Tools are provided in class, and your starter kit is yours to keep</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Add to calendar</h2>
+    <p class="muted" id="calNote">Use the buttons to save your class date.</p>
+    <div class="row">
+      <a class="btn" id="gcal" href="#" target="_blank" rel="noopener">Google Calendar</a>
+      <button class="btn ghost" id="ics">Apple / Outlook (.ics)</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Where to go</h2>
+    <p><b>Vehicle Wrap Training LLC</b><br>6773 Sierra Ct, Suite B, Dublin, CA 94568</p>
+    <p class="muted">In the Sierra Trinity complex. The entrance is wheelchair accessible.</p>
+    <iframe loading="lazy" title="Map to Vehicle Wrap Training" src="https://www.google.com/maps?q=6773+Sierra+Ct+Suite+B,+Dublin,+CA+94568&output=embed"></iframe>
+    <div class="row"><a class="btn ghost" href="https://maps.google.com/?q=6773+Sierra+Ct+Suite+B+Dublin+CA+94568" target="_blank" rel="noopener">Get directions</a></div>
+  </div>
+
+  <div class="card buddy">
+    <h2>Bring a buddy, save $100 each</h2>
+    <p class="muted">Know someone who'd love this? When two of you sign up together, you each save $100. Send them the link, then text Eddie so he can apply it.</p>
+    <div class="row">
+      <button class="btn" id="share">Share with a friend</button>
+      <a class="btn ghost" href="sms:+15102131877?&body=Hi%20Eddie%2C%20I%20just%20signed%20up%20and%20my%20buddy%20wants%20to%20join%20too">Text Eddie</a>
+    </div>
+  </div>
+</main>
+
+<footer>Questions? Text or call <a href="sms:+15102131877">510-213-1877</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
+
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var names = { tint: "2-Day Beginner Window Tint Bootcamp", ppf: "3-Day PPF Pro Intensive", bundle: "Film Pro Bundle: Tint + PPF" };
+  var course = names[q.get("course")] || "Vehicle Wrap Training class";
+  var start = q.get("start"), end = q.get("end") || start, label = q.get("label");
+  if (q.get("course")) document.getElementById("summary").textContent = "You're enrolled in the " + course + (label ? " (" + label + ")" : "") + ". Check your email for your receipt.";
+
+  var addr = "6773 Sierra Ct, Suite B, Dublin, CA 94568";
+  var ymd = function(s){ return s.replace(/-/g, "") };
+  var plusDay = function(s){ var d = new Date(s + "T12:00:00"); d.setDate(d.getDate() + 1); return d.toISOString().slice(0,10) };
+  var gcal = document.getElementById("gcal"), ics = document.getElementById("ics");
+  if (start){
+    var dates = ymd(start) + "/" + ymd(plusDay(end));
+    gcal.href = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent("VWT: " + course) + "&dates=" + dates + "&location=" + encodeURIComponent(addr) + "&details=" + encodeURIComponent("Questions? Text Eddie at 510-213-1877");
+    ics.onclick = function(){
+      var body = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//VWT//Class//EN","BEGIN:VEVENT","UID:" + Date.now() + "@vehiclewraptraining.com","DTSTAMP:" + new Date().toISOString().replace(/[-:]/g,"").slice(0,15) + "Z",
+        "DTSTART;VALUE=DATE:" + ymd(start),"DTEND;VALUE=DATE:" + ymd(plusDay(end)),"SUMMARY:VWT: " + course,"LOCATION:" + addr.replace(/,/g,"\\,"),"DESCRIPTION:Questions? Text Eddie at 510-213-1877","END:VEVENT","END:VCALENDAR"].join("\r\n");
+      var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([body], { type: "text/calendar" })); a.download = "vwt-class.ics"; a.click();
+    };
+  } else {
+    document.getElementById("calNote").textContent = "Eddie will text you your confirmed date. Add it to your calendar then.";
+    gcal.style.display = "none"; ics.style.display = "none";
+  }
+
+  document.getElementById("share").onclick = function(){
+    var url = location.origin + location.pathname.replace(/thank-you\.html$/, "");
+    var msg = "I just signed up for tint/PPF training at Vehicle Wrap Training in Dublin. Sign up with me and we both save $100: " + url;
+    if (navigator.share) navigator.share({ title: "Vehicle Wrap Training", text: msg }).catch(function(){});
+    else location.href = "sms:?&body=" + encodeURIComponent(msg);
+  };
+})();
+</script>
+</body>
+</html>
