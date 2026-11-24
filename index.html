@@ -50,12 +50,12 @@ window.VWT = {
   // regular: a price you've ACTUALLY charged before. null = no strikethrough shown (FTC/Meta safe).
   courses: {
     tint:   { name: "2-Day Window Tint Course",            short: "Tint Course", days: 2, regular: 895,  sale: 497 },
-    bundle: { name: "Film Pro Bundle: Tint + PPF",          short: "Film Pro Bundle", days: 5, regular: null, sale: 1297 }, // [TINT + PPF REGULAR]
+    bundle: { name: "Film Pro Bundle: Tint + PPF",          short: "Film Pro Bundle", days: 5, label: "2 + 3 days · separate dates", regular: null, sale: 1297 }, // [TINT + PPF REGULAR]
     ppf:    { name: "3-Day Clear & Color PPF Course",       short: "PPF Course", days: 3, regular: null, sale: 997 }   // [REAL REGULAR PRICE]
   },
 
   // CLASS CALENDAR. One line per class. These show on the calendar and next to every price.
-  //   course:    "tint" | "ppf" | "bundle"
+  //   course:    "tint" | "ppf"   (Bundle students book one tint class and one PPF class, so the bundle has no dates of its own)
   //   start/end: first and last class day, "YYYY-MM-DD"
   //   seatsLeft: REAL seats left (0 = shows "Full" + waitlist button)
   //   url:       optional. The Shopify product page where Cowlendar shows this class's date picker.
@@ -257,6 +257,8 @@ section{padding:72px 0}
 .cal-day.sel{outline:3px solid #fff;outline-offset:1px}
 .c-tint{background:var(--orange)}.c-ppf{background:var(--gold)}.c-bundle{background:var(--green)}
 .cal-legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:13px;color:var(--muted)}
+.cal-bundle-note{margin-top:12px;font-size:13px;color:var(--muted);background:#141417;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.cal-bundle-note b{color:var(--green)}
 .cal-legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
 .cal-list{display:grid;gap:12px}
 .cal-item{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--orange);border-radius:16px;padding:16px;transition:border-color .2s,box-shadow .2s}
@@ -308,6 +310,11 @@ section{padding:72px 0}
 .cur-facts b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:30px;line-height:1;color:#fff}
 .cur-facts span{white-space:nowrap;font:800 10px/1.3 Inter,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--dim)}
 .cur-days{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.how-steps{list-style:none;counter-reset:st;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+.how-steps li{counter-increment:st;position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 18px 64px;min-width:0}
+.how-steps li::before{content:counter(st);position:absolute;left:18px;top:16px;width:32px;height:32px;border-radius:50%;background:var(--green);color:#111;font:800 16px/32px Inter,sans-serif;text-align:center}
+.how-steps b{display:block;margin-bottom:4px}
+.how-steps span{color:var(--muted);font-size:15px}
 .cur-days.two{grid-template-columns:repeat(2,1fr)}
 .cur-sub{font:800 14px/1.2 Inter,sans-serif!important;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange2)!important;margin:-4px 0 10px}
 .cday{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:18px;padding:22px}
@@ -409,7 +416,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
 .textfab svg{width:22px;height:22px;color:var(--green)}
 
 @media (max-width:900px){
-  .cur-days,.cur-days.two{grid-template-columns:1fr}
+  .cur-days,.cur-days.two,.how-steps{grid-template-columns:1fr}
   .site-nav{display:none}
   .head-call{margin-left:auto}
   .cal-wrap{grid-template-columns:1fr}
@@ -591,7 +598,8 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
           <button class="cal-nav" id="calNext" aria-label="Next month">›</button>
         </div>
         <div class="cal-grid" id="calGrid" role="grid"></div>
-        <div class="cal-legend"><span><i class="c-tint"></i>Tint Course</span><span><i class="c-ppf"></i>PPF Course</span><span><i class="c-bundle"></i>Film Pro Bundle</span></div>
+        <div class="cal-legend"><span><i class="c-tint"></i>Tint Course</span><span><i class="c-ppf"></i>PPF Course</span></div>
+        <p class="cal-bundle-note"><b>Film Pro Bundle:</b> pick one Tint date and one PPF date. They're separate classes on separate days.</p>
       </div>
       <div>
         <div class="cal-list" id="calList" aria-live="polite"></div>
@@ -627,7 +635,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" aria-selected="true" aria-controls="p-tint" id="t-tint">Tint · 2 Days</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-ppf" id="t-ppf">PPF · 3 Days</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-bundle" id="t-bundle">Bundle · 5 Days</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-bundle" id="t-bundle">Bundle · 2 + 3 Days</button>
     </div>
 
     <div class="panel" id="p-tint" role="tabpanel" aria-labelledby="t-tint">
@@ -699,12 +707,30 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     </div>
 
     <div class="panel" id="p-bundle" role="tabpanel" aria-labelledby="t-bundle" hidden>
-      <p style="color:var(--muted);margin-bottom:14px">The Film Pro Bundle is the full Window Tint Course (2 days) plus the full Clear &amp; Color PPF Course (3 days): 5 days total.</p>
-      <details class="day" open><summary><span class="dn">Days 1–2</span><span class="dt">Window Tint Course</span><span class="chev">▾</span></summary>
+      <div class="cur-intro">
+        <div>
+          <span class="cur-kicker">Film Pro Bundle</span>
+          <h3 class="cur-title">Two courses. Two separate classes.</h3>
+          <p class="cur-sub">Tint 2 days + PPF 3 days · 5 class days total</p>
+          <p>The bundle is <b style="color:#fff">not</b> 5 days in a row. You take the Window Tint Course and the Clear &amp; Color PPF Course as two separate classes, on separate days. That keeps the techniques from blurring together and gives each skill time to sink in before you start the next one.</p>
+        </div>
+        <ul class="cur-facts">
+          <li><b>2</b><span>tint days</span></li>
+          <li><b>3</b><span>PPF days</span></li>
+          <li><b>2</b><span>bookings</span></li>
+        </ul>
+      </div>
+      <ol class="how-steps">
+        <li><b>Buy the bundle</b><span>One checkout at the bundle price.</span></li>
+        <li><b>Pick both dates at checkout</b><span>Choose one Tint Course date and one PPF Course date from the class calendar.</span></li>
+        <li><b>Take each class on its own days</b><span>Learn tint in one class and PPF in the other, with time between to practice.</span></li>
+      </ol>
+      <details class="day" open><summary><span class="dn">Tint · 2 days</span><span class="dt">Window Tint Course: Hand Cutting &amp; Computer Cutting</span><span class="chev">▾</span></summary>
         <ul><li>✅ Day 1: film types, CA tint law, glass prep, hand cutting and computer cutting, side windows and roll-downs</li><li>✅ Day 2: heat shrinking, back glass, troubleshooting, a full car on the clock, pricing and first customers</li><li>✅ <a class="textlink" href="#learn" data-tab="tint">See the full tint curriculum</a></li></ul></details>
-      <details class="day"><summary><span class="dn">Days 3–5</span><span class="dt">Clear &amp; Color PPF Course</span><span class="chev">▾</span></summary>
+      <details class="day" open><summary><span class="dn">PPF · 3 days</span><span class="dt">Clear &amp; Color PPF Course</span><span class="chev">▾</span></summary>
         <ul><li>✅ Day 1: clear vs. color film, film types, paint prep, slip vs. tack, flat-panel squeegee work</li><li>✅ Day 2: reading vehicle geometry, install game plans, stretching and shrinking, troubleshooting</li><li>✅ Day 3: corners, edges, relief cuts, hidden seams, post-heating and a full panel on your own</li><li>✅ <a class="textlink" href="#learn" data-tab="ppf">See the full PPF curriculum</a></li></ul></details>
     </div>
+
     <p class="hours">Exact daily hours are confirmed when you book.</p>
     <div class="cta-row"><a href="#pricing" class="btn">Claim My Seat</a><span class="cta-note">$200 holds your seat</span></div>
   </div>
@@ -812,6 +838,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       <details><summary>Where do I stay if I'm from out of town?</summary><div class="a">There are plenty of hotels nearby in San Leandro and around Oakland International Airport. Text Eddie and he'll point you to good options. <span class="todo-inline">[OPTIONAL: list your recommended San Leandro hotels]</span></div></details>
       <details><summary>Is lunch included?</summary><div class="a"><span class="todo-inline">[YES/NO: fill in]</span></div></details>
       <details><summary>What is the refund or reschedule policy?</summary><div class="a"><span class="todo-inline">[POLICY: fill in]</span> See our <a href="terms.html#refunds">terms and refund policy</a>.</div></details>
+      <details><summary>Is the Film Pro Bundle 5 days in a row?</summary><div class="a">No. The bundle is two separate classes: the 2-day Window Tint Course and the 3-day Clear &amp; Color PPF Course. You pick a date for each at checkout, and they're held on separate days. We split them on purpose so the techniques don't blur together and you're not overloaded with information. You can take them in either order.</div></details>
       <details><summary>How many students are in each class?</summary><div class="a">4 max. That's what lets Eddie train you one-on-one style.</div></details>
       <details><summary>Still have a question?</summary><div class="a">Text or call Eddie at <a href="sms:+15109356111" data-lead>510-935-6111</a> or email <a href="mailto:vehiclewraptrainingllc@gmail.com" data-lead>vehiclewraptrainingllc@gmail.com</a>.</div></details>
     </div>
@@ -903,6 +930,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     return { now: c.regular ? money(c.regular) : "Call", was: "", save: "" };
   }
   function seatsFor(key){
+    if (key === "bundle") return "Pick your tint and PPF dates at checkout";
     var list = upcoming().filter(function(k){ return k.course === key && k.seatsLeft > 0 });
     if (!C.classes.length) return "4 seats max per class";
     if (!list.length) return "All current dates are full. Text Eddie for the waitlist";
@@ -914,7 +942,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   var order = ["tint","bundle","ppf"];
   var bullets = {
     tint:   ["2 days, about 6–7 hrs/day","Hand cutting + computer cutting","Dyed, carbon and ceramic film + CA tint law","Back glass heat shrinking","A full car on the clock + pricing"],
-    bundle: ["Everything in Tint + PPF: 5 days","A full car tint + a full PPF panel on your own","Biggest savings of the three","Offer both services from day one","Pricing + business setup help"],
+    bundle: ["Tint (2 days) + PPF (3 days) = 5 class days","Two separate classes, on dates you pick at checkout","Never 5 days in a row, so each skill sinks in","Offer both services","Biggest savings of the three"],
     ppf:    ["3 days, about 6–7 hrs/day","Clear and color PPF: gloss, matte, satin","Paint prep, slip vs. tack, flat panels","Curves, corners, edges and post-heating","A full panel install on your own"]
   };
   var shared = ["Loaner pro tools + free starter kit","Certificate + lifetime support"];
@@ -924,14 +952,14 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       var c = C.courses[key], p = priceFor(key), best = key === "bundle";
       return '<div class="pcard' + (best ? " best" : "") + '">' +
         (best ? '<span class="ribbon">★ Best Value</span>' : "") +
-        '<div class="days">' + c.days + '-day course</div>' +
+        '<div class="days">' + (c.label || c.days + '-day course') + '</div>' +
         '<h3>' + c.name + '</h3>' +
         '<div class="was">' + (p.was ? 'Regular <s>' + p.was + '</s>' : (over ? "Regular price" : "Black Friday price")) + '</div>' +
         '<div class="now">' + p.now + '</div>' +
         '<span class="save">' + p.save + '</span>' +
         '<ul>' + bullets[key].concat(shared).map(function(b){ return "<li>" + check + "<span>" + b + "</span></li>" }).join("") + '</ul>' +
         '<div class="foot">' +
-          (key !== "tint" ? '<a class="textlink" href="#learn" data-tab="ppf">See the full PPF curriculum</a>' : '<a class="textlink" href="#learn" data-tab="tint">See the full tint curriculum</a>') +
+          ({ tint: '<a class="textlink" href="#learn" data-tab="tint">See the full tint curriculum</a>', ppf: '<a class="textlink" href="#learn" data-tab="ppf">See the full PPF curriculum</a>', bundle: '<a class="textlink" href="#learn" data-tab="bundle">See how the bundle works</a>' })[key] +
           '<div class="seats-note">' + seatsFor(key) + '</div>' +
           '<a class="btn block' + (best ? " pulse" : "") + '" href="#" data-checkout="' + key + '" data-course="' + key + '">' + (best ? "Get the Bundle" : "Claim My Seat") + '</a>' +
           '<a class="textlink" href="#" data-checkout="deposit" data-course="' + key + '">Hold my seat with $200</a>' +
@@ -953,7 +981,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     C.classes = [
       { course: "tint",   start: "2026-12-05", end: "2026-12-06", seatsLeft: 2 },
       { course: "ppf",    start: "2026-12-11", end: "2026-12-13", seatsLeft: 4 },
-      { course: "bundle", start: "2026-12-14", end: "2026-12-18", seatsLeft: 1 },
+      { course: "tint",   start: "2026-12-19", end: "2026-12-20", seatsLeft: 1 },
       { course: "tint",   start: "2027-01-09", end: "2027-01-10", seatsLeft: 0 },
       { course: "ppf",    start: "2027-01-15", end: "2027-01-17", seatsLeft: 3 }
     ];
