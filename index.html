@@ -43,16 +43,23 @@ window.VWT = {
     tint:    "", // [NEW BLACK FRIDAY TINT PRODUCT LINK]
     ppf:     "", // [NEW BLACK FRIDAY PPF PRODUCT LINK]
     bundle:  "", // [NEW BUNDLE PRODUCT LINK]
-    deposit: "", // [DEPOSIT PRODUCT LINK]
+    deposit: "",       // [PPF $200 DEPOSIT PRODUCT LINK]
+    bundleDeposit: "", // [BUNDLE $500 DEPOSIT PRODUCT LINK]
     financing: "https://coachingloan.com/vehicle-wrap-training-llc/"
   },
 
-  // regular: a price you've ACTUALLY charged before. null = no strikethrough shown (FTC/Meta safe).
+  // regular:    the crossed-out price. wasLabel: the word shown before it.
+  // afterPrice: price shown after Black Friday ends (defaults to regular; null = "Call for price").
+  // deposit:    0 = paid in full at checkout; otherwise the deposit that reserves a seat.
   courses: {
-    tint:   { name: "2-Day Window Tint Course",            short: "Tint Course", days: 2, regular: 895,  sale: 497 },
-    bundle: { name: "Film Pro Bundle: Tint + PPF",          short: "Film Pro Bundle", days: 5, label: "2 + 3 days · separate dates", regular: null, sale: 1297 }, // [TINT + PPF REGULAR]
-    ppf:    { name: "3-Day Clear & Color PPF Course",       short: "PPF Course", days: 3, regular: null, sale: 997 }   // [REAL REGULAR PRICE]
+    tint:   { name: "2-Day Window Tint Course",            short: "Tint Course", days: 2, regular: 895,  sale: 497,  deposit: 0 },
+    bundle: { name: "Film Pro Bundle: Tint + PPF",          short: "Film Pro Bundle", days: 5, label: "2 + 3 days · separate dates",
+              regular: 2341, wasLabel: "Separately", afterPrice: null, sale: 1297, deposit: 500 },  // 2341 = tint $895 + PPF $1,446
+    ppf:    { name: "3-Day Clear & Color PPF Course",       short: "PPF Course", days: 3, regular: 1446, sale: 997,  deposit: 200 }   // 1446 = $997 + 45%
   },
+
+  // Black Friday purchases are good for any class date through this day.
+  redeemBy: "the end of 2027",
 
   // CLASS CALENDAR. One line per class. These show on the calendar and next to every price.
   //   course:    "tint" | "ppf"   (Bundle students book one tint class and one PPF class, so the bundle has no dates of its own)
@@ -92,7 +99,7 @@ window.VWT = {
 
   // Hero video: a short (under 3 MB) muted MP4 loop of class. It plays over the hero photo once loaded.
   heroVideo: "",      // [HERO VIDEO] e.g. "public/video/hero.mp4"
-  eddiePhoto: "",     // [EDDIE PHOTO] e.g. "public/images/eddie.webp"
+  eddiePhoto: "public/images/eddie/eddie-teaching",   // -480.webp and -800.webp sizes
   eddieWork: []       // optional shop-work photos, same format as gallery. Hidden while empty.
 };
 </script>
@@ -182,6 +189,12 @@ section{padding:72px 0}
 .offer .from{color:var(--muted);font-weight:600}
 .offer .from s{color:var(--dim)}
 .offer .from b{color:#fff;font-size:22px}
+.offer .bundle-name{color:#fff;font-weight:800}
+.redeem-line{display:flex;gap:10px;align-items:flex-start;color:#e2e2e8;font-size:16px;margin:-6px 0 22px;max-width:620px}
+.redeem-line .ck{width:20px;height:20px;flex:none;margin-top:2px}
+.redeem-chip{display:flex;gap:8px;align-items:flex-start;font-size:13px;font-weight:600;color:var(--green);margin:-6px 0 14px}
+.redeem-chip .ck{width:16px;height:16px;flex:none;margin-top:1px}
+.pcard .plan.paid{color:var(--muted);font-weight:600}
 
 .countdown{display:flex;gap:10px;margin-bottom:24px}
 .countdown .u{background:linear-gradient(180deg,#26262b,#151518);border:1px solid #34343b;border-radius:14px;min-width:76px;padding:12px 8px 8px;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 10px 30px -12px #000}
@@ -501,8 +514,9 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
 
       <div class="offer" id="heroOffer">
         <span class="upto">Up to</span><span class="pct">45%<small> OFF</small></span>
-        <span class="from">Tint Course <s>$895</s> <b>$497</b></span>
+        <span class="from"><span class="bundle-name">Film Pro Bundle · Tint + PPF</span> <s>$2,341</s> <b>$1,297</b></span>
       </div>
+      <p class="redeem-line"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Reserve with $500. Lock in this price now and train on any class date through the end of 2027.</span></p>
 
       <div class="cd-label" id="cdLabel">Black Friday pricing ends in</div>
       <div class="countdown" data-countdown>
@@ -513,7 +527,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       </div>
 
       <div class="hero-cta">
-        <a href="#pricing" class="btn big pulse">Claim My Seat
+        <a href="#pricing" class="btn big pulse">Get the Bundle Deal
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="gbadge" href="https://www.google.com/maps/place/Vehicle+Wrap+Training+LLC/@37.7081689,-121.9129174,17z/data=!4m6!3m5!1s0x808f95d36ed6edbd:0x478d7a3640602878" target="_blank" rel="noopener">
           <b>4.8</b><span class="stars">★★★★★</span><span>41 Google reviews</span>
@@ -575,7 +589,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   <div class="wrap center">
     <span class="eyebrow" id="priceEyebrow">Black Friday pricing</span>
     <h2>Pick your course</h2>
-    <p class="lead">Hold any seat with a $200 deposit. Installment plans at checkout, or financing.</p>
+    <p class="lead">Lock in Black Friday pricing now and use it for any class date through the end of 2027. The Tint Course is paid in full at checkout. Reserve the PPF Course with $200 or the Film Pro Bundle with $500.</p>
     <div class="buddy">👯 Bring a buddy: <span class="o">$100 off each</span> when two of you sign up together. <a class="textlink" href="sms:+15109356111?&body=Hi%20Eddie%2C%20my%20buddy%20and%20I%20want%20to%20sign%20up%20together%20for%20Black%20Friday" data-lead>Text Eddie to set it up</a></div>
     <div class="prices" id="prices" style="text-align:left"></div>
     <div class="cta-row"><a class="textlink" href="#calendar">📅 See the class calendar and pick your date</a></div>
@@ -732,7 +746,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     </div>
 
     <p class="hours">Exact daily hours are confirmed when you book.</p>
-    <div class="cta-row"><a href="#pricing" class="btn">Claim My Seat</a><span class="cta-note">$200 holds your seat</span></div>
+    <div class="cta-row"><a href="#pricing" class="btn">Claim My Seat</a><span class="cta-note">Good for any class date through the end of 2027</span></div>
   </div>
 </section>
 
@@ -833,11 +847,12 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       <details><summary>Do I need experience?</summary><div class="a">No. The classes are built for beginners. We start from the basics and build up to full cars.</div></details>
       <details><summary>Do I need tools?</summary><div class="a">No. Pro tools are provided during class, and you get a free starter kit when you enroll.</div></details>
       <details><summary>What happens after class?</summary><div class="a">You get a VWT certificate of completion, plus lifetime support through the VWT support hotline and lifetime access to the online course and community.</div></details>
-      <details><summary>Can I pay over time?</summary><div class="a">Yes. Hold your seat with a $200 deposit, choose an installment plan at checkout, or <a href="https://coachingloan.com/vehicle-wrap-training-llc/" target="_blank" rel="noopener" data-checkout="financing">apply for financing</a>.</div></details>
+      <details><summary>Can I pay over time?</summary><div class="a">It depends on the course. The Tint Course is paid in full at checkout. The PPF Course can be reserved with a $200 deposit, and the Film Pro Bundle with a $500 deposit, with the balance due before class. For those two you can also choose an installment plan at checkout or <a href="https://coachingloan.com/vehicle-wrap-training-llc/" target="_blank" rel="noopener" data-checkout="financing">apply for financing</a>.</div></details>
       <details><summary>Where is it?</summary><div class="a">14306 Wicks Blvd, San Leandro, CA 94577. <a href="https://maps.google.com/?q=14306+Wicks+Blvd+San+Leandro+CA+94577" target="_blank" rel="noopener">Get directions</a></div></details>
       <details><summary>Where do I stay if I'm from out of town?</summary><div class="a">There are plenty of hotels nearby in San Leandro and around Oakland International Airport. Text Eddie and he'll point you to good options. <span class="todo-inline">[OPTIONAL: list your recommended San Leandro hotels]</span></div></details>
       <details><summary>Is lunch included?</summary><div class="a"><span class="todo-inline">[YES/NO: fill in]</span></div></details>
       <details><summary>What is the refund or reschedule policy?</summary><div class="a"><span class="todo-inline">[POLICY: fill in]</span> See our <a href="terms.html#refunds">terms and refund policy</a>.</div></details>
+      <details><summary>Do I have to take the class right away?</summary><div class="a">No. Anything you buy at Black Friday pricing is good for any class date through the end of 2027. Pick your date at checkout, or text Eddie at 510-935-6111 to schedule it later.</div></details>
       <details><summary>Is the Film Pro Bundle 5 days in a row?</summary><div class="a">No. The bundle is two separate classes: the 2-day Window Tint Course and the 3-day Clear &amp; Color PPF Course. You pick a date for each at checkout, and they're held on separate days. We split them on purpose so the techniques don't blur together and you're not overloaded with information. You can take them in either order.</div></details>
       <details><summary>How many students are in each class?</summary><div class="a">4 max. That's what lets Eddie train you one-on-one style.</div></details>
       <details><summary>Still have a question?</summary><div class="a">Text or call Eddie at <a href="sms:+15109356111" data-lead>510-935-6111</a> or email <a href="mailto:vehiclewraptrainingllc@gmail.com" data-lead>vehiclewraptrainingllc@gmail.com</a>.</div></details>
@@ -858,7 +873,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     </div>
     <p class="seats-note" id="finalSeats" style="margin-bottom:20px"></p>
     <div class="final-btns" id="finalBtns"></div>
-    <p class="cta-note" style="margin-top:16px">Or <a class="textlink" href="#" data-checkout="deposit" data-course="deposit">hold my seat with $200</a> · Payment plans available</p>
+    <p class="cta-note" style="margin-top:16px">Reserve the <a class="textlink" href="#" data-checkout="bundleDeposit" data-course="bundle">Bundle with $500</a> or the <a class="textlink" href="#" data-checkout="deposit" data-course="ppf">PPF Course with $200</a> · Good through the end of 2027</p>
   </div>
 </section>
 
@@ -889,7 +904,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
 
 <!-- 14. STICKY MOBILE BAR + TEXT EDDIE -->
 <div class="sticky" id="sticky">
-  <div class="p"><span>From </span><b id="stickyPrice">$497</b><s id="stickyWas">$895</s><small id="stickyCd">Ends in --</small></div>
+  <div class="p"><span id="stickyLabel">Bundle </span><b id="stickyPrice">$1,297</b><s id="stickyWas">$2,341</s><small id="stickyCd">Ends in --</small></div>
   <a href="#pricing" class="btn">Claim My Seat</a>
 </div>
 <a class="textfab" href="sms:+15109356111?&body=Hi%20Eddie%2C%20I%20have%20a%20question%20about%20the%20Black%20Friday%20class" data-lead aria-label="Text Eddie">
@@ -927,7 +942,8 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   function priceFor(key){
     var c = C.courses[key];
     if (!isOver()) return { now: money(c.sale), was: c.regular ? money(c.regular) : "", save: c.regular ? "Save " + money(c.regular - c.sale) : "" };
-    return { now: c.regular ? money(c.regular) : "Call", was: "", save: "" };
+    var after = c.afterPrice !== undefined ? c.afterPrice : c.regular;
+    return { now: after ? money(after) : "Call", was: "", save: "" };
   }
   function seatsFor(key){
     if (key === "bundle") return "Pick your tint and PPF dates at checkout";
@@ -936,6 +952,15 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     if (!list.length) return "All current dates are full. Text Eddie for the waitlist";
     var n = list[0];
     return "Next: " + fmtRange(n) + " · " + n.seatsLeft + " of 4 seats left";
+  }
+
+  /* ---------- Payment rules ---------- */
+  function depositKey(key){ return key === "bundle" ? "bundleDeposit" : "deposit" }
+  function payLine(key){
+    var c = C.courses[key];
+    if (!c.deposit) return '<span class="plan paid">Paid in full at checkout</span>';
+    return '<a class="textlink" href="#" data-checkout="' + depositKey(key) + '" data-course="' + key + '">Reserve my seat with ' + money(c.deposit) + '</a>' +
+           '<span class="plan">Balance due before class · Payment plans · <a class="textlink" href="#" data-checkout="financing">Financing</a></span>';
   }
 
   /* ---------- Pricing cards ---------- */
@@ -954,16 +979,16 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
         (best ? '<span class="ribbon">★ Best Value</span>' : "") +
         '<div class="days">' + (c.label || c.days + '-day course') + '</div>' +
         '<h3>' + c.name + '</h3>' +
-        '<div class="was">' + (p.was ? 'Regular <s>' + p.was + '</s>' : (over ? "Regular price" : "Black Friday price")) + '</div>' +
+        '<div class="was">' + (p.was ? (c.wasLabel || "Regular") + ' <s>' + p.was + '</s>' : (over ? "Regular price" : "Black Friday price")) + '</div>' +
         '<div class="now">' + p.now + '</div>' +
         '<span class="save">' + p.save + '</span>' +
+        (over ? '' : '<div class="redeem-chip">' + check + '<span>Good for any class date through ' + C.redeemBy + '</span></div>') +
         '<ul>' + bullets[key].concat(shared).map(function(b){ return "<li>" + check + "<span>" + b + "</span></li>" }).join("") + '</ul>' +
         '<div class="foot">' +
           ({ tint: '<a class="textlink" href="#learn" data-tab="tint">See the full tint curriculum</a>', ppf: '<a class="textlink" href="#learn" data-tab="ppf">See the full PPF curriculum</a>', bundle: '<a class="textlink" href="#learn" data-tab="bundle">See how the bundle works</a>' })[key] +
           '<div class="seats-note">' + seatsFor(key) + '</div>' +
           '<a class="btn block' + (best ? " pulse" : "") + '" href="#" data-checkout="' + key + '" data-course="' + key + '">' + (best ? "Get the Bundle" : "Claim My Seat") + '</a>' +
-          '<a class="textlink" href="#" data-checkout="deposit" data-course="' + key + '">Hold my seat with $200</a>' +
-          '<span class="plan">Payment plans available · <a class="textlink" href="#" data-checkout="financing">Financing</a></span>' +
+          payLine(key) +
         '</div></div>';
     }).join("");
 
@@ -1068,7 +1093,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       if (a._wired) return; a._wired = true;
       a.addEventListener("click", function(){
         var course = a.getAttribute("data-course") || key, c = C.courses[course];
-        track("InitiateCheckout", { content_name: c ? c.name : key, content_category: key === "deposit" ? "deposit" : "course", value: key === "deposit" ? 200 : (c ? (isOver() && c.regular ? c.regular : c.sale) : undefined), currency: "USD" });
+        track("InitiateCheckout", { content_name: c ? c.name : key, content_category: /eposit$/.test(key) ? "deposit" : "course", value: /eposit$/.test(key) ? (c && c.deposit ? c.deposit : 200) : (c ? (isOver() && c.regular ? c.regular : c.sale) : undefined), currency: "USD" });
         if (!C.links[key] && key !== "financing") console.warn("[VWT] No checkout link set for '" + key + "' in CONFIG.");
       });
     });
@@ -1106,17 +1131,18 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     $("#cdMini").style.display = "none";
     $("#cdLabel").textContent = "Black Friday pricing has ended";
     $$("[data-countdown]").forEach(function(el){ el.style.display = "none" });
-    $("#heroOffer").innerHTML = '<span class="from">Tint Course <b>' + priceFor("tint").now + '</b> · Only 4 students per class</span>';
+    $("#heroOffer").innerHTML = '<span class="from"><span class="bundle-name">Tint + PPF training</span> · Only 4 students per class</span>';
+    $(".redeem-line").hidden = true;
     $(".giant").style.display = "none";
     $(".bf-tag").innerHTML = "<i></i>Now enrolling · San Leandro, CA";
     $("#priceEyebrow").textContent = "Course pricing";
     $("#finalSub").textContent = "Book your seat before it fills.";
-    $("#stickyPrice").textContent = priceFor("tint").now; $("#stickyWas").textContent = "";
+    $("#stickyLabel").textContent = "From "; $("#stickyPrice").textContent = priceFor("tint").now; $("#stickyWas").textContent = "";
     renderPrices(); renderCalList();
   }
 
   /* ---------- Marquee ---------- */
-  var mq = ["Black Friday","Tint $497","4 students max","PPF $997","Bundle $1,297","Lifetime support","Tools included","Ends Cyber Monday"];
+  var mq = ["Black Friday","Bundle $1,297","Good all of 2027","Tint $497","PPF $997","4 students max","Lifetime support","Tools included","Ends Cyber Monday"];
   var mqHtml = mq.map(function(t){ return "<span>" + t + '</span><span class="st">★</span>' }).join("");
   $("#mq").innerHTML = mqHtml + mqHtml;
 
@@ -1153,7 +1179,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     var w = $("#eddieWork");
     if (C.eddieWork.length) w.innerHTML = C.eddieWork.map(function(m){ return '<div style="aspect-ratio:1">' + pic(m, "220px") + '</div>' }).join("");
     else w.hidden = true;
-    if (C.eddiePhoto) $("#eddiePhoto .ph").outerHTML = '<img src="' + C.eddiePhoto + '" alt="Eddie Hurtado, VWT founder and instructor" loading="lazy">';
+    if (C.eddiePhoto) $("#eddiePhoto .ph").outerHTML = '<img src="' + C.eddiePhoto + '-800.webp" srcset="' + C.eddiePhoto + '-480.webp 480w, ' + C.eddiePhoto + '-800.webp 800w" sizes="(max-width:900px) 90vw, 460px" width="800" height="970" alt="Eddie Hurtado, VWT founder and instructor, teaching a student at the shop" loading="lazy" decoding="async">';
   }
 
   /* ---------- Reviews: paste text WORD FOR WORD. Empty text shows a placeholder card. ---------- */
