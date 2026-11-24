@@ -17,7 +17,7 @@ Static, mobile-first landing page (14306 Wicks Blvd, San Leandro, CA 94577 · 51
 Everything lives in the `window.VWT` CONFIG block near the top of `index.html`:
 
 1. **`pixelId`**: your Meta Pixel ID (numbers only). The pixel stays off until it's set.
-2. **`links.tint` / `links.ppf` / `links.bundle` / `links.deposit` ($200 PPF deposit) / `links.bundleDeposit` ($500 bundle deposit)**: your new Shopify product URLs. Tint has no deposit link: it is paid in full. Until they're set, buttons scroll to the pricing section.
+2. **`links.tint` / `links.ppf` / `links.bundle` / `links.deposit` ($500 PPF deposit) / `links.bundleDeposit` ($500 bundle deposit)**: your new Shopify product URLs. Tint has no deposit link: it is paid in full. Until they're set, buttons scroll to the pricing section.
 3. **`courses.ppf.regular` and `courses.bundle.regular`**: only use a price you've actually charged. Leave `null` and no strikethrough is shown.
 4. **`classes`**: real dates and real seats left, e.g. `{ course: "tint", start: "2026-12-05", end: "2026-12-06", seatsLeft: 2 }`. Use only `"tint"` or `"ppf"`: Bundle students pick one of each at checkout, so the bundle has no dates of its own. These fill the **class calendar** and the "Next class · X of 4 seats left" line on each price card. Add `url:` to send that date to a specific Cowlendar product page; otherwise it uses the course link from `links`. Open the page with `?demo=1` to preview the calendar with sample dates (they never show without that).
 5. **`heroVideo`**: a short, muted MP4 loop (aim for under 3 MB, 720p). It loads after the page appears, so it won't slow the first view.
