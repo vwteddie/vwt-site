@@ -49,7 +49,7 @@ window.VWT = {
 
   // regular: a price you've ACTUALLY charged before. null = no strikethrough shown (FTC/Meta safe).
   courses: {
-    tint:   { name: "2-Day Beginner Window Tint Bootcamp", short: "Tint Bootcamp", days: 2, regular: 895,  sale: 497 },
+    tint:   { name: "2-Day Window Tint Course",            short: "Tint Course", days: 2, regular: 895,  sale: 497 },
     bundle: { name: "Film Pro Bundle: Tint + PPF",          short: "Film Pro Bundle", days: 5, regular: null, sale: 1297 }, // [TINT + PPF REGULAR]
     ppf:    { name: "3-Day Clear & Color PPF Course",       short: "PPF Course", days: 3, regular: null, sale: 997 }   // [REAL REGULAR PRICE]
   },
@@ -308,6 +308,8 @@ section{padding:72px 0}
 .cur-facts b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:30px;line-height:1;color:#fff}
 .cur-facts span{white-space:nowrap;font:800 10px/1.3 Inter,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--dim)}
 .cur-days{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cur-days.two{grid-template-columns:repeat(2,1fr)}
+.cur-sub{font:800 14px/1.2 Inter,sans-serif!important;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange2)!important;margin:-4px 0 10px}
 .cday{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:18px;padding:22px}
 .cday-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
 .cday-head .dn{font-family:Anton,sans-serif;font-size:15px;background:#000;color:var(--orange);border:1px solid var(--orange);border-radius:10px;padding:6px 10px;flex:none}
@@ -407,7 +409,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
 .textfab svg{width:22px;height:22px;color:var(--green)}
 
 @media (max-width:900px){
-  .cur-days{grid-template-columns:1fr}
+  .cur-days,.cur-days.two{grid-template-columns:1fr}
   .site-nav{display:none}
   .head-call{margin-left:auto}
   .cal-wrap{grid-template-columns:1fr}
@@ -492,7 +494,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
 
       <div class="offer" id="heroOffer">
         <span class="upto">Up to</span><span class="pct">45%<small> OFF</small></span>
-        <span class="from">Tint Bootcamp <s>$895</s> <b>$497</b></span>
+        <span class="from">Tint Course <s>$895</s> <b>$497</b></span>
       </div>
 
       <div class="cd-label" id="cdLabel">Black Friday pricing ends in</div>
@@ -589,7 +591,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
           <button class="cal-nav" id="calNext" aria-label="Next month">›</button>
         </div>
         <div class="cal-grid" id="calGrid" role="grid"></div>
-        <div class="cal-legend"><span><i class="c-tint"></i>Tint Bootcamp</span><span><i class="c-ppf"></i>PPF Course</span><span><i class="c-bundle"></i>Film Pro Bundle</span></div>
+        <div class="cal-legend"><span><i class="c-tint"></i>Tint Course</span><span><i class="c-ppf"></i>PPF Course</span><span><i class="c-bundle"></i>Film Pro Bundle</span></div>
       </div>
       <div>
         <div class="cal-list" id="calList" aria-live="polite"></div>
@@ -629,10 +631,35 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     </div>
 
     <div class="panel" id="p-tint" role="tabpanel" aria-labelledby="t-tint">
-      <details class="day" open><summary><span class="dn">Day 1</span><span class="dt">Foundations &amp; side windows</span><span class="chev">▾</span></summary>
-        <ul><li>✅ Film types and how to choose them</li><li>✅ California tint law: what's legal and what isn't</li><li>✅ Glass prep and cleaning</li><li>✅ Cutting patterns</li><li>✅ Installing side windows</li></ul></details>
-      <details class="day"><summary><span class="dn">Day 2</span><span class="dt">Back glass, full car &amp; business</span><span class="chev">▾</span></summary>
-        <ul><li>✅ Shrinking and installing back glass</li><li>✅ A full car, start to finish, on the clock</li><li>✅ Pricing your work</li><li>✅ Getting your first customers</li></ul></details>
+      <div class="cur-intro">
+        <div>
+          <span class="cur-kicker">Full curriculum</span>
+          <h3 class="cur-title">2-Day Window Tint Course</h3>
+          <p class="cur-sub">Hand Cutting &amp; Computer Cutting</p>
+          <p>Learn to cut film by hand and with pattern software and a plotter, then tint a full car on the clock. Here's exactly what each day covers.</p>
+        </div>
+        <ul class="cur-facts">
+          <li><b>2</b><span>days</span></li>
+          <li><b>6–7</b><span>hrs / day</span></li>
+          <li><b>4</b><span>students max</span></li>
+        </ul>
+      </div>
+      <div class="cur-days two">
+      <article class="cday">
+        <header class="cday-head"><span class="dn">Day 1</span><div><h3>Film Knowledge, Prep &amp; Cutting Methods</h3><p class="cday-tag">Learn both ways the pros cut film.</p></div></header>
+        <ul><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Film types: dyed, carbon and ceramic, and what customers are paying for</span></li><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>California tint law: legal shades, front windows and windshield strips</span></li><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Tools of the trade: knives, squeegees, heat gun, hard cards and solutions</span></li><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Glass prep: cleaning, scraping and getting the glass contamination-free</span></li><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Hand cutting: cutting patterns on the glass, trimming edges and filing</span></li><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Computer cutting: using pattern software and a plotter to cut precise kits</span></li><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>When to hand cut vs. computer cut, and how to pick for speed or custom jobs</span></li><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Side window and roll-down installs</span></li></ul>
+        <p class="cday-out"><b>You'll leave Day 1</b> able to cut and install side windows both ways.</p>
+      </article>
+      <article class="cday">
+        <header class="cday-head"><span class="dn">Day 2</span><div><h3>Back Glass, Heat Shrinking &amp; a Full Car</h3><p class="cday-tag">Put it all together on a real vehicle.</p></div></header>
+        <ul><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Heat shrinking: forming film to curved back glass</span></li><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Back glass install: dot matrix, defroster lines and clean edges</span></li><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Troubleshooting: dirt, fingers, light gaps, creases and contamination</span></li><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>A full car start to finish, on the clock</span></li><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Aftercare and what to tell your customer</span></li><li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Pricing tint jobs and getting your first customers</span></li></ul>
+        <p class="cday-out"><b>You'll leave Day 2</b> able to tint a full car and charge for it.</p>
+      </article>
+      </div>
+      <div class="cur-foot">
+        <p>Also included: loaner pro tools in class, a free starter kit, a VWT certificate, lifetime support and the online course and community.</p>
+        <a href="#pricing" class="btn">Book the Tint Course</a>
+      </div>
     </div>
 
     <div class="panel" id="p-ppf" role="tabpanel" aria-labelledby="t-ppf" hidden>
@@ -672,9 +699,9 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     </div>
 
     <div class="panel" id="p-bundle" role="tabpanel" aria-labelledby="t-bundle" hidden>
-      <p style="color:var(--muted);margin-bottom:14px">The Film Pro Bundle is the full Tint Bootcamp (2 days) plus the full Clear &amp; Color PPF Course (3 days): 5 days total.</p>
-      <details class="day" open><summary><span class="dn">Days 1–2</span><span class="dt">Window Tint Bootcamp</span><span class="chev">▾</span></summary>
-        <ul><li>✅ Film types, CA tint law, glass prep, cutting patterns, side windows</li><li>✅ Back glass shrinking, a full car on the clock, pricing and first customers</li></ul></details>
+      <p style="color:var(--muted);margin-bottom:14px">The Film Pro Bundle is the full Window Tint Course (2 days) plus the full Clear &amp; Color PPF Course (3 days): 5 days total.</p>
+      <details class="day" open><summary><span class="dn">Days 1–2</span><span class="dt">Window Tint Course</span><span class="chev">▾</span></summary>
+        <ul><li>✅ Day 1: film types, CA tint law, glass prep, hand cutting and computer cutting, side windows and roll-downs</li><li>✅ Day 2: heat shrinking, back glass, troubleshooting, a full car on the clock, pricing and first customers</li><li>✅ <a class="textlink" href="#learn" data-tab="tint">See the full tint curriculum</a></li></ul></details>
       <details class="day"><summary><span class="dn">Days 3–5</span><span class="dt">Clear &amp; Color PPF Course</span><span class="chev">▾</span></summary>
         <ul><li>✅ Day 1: clear vs. color film, film types, paint prep, slip vs. tack, flat-panel squeegee work</li><li>✅ Day 2: reading vehicle geometry, install game plans, stretching and shrinking, troubleshooting</li><li>✅ Day 3: corners, edges, relief cuts, hidden seams, post-heating and a full panel on your own</li><li>✅ <a class="textlink" href="#learn" data-tab="ppf">See the full PPF curriculum</a></li></ul></details>
     </div>
@@ -763,7 +790,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     <h2>One job can cover a <span class="o">big part of the class</span></h2>
     <p class="lead">Tint and PPF are services customers pay real money for. Here's how the math <i>could</i> work, using example prices. You set your own rates for your market.</p>
     <div class="math">
-      <div><div class="big">$497</div><p>Black Friday Tint Bootcamp</p></div>
+      <div><div class="big">$497</div><p>Black Friday Tint Course</p></div>
       <div><div class="big">1–2</div><p>Full-car tint jobs at local market rates could cover much of it</p></div>
       <div><div class="big">1</div><p>PPF job, like a full front end once you've practiced, often runs into four figures and could cover a big part of the PPF class</p></div>
     </div>
@@ -822,7 +849,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       </div>
       <div>
         <b>Courses</b>
-        <a href="#pricing">Tint Bootcamp</a><a href="#pricing">PPF Course</a><a href="#pricing">Film Pro Bundle</a>
+        <a href="#pricing">Tint Course</a><a href="#pricing">PPF Course</a><a href="#pricing">Film Pro Bundle</a>
       </div>
       <div>
         <b>Legal</b>
@@ -886,7 +913,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   /* ---------- Pricing cards ---------- */
   var order = ["tint","bundle","ppf"];
   var bullets = {
-    tint:   ["2 days, about 6–7 hrs/day","Film types, CA tint law, glass prep","Side windows + back glass shrinking","A full car on the clock","Pricing + first customers"],
+    tint:   ["2 days, about 6–7 hrs/day","Hand cutting + computer cutting","Dyed, carbon and ceramic film + CA tint law","Back glass heat shrinking","A full car on the clock + pricing"],
     bundle: ["Everything in Tint + PPF: 5 days","A full car tint + a full PPF panel on your own","Biggest savings of the three","Offer both services from day one","Pricing + business setup help"],
     ppf:    ["3 days, about 6–7 hrs/day","Clear and color PPF: gloss, matte, satin","Paint prep, slip vs. tack, flat panels","Curves, corners, edges and post-heating","A full panel install on your own"]
   };
@@ -904,7 +931,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
         '<span class="save">' + p.save + '</span>' +
         '<ul>' + bullets[key].concat(shared).map(function(b){ return "<li>" + check + "<span>" + b + "</span></li>" }).join("") + '</ul>' +
         '<div class="foot">' +
-          (key !== "tint" ? '<a class="textlink" href="#learn" data-tab="ppf">See the full PPF curriculum</a>' : '<a class="textlink" href="#learn" data-tab="tint">See the day-by-day schedule</a>') +
+          (key !== "tint" ? '<a class="textlink" href="#learn" data-tab="ppf">See the full PPF curriculum</a>' : '<a class="textlink" href="#learn" data-tab="tint">See the full tint curriculum</a>') +
           '<div class="seats-note">' + seatsFor(key) + '</div>' +
           '<a class="btn block' + (best ? " pulse" : "") + '" href="#" data-checkout="' + key + '" data-course="' + key + '">' + (best ? "Get the Bundle" : "Claim My Seat") + '</a>' +
           '<a class="textlink" href="#" data-checkout="deposit" data-course="' + key + '">Hold my seat with $200</a>' +
@@ -1051,7 +1078,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     $("#cdMini").style.display = "none";
     $("#cdLabel").textContent = "Black Friday pricing has ended";
     $$("[data-countdown]").forEach(function(el){ el.style.display = "none" });
-    $("#heroOffer").innerHTML = '<span class="from">Tint Bootcamp <b>' + priceFor("tint").now + '</b> · Only 4 students per class</span>';
+    $("#heroOffer").innerHTML = '<span class="from">Tint Course <b>' + priceFor("tint").now + '</b> · Only 4 students per class</span>';
     $(".giant").style.display = "none";
     $(".bf-tag").innerHTML = "<i></i>Now enrolling · San Leandro, CA";
     $("#priceEyebrow").textContent = "Course pricing";
