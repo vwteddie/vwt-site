@@ -232,6 +232,45 @@ section{padding:72px 0}
 .x{color:var(--red);font-weight:800;flex:none;width:22px;text-align:center}
 .ck{color:var(--green);flex:none;width:22px;height:22px}
 
+/* Compare table */
+.cmp-table-wrap{margin-top:36px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--card)}
+.cmp-table{width:100%;border-collapse:collapse;font-size:16px}
+.cmp-table th,.cmp-table td{padding:16px 20px;text-align:left;vertical-align:top;border-top:1px solid var(--line)}
+.cmp-table thead th{border-top:0;font:800 13px/1.2 Inter,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);padding-top:20px;padding-bottom:16px}
+.cmp-table thead th.us{background:rgba(255,106,0,.14)}
+.cmp-table thead img{height:26px;width:auto;display:block}
+.cmp-table tbody th{font-weight:800;color:#fff;width:20%}
+.cmp-table td{width:40%}
+.cmp-table td span:not(.x){display:inline}
+.cmp-table td.them{color:var(--muted)}
+.cmp-table td.us{color:#fff;font-weight:600;background:rgba(255,106,0,.07);border-left:2px solid var(--orange)}
+.cmp-table thead th.us{border-left:2px solid var(--orange)}
+.cmp-table td{position:relative;padding-left:48px}
+.cmp-table td .x,.cmp-table td .ck{position:absolute;left:18px;top:17px;width:20px;text-align:center}
+.cmp-table td .ck{height:20px}
+.why-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:16px;margin-top:20px;align-items:start}
+.why-flaw,.why-us{border-radius:20px;padding:26px;border:1px solid var(--line);background:var(--card)}
+.why-flaw{background:linear-gradient(180deg,rgba(239,68,68,.1),var(--card) 70%);border-color:rgba(239,68,68,.35)}
+.why-flaw .eyebrow{color:#fca5a5}
+.why-flaw p{color:#e4e4ea;font-size:17px}
+.why-us ul{list-style:none;display:grid;gap:14px}
+.why-us li{display:flex;gap:12px;color:var(--muted)}
+.why-us li b{color:#fff}
+.why-cta{font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-size:clamp(24px,3.4vw,34px);line-height:1.1;text-align:center}
+@media (max-width:760px){
+  .why-grid{grid-template-columns:1fr}
+  .cmp-table-wrap{border:0;background:transparent;border-radius:0;overflow:visible}
+  .cmp-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .cmp-table,.cmp-table tbody,.cmp-table tr,.cmp-table th,.cmp-table td,.cmp-table tbody th{display:block;width:auto}
+  .cmp-table tr{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:10px;overflow:hidden}
+  .cmp-table tbody th{border-top:0;padding:14px 16px 6px;font:800 12px/1.2 Inter,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange)}
+  .cmp-table td{border-top:0;padding:8px 16px 8px 46px;font-size:15px}
+  .cmp-table td::before{content:attr(data-label);display:block;font:800 11px/1.3 Inter,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
+  .cmp-table td .x,.cmp-table td .ck{left:16px;top:24px}
+  .cmp-table td.us{border-left:0;border-top:1px solid var(--line);padding-bottom:14px;background:rgba(255,106,0,.08)}
+  .cmp-table td.us::before{color:var(--orange2)}
+}
+
 /* Pricing */
 #pricing{background:radial-gradient(70% 40% at 50% 0%,rgba(255,106,0,.14),transparent 70%),var(--bg)}
 .buddy{display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;margin:26px auto 0;max-width:720px;background:#1b1b1f;border:1px dashed var(--orange);border-radius:14px;padding:14px 18px;font-weight:600;text-align:center}
@@ -556,31 +595,50 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
 
 <!-- 4. WHY VWT -->
 <section id="why">
-  <div class="wrap center">
-    <span class="eyebrow">Why VWT is different</span>
-    <h2>Most classes let you watch.<br><span class="o">Ours puts film in your hands.</span></h2>
-    <p class="lead">Here's how a typical tint or PPF class compares to training at VWT.</p>
-    <div class="compare" style="text-align:left">
-      <div class="cmp them">
-        <h3>Typical class</h3>
-        <ul>
-          <li><span class="x">✕</span>6–8+ students fighting for one car</li>
-          <li><span class="x">✕</span>$1,400–$1,900 for a short course</li>
-          <li><span class="x">✕</span>Mostly demos. You watch from the back</li>
-          <li><span class="x">✕</span>Support ends when class ends</li>
-        </ul>
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Why VWT is different</span>
+      <h2>Not all training is <span class="o">hands-on training</span></h2>
+      <p class="lead">Most students don't find out until they're in the room. Many film courses fit 6–8 students with just 1–2 instructors. That leaves you standing in a circle, watching someone else install, and waiting your turn for a few minutes on the car. You paid to learn by doing, not by watching.</p>
+    </div>
+
+    <div class="cmp-table-wrap">
+      <table class="cmp-table">
+        <caption class="sr">How VWT compares to many other film courses</caption>
+        <thead><tr><th scope="col"><span class="sr">Topic</span></th><th scope="col" class="them">Many other courses</th><th scope="col" class="us"><img src="public/images/brand/vwt-logo-400.webp" alt="VWT" width="118" height="26"></th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Class size</th><td class="them" data-label="Many other courses"><span class="x" aria-hidden="true">✕</span><span>6–8 students</span></td><td class="us" data-label="VWT"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>4 students max</span></td></tr>
+          <tr><th scope="row">Students per car</th><td class="them" data-label="Many other courses"><span class="x" aria-hidden="true">✕</span><span>Crowded around one vehicle</span></td><td class="us" data-label="VWT"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>2 students per vehicle</span></td></tr>
+          <tr><th scope="row">Install time</th><td class="them" data-label="Many other courses"><span class="x" aria-hidden="true">✕</span><span>Mostly watching demos</span></td><td class="us" data-label="VWT"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Your hands on the car all day</span></td></tr>
+          <tr><th scope="row">One-on-one help</th><td class="them" data-label="Many other courses"><span class="x" aria-hidden="true">✕</span><span>Hard to get with 2 instructors for a crowd</span></td><td class="us" data-label="VWT"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Every student, every day</span></td></tr>
+          <tr><th scope="row">Who teaches</th><td class="them" data-label="Many other courses"><span class="x" aria-hidden="true">✕</span><span>Often a shop hosting a class when a film maker asks</span></td><td class="us" data-label="VWT"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>A dedicated trainer teaching new classes every month, year-round</span></td></tr>
+          <tr><th scope="row">Teaching style</th><td class="them" data-label="Many other courses"><span class="x" aria-hidden="true">✕</span><span>Pro terms and steps you're expected to keep up with</span></td><td class="us" data-label="VWT"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Simple techniques and plain terms built for every learning style</span></td></tr>
+          <tr><th scope="row">After class</th><td class="them" data-label="Many other courses"><span class="x" aria-hidden="true">✕</span><span>Support usually ends</span></td><td class="us" data-label="VWT"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Lifetime support and community</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-flaw">
+        <span class="eyebrow">The flaw most students don't see coming</span>
+        <p>Many classes are hosted by working shops that train only when a film manufacturer needs a location. They may be great installers, but installing and teaching are different skills. With a big group and a short schedule, the class turns into a demo.</p>
       </div>
-      <div class="cmp us">
-        <h3 class="o">VWT</h3>
+      <div class="why-us">
+        <span class="eyebrow">Why VWT is different</span>
         <ul>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg>4 students max, one-on-one style</li>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg>Black Friday: tint from $497, PPF from $997</li>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg>Mostly hands-on, on real vehicles</li>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg>Lifetime support hotline and community</li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>4 students, 2 per car.</b> Small enough that you get real time on the film and real coaching from the instructor.</span></li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>A trainer, not just an installer.</b> Eddie teaches new classes every month, all year. Teaching is the job, not a side gig.</span></li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>Techniques made simple.</b> Years of teaching every kind of student have turned complex steps into simple methods and plain terms that click fast.</span></li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>“Aha!” moments all course long.</b> Eddie's strength is breaking a hard step into pieces you understand, then watching you do it right.</span></li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>You'll feel the passion on Day 1.</b> Students notice it right away, and our Google reviews say the same thing: hands-on, patient and detailed.</span></li>
         </ul>
       </div>
     </div>
-    <div class="cta-row"><a href="#pricing" class="btn">See Black Friday Prices</a></div>
+
+    <div class="cta-row">
+      <p class="why-cta">Stop watching. Start installing. <span class="o">Only 4 seats per class.</span></p>
+      <a href="#pricing" class="btn">Claim My Seat</a>
+    </div>
   </div>
 </section>
 
