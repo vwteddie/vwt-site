@@ -9,6 +9,7 @@ Static, mobile-first landing page (14306 Wicks Blvd, San Leandro, CA 94577 · 51
 | `privacy.html` | Privacy policy (needed for Meta ads). It's a template, so have it reviewed |
 | `terms.html` | Terms and refund policy. **Your refund policy still has to be written in** |
 | `public/images/class/` | Web-ready class photos (`-640.webp` for phones, `-1280.webp` for desktop). These are what the page loads |
+| `public/images/brand/` | VWT logo (header, footer, all pages), browser tab icon, phone home-screen icon and the link-preview image `og-image.jpg` |
 | `public/images/originals/` | Your full-size uploads (GPS location removed). The page doesn't load these |
 
 ## Fill these in before running ads
@@ -51,3 +52,7 @@ Cowlendar runs inside Shopify, and I couldn't find a documented way to embed its
 1. In Shopify, set up each course product with Cowlendar (app embed turned on in your theme).
 2. Paste those product URLs into `links.tint`, `links.ppf` and `links.bundle`, or into a class's `url:`.
 3. Each time a seat sells, update `seatsLeft` (Cowlendar doesn't update this page automatically).
+
+## After the page is hosted
+
+Facebook and text-message link previews need full web addresses. Once you know the live URL, change the `og:image` line near the top of `index.html` to the full address, e.g. `https://vehiclewraptraining.com/public/images/brand/og-image.jpg`. The business info block (schema) under it assumes the site lives at vehiclewraptraining.com. Update those URLs if it's hosted somewhere else.

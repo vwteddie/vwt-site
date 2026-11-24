@@ -9,6 +9,17 @@
 <meta property="og:description" content="Only 4 students per class. Hands-on training in San Leandro, CA. Up to 45% off through Cyber Monday.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#111113">
+<!-- Social share image. Facebook needs a full URL: after the page is hosted, change this to e.g.
+     https://vehiclewraptraining.com/public/images/brand/og-image.jpg -->
+<meta property="og:image" content="public/images/brand/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Vehicle Wrap Training">
+<link rel="icon" type="image/png" sizes="32x32" href="public/images/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="public/images/brand/apple-touch-icon.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Vehicle Wrap Training LLC","alternateName":"VWT","url":"https://vehiclewraptraining.com","logo":"https://vehiclewraptraining.com/public/images/brand/vwt-logo-800.png","telephone":"+1-510-935-6111","email":"vehiclewraptrainingllc@gmail.com","address":{"@type":"PostalAddress","streetAddress":"14306 Wicks Blvd","addressLocality":"San Leandro","addressRegion":"CA","postalCode":"94577","addressCountry":"US"},"founder":{"@type":"Person","name":"Eddie Hurtado"}}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -128,8 +139,21 @@ section{padding:72px 0}
 .topbar .wrap{display:flex;align-items:center;justify-content:center;gap:12px;min-height:44px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px;text-align:center}
 .topbar .mini{font-variant-numeric:tabular-nums;background:#111;color:#fff;padding:5px 10px;border-radius:8px;white-space:nowrap}
 
+/* Brand header */
+.site-head{background:#0b0b0d;border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;gap:24px;min-height:72px}
+.brand{display:flex;align-items:center;flex:none;text-decoration:none}
+.brand img{height:40px;width:auto}
+.site-nav{display:flex;gap:22px;margin-left:auto}
+.site-nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:15px;padding:8px 0}
+.site-nav a:hover{color:#fff}
+.head-call{display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-weight:800;font-size:15px;white-space:nowrap}
+.head-call svg{width:18px;height:18px;color:var(--orange)}
+.site-head .btn{min-height:44px;padding:10px 18px;font-size:14px;box-shadow:none}
+.foot-logo{height:44px;width:auto;margin-bottom:14px}
+
 /* Hero */
-.hero{position:relative;min-height:min(calc(100svh - 44px),860px);display:flex;align-items:center;overflow:hidden;padding:40px 0 56px;isolation:isolate}
+.hero{position:relative;min-height:min(calc(100svh - 116px),820px);display:flex;align-items:center;overflow:hidden;padding:40px 0 56px;isolation:isolate}
 .hero-bg{position:absolute;inset:0;z-index:-2;background:
   radial-gradient(60% 50% at 80% 10%,rgba(255,106,0,.35),transparent 70%),
   radial-gradient(50% 50% at 0% 100%,rgba(255,106,0,.18),transparent 70%),
@@ -360,6 +384,8 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
 .textfab svg{width:22px;height:22px;color:var(--green)}
 
 @media (max-width:900px){
+  .site-nav{display:none}
+  .head-call{margin-left:auto}
   .cal-wrap{grid-template-columns:1fr}
   .prices{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto}
   .pcard.best{transform:none;order:-1}
@@ -390,6 +416,10 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   .hero-cta .btn{width:100%}
   .giant{top:16%;right:-10vw;opacity:.8}
   .sticky{display:flex}
+  .site-nav,.site-head .btn{display:none}
+  .site-head .wrap{min-height:56px;justify-content:space-between;gap:12px}
+  .brand img{height:30px}
+  .head-call{font-size:14px;border:1px solid var(--line);border-radius:999px;padding:9px 14px}
   .textfab{bottom:calc(84px + env(safe-area-inset-bottom));padding:12px 14px}
   .textfab span{display:none}
   .gallery{margin:30px -16px 0;padding:6px 16px 16px}
@@ -407,8 +437,20 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   </div>
 </div>
 
+<!-- BRAND HEADER -->
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Vehicle Wrap Training home"><img src="public/images/brand/vwt-logo-400.webp" srcset="public/images/brand/vwt-logo-400.webp 1x, public/images/brand/vwt-logo-800.webp 2x" width="182" height="40" alt="Vehicle Wrap Training"></a>
+    <nav class="site-nav" aria-label="Page sections">
+      <a href="#pricing">Courses</a><a href="#calendar">Class Calendar</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="head-call" href="tel:+15109356111" data-lead><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.2 15.2 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.6a1 1 0 01-.25 1z"/></svg><span>510-935-6111</span></a>
+    <a class="btn" href="#pricing">Claim My Seat</a>
+  </div>
+</header>
+
 <!-- 2. HERO -->
-<header class="hero">
+<section class="hero" id="top">
   <div class="hero-bg" id="heroBg">
     <img src="public/images/class/students-heat-forming-purple-film-1280.webp"
          srcset="public/images/class/students-heat-forming-purple-film-640.webp 640w, public/images/class/students-heat-forming-purple-film-1280.webp 1280w, public/images/class/students-heat-forming-purple-film-1920.webp 1920w"
@@ -444,7 +486,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       </div>
     </div>
   </div>
-</header>
+</section>
 
 <div class="marquee" aria-hidden="true">
   <div class="track" id="mq"></div>
@@ -718,6 +760,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   <div class="wrap">
     <div class="cols">
       <div>
+        <img class="foot-logo" loading="lazy" src="public/images/brand/vwt-logo-400.webp" srcset="public/images/brand/vwt-logo-400.webp 1x, public/images/brand/vwt-logo-800.webp 2x" width="200" height="44" alt="Vehicle Wrap Training">
         <b>Vehicle Wrap Training LLC</b>
         14306 Wicks Blvd, San Leandro, CA 94577<br>
         <a href="tel:+15109356111" data-lead>510-935-6111</a>
