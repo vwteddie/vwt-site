@@ -331,6 +331,37 @@ section{padding:72px 0}
 .pill.ok{background:rgba(34,197,94,.14);color:var(--green)}
 .pill.full{background:#2a2a2f;color:var(--dim)}
 
+/* Location */
+.loc{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-top:32px;align-items:stretch}
+.loc-map{position:relative;min-height:380px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#17171b}
+.loc-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.9) hue-rotate(180deg) saturate(.6) contrast(.95)}
+.map-fallback{position:absolute;inset:0;background:
+  linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px) 0 0/40px 40px,
+  linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px) 0 0/40px 40px,#17171b}
+.mf-road{position:absolute;background:#2c2c33;border-radius:6px}
+.mf-road.r1{left:-10%;right:-10%;top:52%;height:14px;transform:rotate(-14deg)}
+.mf-road.r2{top:-10%;bottom:-10%;left:30%;width:10px;transform:rotate(8deg)}
+.mf-road.r3{top:-10%;bottom:-10%;left:72%;width:8px;transform:rotate(-6deg)}
+.mf-road.r4{left:-10%;right:-10%;top:22%;height:8px;transform:rotate(4deg)}
+.mf-label{position:absolute;left:8%;top:calc(52% + 18px);transform:rotate(-14deg);font:800 12px/1 Inter,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
+.mf-pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;color:var(--orange);filter:drop-shadow(0 6px 14px rgba(255,106,0,.5))}
+.mf-pin svg{width:56px;height:56px}
+.mf-pin span{margin-top:-4px;background:var(--orange);color:#111;font:800 12px/1 Inter,sans-serif;letter-spacing:1px;padding:5px 8px;border-radius:6px}
+.loc-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:14px}
+.loc-pin{width:48px;height:48px;border-radius:14px;background:rgba(255,106,0,.14);color:var(--orange);display:grid;place-items:center}
+.loc-pin svg{width:26px;height:26px}
+.loc-card h3{font-size:26px}
+.loc-card address{font-style:normal;font-size:22px;font-weight:800;line-height:1.3;color:#fff}
+.loc-btns{display:flex;flex-wrap:wrap;gap:10px}
+.loc-btns .btn{min-height:50px;padding:12px 18px;font-size:14px;flex:1 1 180px}
+.loc-facts{list-style:none;display:grid;gap:10px;border-top:1px solid var(--line);padding-top:14px}
+.loc-facts li{display:grid;grid-template-columns:120px 1fr;gap:10px;font-size:15px}
+.loc-facts b{color:#fff}
+.loc-facts span{color:var(--muted)}
+.loc-note{font-size:13px;color:var(--dim)}
+@media (max-width:900px){.loc{grid-template-columns:1fr}.loc-map{min-height:280px}}
+@media (max-width:640px){.loc-facts li{grid-template-columns:1fr;gap:2px}}
+
 /* Included */
 .incl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
 .incl div{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
@@ -531,7 +562,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Vehicle Wrap Training home"><img src="public/images/brand/vwt-logo-400.webp" srcset="public/images/brand/vwt-logo-400.webp 1x, public/images/brand/vwt-logo-800.webp 2x" width="182" height="40" alt="Vehicle Wrap Training"><span class="brand-name">Vehicle Wrap Training</span></a>
     <nav class="site-nav" aria-label="Page sections">
-      <a href="#pricing">Courses</a><a href="#calendar">Class Calendar</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
+      <a href="#pricing">Courses</a><a href="#calendar">Class Calendar</a><a href="#location">Location</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
     </nav>
     <a class="head-call" href="tel:+15109356111" data-lead><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.2 15.2 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.6a1 1 0 01-.25 1z"/></svg><span>510-935-6111</span></a>
     <a class="btn" href="#pricing">Claim My Seat</a>
@@ -677,6 +708,41 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       </div>
       <div>
         <div class="cal-list" id="calList" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Where class is held</span>
+      <h2>Train at our shop in <span class="o">San Leandro</span></h2>
+      <p class="lead">Every class is in person at the VWT training shop in San Leandro, CA, in the East Bay.</p>
+    </div>
+    <div class="loc">
+      <div class="loc-map" id="locMap">
+        <div class="map-fallback" aria-hidden="true">
+          <div class="mf-road r1"></div><div class="mf-road r2"></div><div class="mf-road r3"></div><div class="mf-road r4"></div>
+          <div class="mf-label">Wicks Blvd</div>
+          <div class="mf-pin"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5z"/></svg><span>VWT</span></div>
+        </div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-pin"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5z"/></svg></div>
+        <h3>Vehicle Wrap Training</h3>
+        <address>14306 Wicks Blvd<br>San Leandro, CA 94577</address>
+        <div class="loc-btns">
+          <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=14306+Wicks+Blvd,+San+Leandro,+CA+94577" target="_blank" rel="noopener">Get Directions</a>
+          <a class="btn ghost" href="https://maps.apple.com/?daddr=14306+Wicks+Blvd,+San+Leandro,+CA+94577" target="_blank" rel="noopener">Apple Maps</a>
+        </div>
+        <ul class="loc-facts">
+          <li><b>Classes</b><span>In person, about 6–7 hours a day</span></li>
+          <li><b>Questions</b><span>Text or call Eddie: <a class="textlink" href="sms:+15109356111" data-lead>510-935-6111</a></span></li>
+          <li><b>From out of town?</b><span>Hotels are close by in San Leandro and near Oakland Airport. <a class="textlink" href="#faq">See the FAQ</a></span></li>
+        </ul>
+        <p class="loc-note">Note: some Google listings still show our old Dublin address. Class is held at the San Leandro address above.</p>
       </div>
     </div>
   </div>
@@ -908,7 +974,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       <details><summary>Do I need tools?</summary><div class="a">No. Pro tools are provided during class, and you get a free starter kit when you enroll.</div></details>
       <details><summary>What happens after class?</summary><div class="a">You get a VWT certificate of completion, plus lifetime support through the VWT support hotline and lifetime access to the online course and community.</div></details>
       <details><summary>Can I pay over time?</summary><div class="a">It depends on the course. The Tint Course is paid in full at checkout. The PPF Course and the Film Pro Bundle can each be reserved with a $500 deposit, with the balance due before class. For those two you can also choose an installment plan at checkout or <a href="https://coachingloan.com/vehicle-wrap-training-llc/" target="_blank" rel="noopener" data-checkout="financing">apply for financing</a>.</div></details>
-      <details><summary>Where is it?</summary><div class="a">14306 Wicks Blvd, San Leandro, CA 94577. <a href="https://maps.google.com/?q=14306+Wicks+Blvd+San+Leandro+CA+94577" target="_blank" rel="noopener">Get directions</a></div></details>
+      <details open><summary>Where is the class located?</summary><div class="a">All classes are held in person at our training shop: <b style="color:#fff">14306 Wicks Blvd, San Leandro, CA 94577</b>. <a href="https://www.google.com/maps/dir/?api=1&amp;destination=14306+Wicks+Blvd,+San+Leandro,+CA+94577" target="_blank" rel="noopener">Get directions in Google Maps</a> or <a href="#location">see the map</a>. Some Google listings still show our old Dublin address, so use this San Leandro address.</div></details>
       <details><summary>Where do I stay if I'm from out of town?</summary><div class="a">There are plenty of hotels nearby in San Leandro and around Oakland International Airport. Text Eddie and he'll point you to good options. <span class="todo-inline">[OPTIONAL: list your recommended San Leandro hotels]</span></div></details>
       <details><summary>Is lunch included?</summary><div class="a"><span class="todo-inline">[YES/NO: fill in]</span></div></details>
       <details><summary>What is the refund or reschedule policy?</summary><div class="a"><span class="todo-inline">[POLICY: fill in]</span> See our <a href="terms.html#refunds">terms and refund policy</a>.</div></details>
@@ -1263,6 +1329,24 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
         '<div class="who"><b>' + esc(r.name) + '</b><span>' + r.src + ' review</span></div></div>';
     }).join("");
   }
+
+  /* ---------- Location map (Google embed, loaded when the section is near) ---------- */
+  (function(){
+    var box = $("#locMap"); if (!box) return;
+    var framed = false; try { framed = window.self !== window.top } catch(e){ framed = true }
+    if (framed) return;  // previews block embedded maps; the drawn map stays
+    var load = function(){
+      var f = document.createElement("iframe");
+      f.src = "https://www.google.com/maps?q=14306+Wicks+Blvd,+San+Leandro,+CA+94577&output=embed";
+      f.title = "Map to Vehicle Wrap Training, 14306 Wicks Blvd, San Leandro, CA 94577";
+      f.loading = "lazy"; f.referrerPolicy = "no-referrer-when-downgrade";
+      box.appendChild(f);
+    };
+    if ("IntersectionObserver" in window){
+      var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting){ io.disconnect(); load() } }, { rootMargin: "400px" });
+      io.observe(box);
+    } else load();
+  })();
 
   /* ---------- Tabs ---------- */
   function showTab(t){ $$(".tab").forEach(function(o){ o.setAttribute("aria-selected", o === t); $("#" + o.getAttribute("aria-controls")).hidden = o !== t; }); }
