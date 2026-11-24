@@ -55,14 +55,34 @@ window.VWT = {
     // [LIST DATES, with seats left per class]
   ],
 
-  // Gallery: put files in /assets/gallery/ and list them here. type: "img" or "video".
-  // Example: { type: "img", src: "assets/gallery/class-1.webp", alt: "Student tinting a back window" },
-  gallery: [],
+  // PHOTOS live in public/images/class/. Each photo has a -640.webp (phones) and -1280.webp (desktop) size.
+  // List the name without the size, e.g. "public/images/class/my-photo". For a video use { type: "video", src: "...mp4" }.
+  gallery: [
+    { src: "public/images/class/students-heat-forming-purple-film",       alt: "Two students heat-forming purple film on a hood" },
+    { src: "public/images/class/students-installing-clear-film-nissan",   alt: "Students installing clear film on a white Nissan" },
+    { src: "public/images/class/students-laying-orange-film-maserati",    alt: "Students laying orange film over a Maserati hood" },
+    { src: "public/images/class/student-wrapping-tesla-fender-blue",      alt: "Student wrapping a Tesla front fender" },
+    { src: "public/images/class/student-wrapping-model-x-fender-purple",  alt: "Student wrapping a Tesla Model X fender in purple film" },
+    { src: "public/images/class/student-installing-red-film-mercedes",    alt: "Student installing red film on a Mercedes hood" },
+    { src: "public/images/class/student-stretching-purple-film-tesla",    alt: "Student stretching purple film over a fender" },
+    { src: "public/images/class/students-heating-purple-film-hood",       alt: "Students heating purple film on a hood" },
+    { src: "public/images/class/student-prepping-mercedes-hood",          alt: "Student prepping film on a Mercedes hood" },
+    { src: "public/images/class/student-working-film-dark-blue-hood",     alt: "Student working film on a dark blue hood" },
+    { src: "public/images/class/tesla-hood-layout-lines",                 alt: "Tesla hood marked with layout lines during class" }
+  ],
 
-  // Hero video: a short (under 3 MB) muted MP4 loop of class. Leave "" to use the animated background.
-  heroVideo: "",      // [HERO VIDEO] e.g. "assets/hero.mp4"
-  heroPoster: "",     // optional still image shown while the video loads, e.g. "assets/hero.webp"
-  eddiePhoto: ""      // e.g. "assets/eddie.webp"
+  // Graduates holding their VWT certificates (shown in the reviews section).
+  graduates: [
+    { src: "public/images/class/graduates-certificates-purple-tesla",  alt: "Two VWT graduates holding certificates in front of a purple Tesla" },
+    { src: "public/images/class/graduates-certificates-red-sedan",     alt: "Two VWT graduates holding certificates beside a red sedan" },
+    { src: "public/images/class/graduate-certificates-lavender-tesla", alt: "VWT graduates holding certificates in front of a lavender Tesla" },
+    { src: "public/images/class/graduates-certificates-model-x",       alt: "VWT graduates holding certificates in front of a Tesla Model X" }
+  ],
+
+  // Hero video: a short (under 3 MB) muted MP4 loop of class. It plays over the hero photo once loaded.
+  heroVideo: "",      // [HERO VIDEO] e.g. "public/video/hero.mp4"
+  eddiePhoto: "",     // [EDDIE PHOTO] e.g. "public/images/eddie.webp"
+  eddieWork: []       // optional shop-work photos, same format as gallery. Hidden while empty.
 };
 </script>
 
@@ -114,8 +134,12 @@ section{padding:72px 0}
   radial-gradient(60% 50% at 80% 10%,rgba(255,106,0,.35),transparent 70%),
   radial-gradient(50% 50% at 0% 100%,rgba(255,106,0,.18),transparent 70%),
   linear-gradient(180deg,#0b0b0d,#111113)}
-.hero-bg video{width:100%;height:100%;object-fit:cover;opacity:.38}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.55),rgba(17,17,19,.95))}
+.hero-bg img,.hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 50% at 80% 10%,rgba(255,106,0,.28),transparent 70%),
+  linear-gradient(90deg,rgba(11,11,13,.92) 0%,rgba(11,11,13,.7) 55%,rgba(11,11,13,.35) 100%),
+  linear-gradient(180deg,rgba(11,11,13,.2),rgba(17,17,19,.95) 92%)}
+@media (max-width:640px){.hero-bg::after{background:radial-gradient(60% 50% at 80% 10%,rgba(255,106,0,.28),transparent 70%),linear-gradient(180deg,rgba(11,11,13,.55),rgba(11,11,13,.8) 40%,rgba(17,17,19,.97))}}
 .sweep{position:absolute;inset:-50%;z-index:-1;background:conic-gradient(from 0deg,transparent 0 80%,rgba(255,106,0,.12) 88%,transparent 96%);animation:spin 14s linear infinite;pointer-events:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 .giant{position:absolute;right:-2vw;top:50%;transform:translateY(-50%);z-index:-1;font-family:Anton,Impact,sans-serif;font-size:clamp(180px,34vw,460px);line-height:.8;
@@ -270,6 +294,12 @@ section{padding:72px 0}
 .rating-big .num{font-family:Anton,sans-serif;font-size:72px;line-height:1}
 .rating-big .stars{color:var(--gold);font-size:26px;letter-spacing:3px}
 
+.grads{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
+.grads figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--card);aspect-ratio:4/3}
+.grads img{width:100%;height:100%;object-fit:cover}
+.grads-cap{grid-column:1/-1;font-size:14px;color:var(--muted);text-align:center}
+@media (max-width:640px){.grads{grid-template-columns:1fr 1fr;gap:8px}}
+
 /* Fit */
 .fit{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-top:32px}
 .fit .cmp ul{gap:14px}
@@ -379,7 +409,11 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
 
 <!-- 2. HERO -->
 <header class="hero">
-  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-bg" id="heroBg">
+    <img src="public/images/class/students-heat-forming-purple-film-1280.webp"
+         srcset="public/images/class/students-heat-forming-purple-film-640.webp 640w, public/images/class/students-heat-forming-purple-film-1280.webp 1280w, public/images/class/students-heat-forming-purple-film-1920.webp 1920w"
+         sizes="100vw" alt="" fetchpriority="high" decoding="async">
+  </div>
   <div class="sweep" aria-hidden="true"></div>
   <div class="giant" aria-hidden="true">45%</div>
   <div class="wrap">
@@ -569,6 +603,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     <span class="eyebrow">Reviews</span>
     <h2>What students say</h2>
     <div class="rating-big"><span class="num">4.8</span><div style="text-align:left"><div class="stars">★★★★★</div><div style="color:var(--muted)">41 Google reviews · 39 are 5-star</div></div></div>
+    <div class="grads" id="gradsEl"></div>
     <div class="reviews" id="reviewsEl" style="text-align:left"></div>
     <div class="cta-row">
       <a class="btn ghost" href="https://www.google.com/maps/place/Vehicle+Wrap+Training+LLC/@37.7081689,-121.9129174,17z/data=!4m6!3m5!1s0x808f95d36ed6edbd:0x478d7a3640602878" target="_blank" rel="noopener">Read all 41 reviews on Google</a>
@@ -610,7 +645,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   <div class="wrap">
     <div class="inst">
       <div class="photo" id="eddiePhoto">
-        <div class="ph" style="height:100%"><b>[EDDIE PHOTO]</b>Add assets/eddie.webp</div>
+        <div class="ph" style="height:100%"><b>[EDDIE PHOTO]</b>Add public/images/eddie.webp</div>
         <div class="badge14">16+<small>Years installing</small></div>
       </div>
       <div>
@@ -939,30 +974,33 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     var save = navigator.connection && navigator.connection.saveData; if (save) return;
     var v = document.createElement("video");
     v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true; v.setAttribute("playsinline",""); v.preload = "auto";
-    if (C.heroPoster) v.poster = C.heroPoster;
     v.src = C.heroVideo; $("#heroBg").appendChild(v); v.play().catch(function(){});
   }
   addEventListener("load", function(){ setTimeout(loadHeroVideo, 300) });
 
   /* ---------- Gallery ---------- */
+  function pic(m, sizes){
+    if (m.type === "video") return '<video muted loop playsinline preload="none" data-lazy="' + m.src + '" aria-label="' + (m.alt||"") + '"></video>';
+    return '<img loading="lazy" decoding="async" src="' + m.src + '-640.webp" srcset="' + m.src + '-640.webp 640w, ' + m.src + '-1280.webp 1280w" sizes="' + sizes + '" alt="' + (m.alt||"") + '">';
+  }
   function renderGallery(){
     var g = $("#galleryEl");
     if (!C.gallery.length){
-      var labels = ["Student tinting side glass","Back glass shrink","PPF on a hood","Bumper wrap","Full front end","Class photo"];
-      g.innerHTML = labels.map(function(l){ return '<div class="ph"><b>[CLASS PHOTO/VIDEO]</b>' + l + '</div>' }).join("");
+      g.innerHTML = ["Student tinting side glass","PPF on a hood","Full front end"].map(function(l){ return '<div class="ph"><b>[CLASS PHOTO/VIDEO]</b>' + l + '</div>' }).join("");
     } else {
-      g.innerHTML = C.gallery.map(function(m){
-        return m.type === "video"
-          ? '<div><video muted loop playsinline preload="none" data-lazy="' + m.src + '" aria-label="' + (m.alt||"") + '"></video></div>'
-          : '<div><img loading="lazy" decoding="async" src="' + m.src + '" alt="' + (m.alt||"") + '"></div>';
-      }).join("");
+      g.innerHTML = C.gallery.map(function(m){ return '<div>' + pic(m, "(max-width:640px) 78vw, 340px") + '</div>' }).join("");
       if ("IntersectionObserver" in window){
         var vio = new IntersectionObserver(function(es){ es.forEach(function(e){ var v = e.target;
           if (e.isIntersecting){ if (!v.src) v.src = v.dataset.lazy; v.play().catch(function(){}) } else v.pause(); }) }, { threshold: .5 });
         $$("video[data-lazy]", g).forEach(function(v){ vio.observe(v) });
       }
     }
-    $("#eddieWork").innerHTML = [1,2,3].map(function(i){ return '<div class="ph" style="aspect-ratio:1"><b>[SHOP WORK ' + i + ']</b></div>' }).join("");
+    var gr = $("#gradsEl");
+    if (C.graduates.length) gr.innerHTML = C.graduates.map(function(m){ return '<figure>' + pic(m, "(max-width:640px) 50vw, 280px") + '</figure>' }).join("") + '<p class="grads-cap">Recent VWT graduates with their certificates</p>';
+    else gr.hidden = true;
+    var w = $("#eddieWork");
+    if (C.eddieWork.length) w.innerHTML = C.eddieWork.map(function(m){ return '<div style="aspect-ratio:1">' + pic(m, "220px") + '</div>' }).join("");
+    else w.hidden = true;
     if (C.eddiePhoto) $("#eddiePhoto .ph").outerHTML = '<img src="' + C.eddiePhoto + '" alt="Eddie Hurtado, VWT founder and instructor" loading="lazy">';
   }
 

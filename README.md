@@ -8,7 +8,8 @@ Static, mobile-first landing page (14306 Wicks Blvd, San Leandro, CA 94577 · 51
 | `thank-you.html` | Post-purchase page: confirmation, next steps, what to bring, calendar, map, bring-a-buddy |
 | `privacy.html` | Privacy policy (needed for Meta ads). It's a template, so have it reviewed |
 | `terms.html` | Terms and refund policy. **Your refund policy still has to be written in** |
-| `assets/` | Put your hero video, Eddie's photo and class photos here |
+| `public/images/class/` | Web-ready class photos (`-640.webp` for phones, `-1280.webp` for desktop). These are what the page loads |
+| `public/images/originals/` | Your full-size uploads (GPS location removed). The page doesn't load these |
 
 ## Fill these in before running ads
 
@@ -19,7 +20,7 @@ Everything lives in the `window.VWT` CONFIG block near the top of `index.html`:
 3. **`courses.ppf.regular` and `courses.bundle.regular`**: only use a price you've actually charged. Leave `null` and no strikethrough is shown.
 4. **`classes`**: real dates and real seats left, e.g. `{ course: "tint", start: "2026-12-05", end: "2026-12-06", seatsLeft: 2 }`. These fill the **class calendar** and the "Next class · X of 4 seats left" line on each price card. Add `url:` to send that date to a specific Cowlendar product page; otherwise it uses the course link from `links`. Open the page with `?demo=1` to preview the calendar with sample dates (they never show without that).
 5. **`heroVideo`**: a short, muted MP4 loop (aim for under 3 MB, 720p). It loads after the page appears, so it won't slow the first view.
-6. **`gallery`** and **`eddiePhoto`**: use compressed `.webp` images (about 1080px wide, under 150 KB each).
+6. **`gallery`**, **`graduates`**, **`eddiePhoto`** and **`eddieWork`**: your class photos are already in. To add more, make a `-640.webp` and `-1280.webp` copy in `public/images/class/` and add one line to the list. Eddie's photo is still needed.
 7. **Reviews**: in `index.html`, search for `REVIEWS` and paste each review's text **word for word** from Google or your site. Cards with empty text show a dashed placeholder.
 8. **FAQ**: the lunch answer and refund policy (search for `[YES/NO` and `[POLICY`).
 9. **`terms.html`**: write your refund and reschedule policy.
