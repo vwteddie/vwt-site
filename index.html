@@ -1375,23 +1375,23 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   }
 
   /* ---------- Reviews: paste text WORD FOR WORD. Empty text shows a placeholder card. ---------- */
+  // Google reviews, word for word. Add more by copying a line.
   var REVIEWS = [
-    { name: "Nhat",     src: "Google", note: "6-day course, Jan 2026: cutting, installing and finishing", text: "" },
-    { name: "Uriel",    src: "Google", note: "Came in nervous, left confident after the 6-day course",   text: "" },
-    { name: "Julio",    src: "Google", note: "Works in the film industry: best training he's had",        text: "" },
-    { name: "[NAME]",   src: "Google", note: "Review about hands-on learning and the smaller class size", text: "" },
-    { name: "[NAME]",   src: "Google", note: "Review calling Eddie knowledgeable and fun to work with",   text: "" },
-    { name: "Aaron Carnali",  src: "Website", note: "Website testimonial", text: "" },
-    { name: "Dj Singh",       src: "Website", note: "Website testimonial", text: "" },
-    { name: "Giovanni",       src: "Website", note: "Website testimonial", text: "" },
-    { name: "Ricardo Cortez", src: "Website", note: "Website testimonial", text: "" }
+    { name: "Nhat P.", src: "Google", text: "Just finished the course recently Jan 5 to Jan 10, 2026. The course provides so much hands on training from how to cut, install, and finish. Eddie is a pro at his craft and the way he teaches all subjects in the 6 day course can turn a beginner like myself to a prepared installer! Worth every single dollar! Highly recommend to others ready and hungry to learn. Had opportunity to remove old red wrap and install the matte purple KPMF wrap" },
+    { name: "Uriel G.", src: "Google", text: "I came into this class nervous about installing film on a car but after the 6 day course I came out feeling super confident. Eddie is such a great instructor and will answer any question you might have. He gives you many examples of mistakes that one can make and will even let you make your own mistake so he can explain where you went wrong and learn from them. You can tell Eddie has mastered installing film with the techniques he demonstrates and has no problem showing you all his special techniques. I recommend his course to anyone thinking about taking it!" },
+    { name: "Ken L.", src: "Google", text: "Recently completed a training course at VWT. 10/10 and would recommend to anyone getting into the industry! I left the class fully confident and ready to wrap! Eddie teaches in an easy to understand way and relates the techniques so they stick in your head. Not to mention his training manual is top notch and great to look back on and refresh for every panel. Will 100% be taking his advanced course. Thanks Eddie, you're the man!" },
+    { name: "Julio T.", src: "Google", text: "Hands down the best training I’ve ever had. Eddie is really knowledgeable and knows what he’s doing. Very patient, skillful, and detail oriented. Everyone that gave him less than 5 stars are tripping !!!!!! FYI I’m in the industry of film so I know a good trainer when I see one." },
+    { name: "Melissa L.", src: "Google", text: "Best training we have ever come across!\nDefinitely 5 stars. The instructor was thorough, very experienced and knowledgeable as well as very detailed in the teaching. Will return for the advanced course.\nWorth the cost and the ongoing assistance offered is top notch! Best school hands down👍" },
+    { name: "Anthony C.", src: "Google", text: "I really enjoyed the class, Eddie is very good at breaking everything down into easy steps. Making it easy to wrap any panel. He provides you with all the tools necessary for you to be successful within this business & even continuous to help with any questions even after completing the course. Very humble genuine guy ! Would recommend this class to anybody looking to learn this skill." },
+    { name: "Andres P.", src: "Google", text: "Eddie was an amazing teacher but also a great person! Very professional, Helped out when mistakes were made and also kept us prepared on how to fix them. With his reliable explanations I was able to develop these skills faster than expected! Classes are definitely worth it in all aspects. If you are looking to learn how to car wrap, these classes will give you the best experience! Thank you once again to Eddie, helped me get on track to start my own business." },
+    { name: "Mark Y.", src: "Google", text: "Eddie has been a fantastic mentor and teacher! Not only in class session, but also anytime I had a question or doubted the next process, all I had to do was reach out! I couldn’t have asked for a better and more detail orientated instructor! Thank you Eddie for allowing me to chase my dreams!" }
   ];
   function esc(s){ return s.replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c] }) }
   function renderReviews(){
     $("#reviewsEl").innerHTML = REVIEWS.map(function(r){
       var todo = !r.text;
       return '<div class="rev' + (todo ? " todo" : "") + '"><div class="stars">★★★★★</div>' +
-        '<p>' + (todo ? "[Paste this review word for word: " + esc(r.note) + "]" : "“" + esc(r.text) + "”") + '</p>' +
+        '<p>' + (todo ? "[Paste this review word for word: " + esc(r.note || "") + "]" : "“" + esc(r.text).replace(/\n/g, "<br>") + "”") + '</p>' +
         '<div class="who"><b>' + esc(r.name) + '</b><span>' + r.src + ' review</span></div></div>';
     }).join("");
   }
