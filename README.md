@@ -23,8 +23,8 @@ Everything lives in the `window.VWT` CONFIG block near the top of `index.html`:
 5. **`heroVideo`**: a short, muted MP4 loop (aim for under 3 MB, 720p). It loads after the page appears, so it won't slow the first view.
 6. **`gallery`**, **`graduates`**, **`eddiePhoto`** and **`eddieWork`**: your class photos are already in. To add more, make a `-640.webp` and `-1280.webp` copy in `public/images/class/` and add one line to the list. Eddie's photo is still needed.
 7. **Reviews**: in `index.html`, search for `REVIEWS` and paste each review's text **word for word** from Google or your site. Cards with empty text show a dashed placeholder.
-8. **FAQ**: the lunch answer and refund policy (search for `[YES/NO` and `[POLICY`).
-9. **`terms.html`**: write your refund and reschedule policy.
+8. **FAQ**: done (lunch, refund/reschedule policy and hotel are filled in).
+9. **`terms.html`**: refund and reschedule policy filled in. Have the privacy and terms pages reviewed.
 
 ## Tracking
 
