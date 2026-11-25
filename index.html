@@ -101,6 +101,14 @@ window.VWT = {
     { src: "public/images/class/tesla-hood-layout-lines",                 alt: "Tesla hood marked with layout lines during class" }
   ],
 
+  // Student video testimonials (YouTube IDs). Plays in place when tapped; nothing loads from YouTube until then.
+  videos: [
+    { id: "0ODVCL9ZVqA", name: "Giovanni" },
+    { id: "W5iKWivXAvI", name: "Ricardo C." },
+    { id: "nYzlcbkKs9k", name: "Aaron C." },
+    { id: "6N0mp_CcoEc", name: "DJ S." }
+  ],
+
   // Graduates holding their VWT certificates (shown in the reviews section).
   graduates: [
     { src: "public/images/class/graduates-certificates-purple-tesla",  alt: "Two VWT graduates holding certificates in front of a purple Tesla" },
@@ -277,6 +285,33 @@ section{padding:72px 0}
   .vs-them .xx{width:13px;height:13px;margin-top:4px}
   .vs-us .ck{width:15px;height:15px;margin-top:3px}
 }
+
+/* Video testimonials */
+.vt{margin:34px auto 8px;max-width:1040px;text-align:left}
+.vt-head{text-align:center;margin-bottom:16px}
+.vt-head h3{font-size:clamp(26px,3.6vw,36px)}
+.vt-head p{color:var(--muted);margin-top:4px}
+.vt-frame{position:relative}
+.vt-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:2px}
+.vt-track::-webkit-scrollbar{display:none}
+.vt-card{flex:0 0 calc(50% - 8px);scroll-snap-align:start;margin:0;min-width:0}
+.vt-media{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(70% 90% at 30% 20%,rgba(255,106,0,.35),transparent 70%),#1b1b1f}
+.vt-media iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vt-play{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;cursor:pointer;background:transparent;color:#fff}
+.vt-play img{width:100%;height:100%;object-fit:cover;display:block}
+.vt-play::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.65))}
+.vt-icon{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:var(--orange);display:grid;place-items:center;box-shadow:0 10px 30px -6px rgba(255,106,0,.8);z-index:1;transition:transform .15s}
+.vt-icon svg{width:28px;height:28px;margin-left:4px;color:#111}
+.vt-play:hover .vt-icon,.vt-play:focus-visible .vt-icon{transform:translate(-50%,-50%) scale(1.08)}
+.vt-label{position:absolute;left:16px;bottom:14px;z-index:1;text-align:left}
+.vt-label b{display:block;font-size:18px}
+.vt-label span{font-size:13px;color:#e4e4ea}
+.vt-cap{display:flex;justify-content:space-between;gap:10px;margin-top:10px;font-size:14px;color:var(--muted)}
+.vt-cap b{color:#fff}
+.vt-cap .stars{color:var(--gold);letter-spacing:1px}
+.vt .gc-btn{top:calc(50% - 18px)}
+.vt-dots{justify-content:center;margin-top:14px}
+@media (max-width:760px){.vt-card{flex-basis:88%}.vt-icon{width:60px;height:60px}}
 
 /* Graduates carousel */
 .gc{max-width:780px;margin:28px auto 4px}
@@ -928,6 +963,18 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     <span class="eyebrow">Reviews</span>
     <h2>What students say</h2>
     <div class="rating-big"><div class="stars" aria-hidden="true">★★★★★</div><div class="rating-count">41 Google reviews</div></div>
+    <div class="vt" id="videoTestimonials" aria-roledescription="carousel" aria-label="Student video testimonials">
+      <div class="vt-head">
+        <h3>Hear it from our students</h3>
+        <p>Real VWT graduates, on camera, about their training.</p>
+      </div>
+      <div class="vt-frame">
+        <div class="vt-track" id="vtTrack" tabindex="0"></div>
+        <button class="gc-btn prev vt-prev" id="vtPrev" aria-label="Previous video">‹</button>
+        <button class="gc-btn next vt-next" id="vtNext" aria-label="Next video">›</button>
+      </div>
+      <div class="gc-dots vt-dots" id="vtDots"></div>
+    </div>
     <div class="reviews" id="reviewsEl" style="text-align:left"></div>
     <div class="cta-row">
       <a class="btn ghost" href="https://www.google.com/maps/place/Vehicle+Wrap+Training+LLC/@37.7081689,-121.9129174,17z/data=!4m6!3m5!1s0x808f95d36ed6edbd:0x478d7a3640602878" target="_blank" rel="noopener">Read all 41 reviews on Google</a>
@@ -1355,6 +1402,49 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     mark();
   }
 
+  function renderVideos(){
+    var root = $("#videoTestimonials"), track = $("#vtTrack"), dots = $("#vtDots");
+    if (!root || !C.videos || !C.videos.length){ if (root) root.hidden = true; return; }
+    var play = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+    track.innerHTML = C.videos.map(function(v, i){
+      return '<figure class="vt-card" role="group" aria-roledescription="slide" aria-label="' + (i+1) + ' of ' + C.videos.length + '">' +
+        '<div class="vt-media" data-vid="' + v.id + '">' +
+          '<button class="vt-play" aria-label="Play ' + esc(v.name) + '\'s video testimonial">' +
+            '<img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">' +
+            '<span class="vt-icon">' + play + '</span>' +
+            '<span class="vt-label"><b>' + esc(v.name) + '</b><span>VWT graduate</span></span>' +
+          '</button>' +
+        '</div>' +
+        '<figcaption class="vt-cap"><span><b>' + esc(v.name) + '</b> · video testimonial</span><span class="stars">★★★★★</span></figcaption>' +
+      '</figure>';
+    }).join("");
+    var facades = {};
+    $$(".vt-media", track).forEach(function(m){ facades[m.dataset.vid] = m.innerHTML });
+    function resetAll(except){ $$(".vt-media", track).forEach(function(m){ if (m !== except && m.querySelector("iframe")) m.innerHTML = facades[m.dataset.vid] }) }
+    track.addEventListener("click", function(e){
+      var btn = e.target.closest(".vt-play"); if (!btn) return;
+      var m = btn.parentNode; resetAll(m);
+      m.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + m.dataset.vid + '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Video testimonial" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    });
+    var cards = $$(".vt-card", track);
+    function step(){ return cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth }
+    function stops(){ return Math.max(1, cards.length - Math.max(1, Math.round((track.clientWidth + 16) / Math.max(1, step()))) + 1) }
+    function cur(){ return Math.min(stops() - 1, Math.round(track.scrollLeft / Math.max(1, step()))) }
+    function mark(){ var c = cur(); $$("button", dots).forEach(function(d, i){ d.setAttribute("aria-current", i === c) }) }
+    function buildDots(){
+      var n = stops();
+      dots.innerHTML = n > 1 ? Array.apply(null, Array(n)).map(function(_, i){ return '<button aria-label="Show video ' + (i+1) + '"></button>' }).join("") : "";
+      $$("button", dots).forEach(function(d, i){ d.onclick = function(){ go(i) } });
+      mark();
+    }
+    function go(i){ var max = stops() - 1; i = i < 0 ? max : i > max ? 0 : i; track.scrollTo({ left: i * step(), behavior: "smooth" }) }
+    $("#vtPrev").onclick = function(){ go(cur() - 1) };
+    $("#vtNext").onclick = function(){ go(cur() + 1) };
+    track.addEventListener("scroll", mark, { passive: true });
+    addEventListener("resize", buildDots);
+    buildDots();
+  }
+
   function renderGallery(){
     var g = $("#galleryEl");
     if (!C.gallery.length){
@@ -1368,6 +1458,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       }
     }
     renderGradCarousel();
+    renderVideos();
     var w = $("#eddieWork");
     if (C.eddieWork.length) w.innerHTML = C.eddieWork.map(function(m){ return '<div style="aspect-ratio:1">' + pic(m, "220px") + '</div>' }).join("");
     else w.hidden = true;
