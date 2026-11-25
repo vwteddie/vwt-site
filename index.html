@@ -40,11 +40,11 @@ window.VWT = {
 
   // Shopify checkout links. Leave "" until the product exists; buttons will scroll to pricing.
   links: {
-    tint:    "", // [NEW BLACK FRIDAY TINT PRODUCT LINK]
-    ppf:     "", // [NEW BLACK FRIDAY PPF PRODUCT LINK]
-    bundle:  "", // [NEW BUNDLE PRODUCT LINK]
-    deposit: "",       // [PPF $500 DEPOSIT PRODUCT LINK]
-    bundleDeposit: "", // [BUNDLE $500 DEPOSIT PRODUCT LINK]
+    tint:    "https://vehiclewraptraining.myshopify.com/products/2-day-window-tint-bootcamp-hand-cut-computer-cut",
+    ppf:     "https://vehiclewraptraining.myshopify.com/products/3-day-clear-color-ppf-pro-intensive",
+    bundle:  "https://vehiclewraptraining.myshopify.com/products/film-pro-bundle-window-tint-clear-color-ppf-2-3-days?variant=68181014970685",
+    deposit: "https://vehiclewraptraining.myshopify.com/products/3-day-clear-color-ppf-pro-intensive",           // "Reserve my seat with $500" on the PPF card
+    bundleDeposit: "https://vehiclewraptraining.myshopify.com/products/film-pro-bundle-window-tint-clear-color-ppf-2-3-days?variant=68181014970685",  // "Reserve my seat with $500" on the Bundle card
     financing: "https://coachingloan.com/vehicle-wrap-training-llc/"
   },
 
@@ -195,7 +195,9 @@ section{padding:72px 0}
 .redeem-line .ck{width:20px;height:20px;flex:none;margin-top:2px}
 .redeem-chip{display:flex;gap:8px;align-items:flex-start;font-size:13px;font-weight:600;color:var(--green);margin:-6px 0 14px}
 .redeem-chip .ck{width:16px;height:16px;flex:none;margin-top:1px}
-.pcard .plan.paid{color:var(--muted);font-weight:600}
+.live-dates{font-size:16px}
+.pcard .foot .btn{font-size:15px;padding-left:14px;padding-right:14px;letter-spacing:.3px;white-space:nowrap}
+.pcard .date-note{font-size:13px;line-height:1.45;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:2px}
 
 .countdown{display:flex;gap:10px;margin-bottom:24px}
 .countdown .u{background:linear-gradient(180deg,#26262b,#151518);border:1px solid #34343b;border-radius:14px;min-width:76px;padding:12px 8px 8px;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 10px 30px -12px #000}
@@ -560,7 +562,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Vehicle Wrap Training home"><img src="public/images/brand/vwt-logo-400.webp" srcset="public/images/brand/vwt-logo-400.webp 1x, public/images/brand/vwt-logo-800.webp 2x" width="182" height="40" alt="Vehicle Wrap Training"><span class="brand-name">Vehicle Wrap Training</span></a>
     <nav class="site-nav" aria-label="Page sections">
-      <a href="#pricing">Courses</a><a href="#calendar">Class Calendar</a><a href="#location">Location</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
+      <a href="#pricing">Courses</a><a href="#location">Location</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
     </nav>
     <a class="head-call" href="tel:+15109356111" data-lead><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.2 15.2 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.6a1 1 0 01-.25 1z"/></svg><span>510-935-6111</span></a>
     <a class="btn" href="#pricing">Claim My Seat</a>
@@ -678,35 +680,9 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   <div class="wrap center">
     <span class="eyebrow" id="priceEyebrow">Black Friday pricing</span>
     <h2>Pick your course</h2>
-    <p class="lead">Lock in Black Friday pricing now and use it for any class date through the end of 2027. The Tint Course is paid in full at checkout. Reserve the PPF Course or the Film Pro Bundle with a $500 deposit.</p>
+    <p class="lead">Lock in Black Friday pricing now and use it for any class date through the end of 2027. Pay in full or over time with Shop Pay, or reserve the PPF Course or the Film Pro Bundle with a $500 deposit.</p>
     <div class="prices" id="prices" style="text-align:left"></div>
-    <div class="cta-row"><a class="textlink" href="#calendar">📅 See the class calendar and pick your date</a></div>
-  </div>
-</section>
-
-<!-- CLASS CALENDAR (dates link to Cowlendar booking on Shopify) -->
-<section id="calendar">
-  <div class="wrap">
-    <div class="center">
-      <span class="eyebrow">Class calendar</span>
-      <h2>Pick your <span class="o">class date</span></h2>
-      <p class="lead">Tap a highlighted date to see the class, then book it. You'll choose your date and pay on our secure Shopify checkout.</p>
-    </div>
-    <div class="cal-wrap">
-      <div class="cal">
-        <div class="cal-head">
-          <button class="cal-nav" id="calPrev" aria-label="Previous month">‹</button>
-          <h3 id="calTitle">Month</h3>
-          <button class="cal-nav" id="calNext" aria-label="Next month">›</button>
-        </div>
-        <div class="cal-grid" id="calGrid" role="grid"></div>
-        <div class="cal-legend"><span><i class="c-tint"></i>Tint Course</span><span><i class="c-ppf"></i>PPF Course</span></div>
-        <p class="cal-bundle-note"><b>Film Pro Bundle:</b> pick one Tint date and one PPF date. They're separate classes on separate days.</p>
-      </div>
-      <div>
-        <div class="cal-list" id="calList" aria-live="polite"></div>
-      </div>
-    </div>
+    <div class="cta-row"><a class="textlink live-dates" href="https://vehiclewraptraining.myshopify.com/products/film-pro-bundle-window-tint-clear-color-ppf-2-3-days?variant=68181014970685" data-shop="bundle">See live dates and open seats on the next page.</a></div>
   </div>
 </section>
 
@@ -858,7 +834,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       </div>
       <ol class="how-steps">
         <li><b>Buy the bundle</b><span>One checkout at the bundle price.</span></li>
-        <li><b>Pick both dates at checkout</b><span>Choose one Tint Course date and one PPF Course date from the class calendar.</span></li>
+        <li><b>Pick both dates at checkout</b><span>Choose one Tint Course date and one PPF Course date on the next page.</span></li>
         <li><b>Take each class on its own days</b><span>Learn tint in one class and PPF in the other, with time between to practice.</span></li>
       </ol>
       <details class="day" open><summary><span class="dn">Tint · 2 days</span><span class="dt">Window Tint Course: Hand Cutting &amp; Computer Cutting</span><span class="chev">▾</span></summary>
@@ -969,7 +945,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       <details><summary>Do I need experience?</summary><div class="a">No. The classes are built for beginners. We start from the basics and build up to full cars.</div></details>
       <details><summary>Do I need tools?</summary><div class="a">No. Pro tools are provided during class, and you get a free starter kit when you enroll.</div></details>
       <details><summary>What happens after class?</summary><div class="a">You get a VWT certificate of completion, plus lifetime support through the VWT support hotline and lifetime access to the online course and community.</div></details>
-      <details><summary>Can I pay over time?</summary><div class="a">It depends on the course. The Tint Course is paid in full at checkout. The PPF Course and the Film Pro Bundle can each be reserved with a $500 deposit, with the balance due before class. For those two you can also choose an installment plan at checkout or <a href="https://coachingloan.com/vehicle-wrap-training-llc/" target="_blank" rel="noopener" data-checkout="financing">apply for financing</a>.</div></details>
+      <details><summary>Can I pay over time?</summary><div class="a">Yes. Every course can be paid in full or over time with Shop Pay at checkout. The PPF Course and the Film Pro Bundle can also be reserved with a $500 deposit, with the balance due before class, or you can <a href="https://coachingloan.com/vehicle-wrap-training-llc/" target="_blank" rel="noopener" data-checkout="financing">apply for financing</a>.</div></details>
       <details open><summary>Where is the class located?</summary><div class="a">All classes are held in person at our training shop: <b style="color:#fff">14306 Wicks Blvd, San Leandro, CA 94577</b>. <a href="https://www.google.com/maps/dir/?api=1&amp;destination=14306+Wicks+Blvd,+San+Leandro,+CA+94577" target="_blank" rel="noopener">Get directions in Google Maps</a> or <a href="#location">see the map</a>.</div></details>
       <details><summary>Where do I stay if I'm from out of town?</summary><div class="a">There are plenty of hotels nearby in San Leandro and around Oakland International Airport. Text Eddie and he'll point you to good options. <span class="todo-inline">[OPTIONAL: list your recommended San Leandro hotels]</span></div></details>
       <details><summary>Is lunch included?</summary><div class="a"><span class="todo-inline">[YES/NO: fill in]</span></div></details>
@@ -1080,9 +1056,9 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   function depositKey(key){ return key === "bundle" ? "bundleDeposit" : "deposit" }
   function payLine(key){
     var c = C.courses[key];
-    if (!c.deposit) return '<span class="plan paid">Paid in full at checkout</span>';
+    if (!c.deposit) return '';
     return '<a class="textlink" href="#" data-checkout="' + depositKey(key) + '" data-course="' + key + '">Reserve my seat with ' + money(c.deposit) + '</a>' +
-           '<span class="plan">Balance due before class · Payment plans · <a class="textlink" href="#" data-checkout="financing">Financing</a></span>';
+           '<span class="plan">Balance due before class · <a class="textlink" href="#" data-checkout="financing">Financing</a></span>';
   }
 
   /* ---------- Pricing cards ---------- */
@@ -1109,8 +1085,9 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
         '<div class="foot">' +
           ({ tint: '<a class="textlink" href="#learn" data-tab="tint">See the full tint curriculum</a>', ppf: '<a class="textlink" href="#learn" data-tab="ppf">See the full PPF curriculum</a>', bundle: '<a class="textlink" href="#learn" data-tab="bundle">See how the bundle works</a>' })[key] +
           '<div class="seats-note">' + seatsFor(key) + '</div>' +
-          '<a class="btn block' + (best ? " pulse" : "") + '" href="#" data-checkout="' + key + '" data-course="' + key + '">' + (best ? "Get the Bundle" : "Claim My Seat") + '</a>' +
+          '<a class="btn block' + (best ? " pulse" : "") + '" href="#" data-checkout="' + key + '" data-course="' + key + '">' + "Pick My Date &amp; Claim Seat</a>" +
           payLine(key) +
+          '<p class="date-note">Choose your class date on the next page. Pay in full or over time with Shop Pay.</p>' +
         '</div></div>';
     }).join("");
 
@@ -1156,6 +1133,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     return upcoming().filter(function(k){ var t = +day; return t >= +dParse(k.start) && t <= +dParse(k.end || k.start) });
   }
   function renderCalendar(){
+    if (!$("#calGrid")) return;
     var y = calMonth.getFullYear(), m = calMonth.getMonth(), t0 = today0();
     $("#calTitle").textContent = MONTH[m] + " " + y;
     $("#calPrev").disabled = (y < t0.getFullYear() || (y === t0.getFullYear() && m <= t0.getMonth()));
@@ -1175,6 +1153,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     renderCalList();
   }
   function renderCalList(){
+    if (!$("#calList")) return;
     var el = $("#calList");
     if (!C.classes.length){
       el.innerHTML = '<div class="cal-empty"><b style="color:#fff">New class dates are being posted.</b><br>Text Eddie at <a class="textlink" href="sms:+15109356111" data-lead>510-935-6111</a> to grab the next open seat. <span class="todo-inline">[ADD DATES IN CONFIG → classes]</span></div>';
@@ -1203,11 +1182,12 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       track("InitiateCheckout", { content_name: c.name + " " + k.start, content_category: "course", value: isOver() && c.regular ? c.regular : c.sale, currency: "USD" });
     } });
   }
-  $("#calPrev").onclick = function(){ calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth()-1, 1); selected = null; renderCalendar() };
-  $("#calNext").onclick = function(){ calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth()+1, 1); selected = null; renderCalendar() };
+  if ($("#calPrev")) $("#calPrev").onclick = function(){ calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth()-1, 1); selected = null; renderCalendar() };
+  if ($("#calNext")) $("#calNext").onclick = function(){ calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth()+1, 1); selected = null; renderCalendar() };
 
   /* ---------- Checkout + lead links ---------- */
   function wireLinks(){
+    $$("[data-shop]").forEach(function(a){ var u = withUtm(C.links[a.getAttribute("data-shop")]); if (u) a.href = u; });
     $$("[data-checkout]").forEach(function(a){
       var key = a.getAttribute("data-checkout"), url = withUtm(C.links[key]);
       if (url) { a.href = url; if (key === "financing") { a.target = "_blank"; a.rel = "noopener"; } }
