@@ -1,0 +1,122 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#ff6a00;--orange2:#ff9a3c;--green:#22c55e;--gold:#ffc44d;--red:#ef4444;--bg:#0d0d0f}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000}
+.ad{position:relative;width:1080px;height:var(--h);overflow:hidden;background:var(--bg);color:#fff;font-family:Inter,sans-serif}
+.feed{--h:1350px}.story{--h:1920px}
+.photo{position:absolute;inset:0;background-size:cover;background-position:var(--pos,center)}
+.shade{position:absolute;inset:0}
+.H{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:.5px}
+.tag{display:inline-flex;align-items:center;gap:12px;background:#000;border:2px solid var(--orange);color:#fff;font:900 24px/1 Inter;letter-spacing:3px;text-transform:uppercase;padding:14px 22px;border-radius:999px}
+.tag i{width:14px;height:14px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(239,68,68,.3)}
+.logo{height:62px}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chip{background:rgba(0,0,0,.72);border:1.5px solid rgba(255,255,255,.22);font:800 25px/1 Inter;padding:13px 18px;border-radius:12px;display:flex;align-items:center;gap:10px}
+.chip b{color:var(--gold)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--orange);color:#000;border-radius:20px;padding:22px 28px}
+.bar .when{font:900 30px/1.1 Inter;text-transform:uppercase;letter-spacing:.5px}
+.bar .when small{display:block;font:800 21px/1.2 Inter;letter-spacing:1px;opacity:.75}
+.bar .cta{background:#000;color:#fff;font:900 30px/1 Inter;padding:20px 28px;border-radius:14px;white-space:nowrap}
+.stars{color:var(--gold);letter-spacing:2px}
+s{text-decoration-color:var(--red);text-decoration-thickness:4px}
+/* ---- AD 1: bundle ---- */
+.a1 .shade{background:linear-gradient(180deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.25) 30%,rgba(0,0,0,.2) 42%,rgba(0,0,0,.88) 64%,#000 100%)}
+.a1 .top{position:absolute;left:56px;right:56px;top:var(--top);display:flex;justify-content:space-between;align-items:center}
+.a1 .giant{position:absolute;right:50px;top:var(--gtop);font-size:290px;color:var(--orange);text-shadow:0 10px 60px rgba(0,0,0,.6);line-height:.8}
+.a1 .giant small{display:block;font-size:120px;text-align:right;color:#fff;margin-top:6px;margin-right:30px}
+.a1 .body{position:absolute;left:56px;right:56px;bottom:var(--bot)}
+.a1 h1{font-size:96px;margin-bottom:22px}
+.a1 h1 .hl{color:var(--orange)}
+.a1 .price{display:flex;align-items:stretch;gap:20px;background:rgba(20,20,24,.92);border:2px solid rgba(255,255,255,.14);border-radius:22px;padding:22px 26px;margin-bottom:22px}
+.a1 .price .l{flex:1}
+.a1 .kick{font:900 23px/1 Inter;letter-spacing:2px;text-transform:uppercase;color:var(--orange2);margin-bottom:10px}
+.a1 .now{font-size:112px;line-height:.9}
+.a1 .reg{font:800 30px/1 Inter;color:#d4d4da;margin-top:10px}
+.a1 .save{align-self:center;background:rgba(34,197,94,.16);border:2px solid rgba(34,197,94,.7);border-radius:16px;padding:16px 20px;text-align:center}
+.a1 .save small{display:block;font:900 20px/1 Inter;letter-spacing:3px;color:#86efac;text-transform:uppercase;margin-bottom:8px}
+.a1 .save b{font-family:Anton;font-weight:400;font-size:66px;line-height:1;color:var(--green)}
+.a1 .chips{margin-bottom:24px}
+/* ---- AD 2: menu ---- */
+.a2 .shade{background:linear-gradient(180deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,.2) 26%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.92) 56%,#000 100%)}
+.a2 .top{position:absolute;left:56px;right:56px;top:var(--top);display:flex;justify-content:space-between;align-items:center}
+.a2 .body{position:absolute;left:56px;right:56px;bottom:var(--bot)}
+.a2 h1{font-size:104px;margin-bottom:8px}
+.a2 h1 .hl{color:var(--orange)}
+.a2 .lead{font:800 30px/1.25 Inter;color:#e4e4ea;margin-bottom:26px}
+.a2 .row{display:flex;align-items:center;gap:18px;background:rgba(24,24,28,.94);border:2px solid rgba(255,255,255,.12);border-radius:18px;padding:20px 24px;margin-bottom:14px}
+.a2 .row.best{border-color:var(--orange);background:linear-gradient(90deg,rgba(255,106,0,.28),rgba(24,24,28,.94) 70%)}
+.a2 .row .n{flex:1;font:900 32px/1.1 Inter}
+.a2 .row .n small{display:block;font:800 21px/1.3 Inter;color:#b4b4bd;margin-top:4px}
+.a2 .row .badge{display:inline-block;background:var(--orange);color:#000;font:900 17px/1 Inter;letter-spacing:2px;padding:7px 10px;border-radius:7px;margin-left:10px;vertical-align:4px}
+.a2 .row .p{text-align:right}
+.a2 .row .p b{font-family:Anton;font-weight:400;font-size:68px;line-height:1}
+.a2 .row .p s{display:block;font:800 27px/1 Inter;color:#c4c4cc;margin-top:4px}
+.a2 .note{font:800 24px/1.3 Inter;color:#b4b4bd;margin:8px 0 22px}
+.a2 .note b{color:var(--green)}
+/* ---- AD 3: graduates ---- */
+.a3{background:#0d0d0f}
+.a3 .grid{position:absolute;left:0;right:0;top:0;height:var(--gh);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px}
+.a3 .grid div{background-size:cover;background-position:center 60%}
+.a3 .shade{background:linear-gradient(180deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,0) 18%,rgba(0,0,0,0) 40%,rgba(13,13,15,.9) 58%,#0d0d0f 70%)}
+.a3 .top{position:absolute;left:56px;right:56px;top:var(--top);display:flex;justify-content:space-between;align-items:center}
+.a3 .body{position:absolute;left:56px;right:56px;bottom:var(--bot)}
+.a3 h1{font-size:100px;margin-bottom:18px}
+.a3 h1 .hl{color:var(--orange)}
+.a3 .lead{font:800 31px/1.3 Inter;color:#e4e4ea;margin-bottom:24px}
+.a3 .lead b{color:#fff}
+.a3 .rev{font:900 30px/1 Inter;margin-bottom:22px}
+.a3 .deal{display:flex;align-items:center;gap:22px;margin-bottom:22px}
+.a3 .deal .pct{font-family:Anton;font-size:120px;line-height:.85;color:var(--orange)}
+.a3 .deal .t{font:900 30px/1.2 Inter;text-transform:uppercase}
+.a3 .deal .t small{display:block;font:800 24px/1.3 Inter;text-transform:none;color:#b4b4bd}
+</style></head><body>
+<div id="root"></div>
+<script>
+const q=new URLSearchParams(location.search), ad=q.get('ad')||'1', fmt=q.get('fmt')||'feed';
+const S=fmt==='story';
+// Stories/Reels: keep text out of the top ~14% and bottom ~20% (Meta's UI covers them).
+const TOP=S?270:52, BOT=S?390:52;
+const logo='<img class="logo" src="../../public/images/brand/vwt-logo-800.webp" alt="">';
+const tag='<span class="tag"><i></i>Black Friday</span>';
+const bar=(cta)=>`<div class="bar"><div class="when">Ends Cyber Monday<small>Mon, Nov 30 · 11:59 PM PT</small></div><div class="cta">${cta} →</div></div>`;
+const T={
+'1':()=>`<div class="ad ${fmt} a1" style="--top:${TOP}px;--bot:${BOT}px;--gtop:${S?440:150}px">
+  <div class="photo" style="background-image:url(img/${S?'heating-portrait':'heat-forming'}.jpg);--pos:${S?'50% 40%':'38% 30%'}"></div><div class="shade"></div>
+  <div class="top">${logo}${tag}</div>
+  <div class="giant H">45%<small>OFF</small></div>
+  <div class="body">
+    <h1 class="H">Learn Tint <span class="hl">+</span> PPF<br>from a <span class="hl">16-year pro</span></h1>
+    <div class="price"><div class="l"><div class="kick">Film Pro Bundle · Tint + PPF</div><div class="now H">$1,297</div><div class="reg">Reg. <s>$2,341</s></div></div>
+      <div class="save"><small>You save</small><b>$1,044</b></div></div>
+    <div class="chips"><span class="chip">👥 Only <b>4 students</b> per class</span><span class="chip">🔥 Hands-on</span><span class="chip">📍 San Leandro, CA</span></div>
+    ${bar('Claim my seat')}
+  </div></div>`,
+'2':()=>`<div class="ad ${fmt} a2" style="--top:${TOP}px;--bot:${BOT}px">
+  <div class="photo" style="background-image:url(img/${S?'stretching-portrait':'maserati'}.jpg);--pos:${S?'50% 20%':'50% 35%'}"></div><div class="shade"></div>
+  <div class="top">${logo}${tag}</div>
+  <div class="body">
+    <h1 class="H">Black Friday<br><span class="hl">course sale</span></h1>
+    <p class="lead">Hands-on tint &amp; PPF training. Max 4 students per class.</p>
+    <div class="row"><div class="n">Window Tint<small>2-day course</small></div><div class="p"><b class="H">$497</b><s>$895</s></div></div>
+    <div class="row"><div class="n">Clear &amp; Color PPF<small>3-day course</small></div><div class="p"><b class="H">$997</b><s>$1,446</s></div></div>
+    <div class="row best"><div class="n">Film Pro Bundle<span class="badge">BEST VALUE</span><small>Tint + PPF · save $1,044</small></div><div class="p"><b class="H">$1,297</b><s>$2,341</s></div></div>
+    <p class="note">Lock in the price now. <b>Use it on any class date through 2027.</b></p>
+    ${bar('Pick my course')}
+  </div></div>`,
+'3':()=>`<div class="ad ${fmt} a3" style="--top:${TOP}px;--bot:${BOT}px;--gh:${S?1060:700}px">
+  <div class="grid"><div style="background-image:url(img/grad-purple.jpg)"></div><div style="background-image:url(img/grad-lavender.jpg)"></div><div style="background-image:url(img/grad-red.jpg)"></div><div style="background-image:url(img/grad-modelx.jpg)"></div></div>
+  <div class="shade"></div>
+  <div class="top">${logo}${tag}</div>
+  <div class="body">
+    <h1 class="H">Your new skill<br>starts <span class="hl">here.</span></h1>
+    <p class="lead">Learn <b>window tint &amp; PPF</b> hands-on from a 16-year pro. Only <b>4 students</b> per class, so you get real one-on-one time.</p>
+    <div class="rev"><span class="stars">★★★★★</span> 41 Google reviews</div>
+    <div class="deal"><div class="pct">45%</div><div class="t">Off the Film Pro Bundle<small>$1,297 (reg. $2,341) · Tint from $497</small></div></div>
+    ${bar('Enroll now')}
+  </div></div>`
+};
+document.getElementById('root').innerHTML=T[ad]();
+</script></body></html>
