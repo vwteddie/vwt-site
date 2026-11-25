@@ -252,7 +252,7 @@ section{padding:72px 0}
 .cal-block-head{text-align:center;max-width:640px;margin:0 auto}
 .cal-block-head h3{font-size:clamp(28px,4vw,40px);margin-bottom:8px}
 .cal-block-head p{color:var(--muted)}
-.cal-block .cal-wrap{margin-top:22px}
+.cal-block .cal-wrap{margin:22px auto 0;grid-template-columns:1fr;max-width:560px}
 .pcard .foot .btn{font-size:15px;padding-left:14px;padding-right:14px;letter-spacing:.3px;white-space:nowrap}
 .pcard .date-note{font-size:13px;line-height:1.45;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:2px}
 
@@ -408,7 +408,7 @@ section{padding:72px 0}
 .cal-day{position:relative;aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;color:var(--muted);background:transparent;border:0;font-family:inherit}
 .cal-day.past{opacity:.3}
 .cal-day.today{outline:1px solid var(--line)}
-.cal-day.has{color:#111;font-weight:800;cursor:pointer}
+.cal-day.has{color:#111;font-weight:800;cursor:default}
 .cal-day.has.full{background:#2a2a2f!important;color:var(--dim)}
 .cal-day.sel{outline:3px solid #fff;outline-offset:1px}
 .c-tint{background:var(--orange)}.c-ppf{background:var(--gold)}.c-bundle{background:var(--green)}
@@ -804,7 +804,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       <div class="cal-block-head">
         <span class="eyebrow">Class calendar</span>
         <h3>Open class dates</h3>
-        <p>Tap a highlighted date to see that class. Every class is capped at 4 students. You'll lock in your date on the next page.</p>
+        <p>Highlighted days are open class dates. Every class is capped at 4 students.</p>
       </div>
       <div class="cal-wrap">
         <div class="cal">
@@ -815,10 +815,6 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
           </div>
           <div class="cal-grid" id="calGrid" role="grid"></div>
           <div class="cal-legend"><span><i class="c-tint"></i>Tint Course (2 days)</span><span><i class="c-ppf"></i>PPF Course (3 days)</span></div>
-          <p class="cal-bundle-note"><b>Film Pro Bundle:</b> pick one Tint date and one PPF date. They're separate classes on separate days.</p>
-        </div>
-        <div>
-          <div class="cal-list" id="calList" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -1296,12 +1292,12 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       var day = new Date(y, m, d), on = classesOn(day), k = on[0];
       var cls = "cal-day" + (day < t0 ? " past" : "") + (+day === +t0 ? " today" : "");
       if (k) {
-        cls += " has c-" + k.course + (k.seatsLeft <= 0 ? " full" : "") + (selected === k ? " sel" : "");
-        html += '<button class="' + cls + '" data-i="' + C.classes.indexOf(k) + '" aria-label="' + C.courses[k.course].name + ', ' + fmtRange(k) + '">' + d + '</button>';
+        cls += " has c-" + k.course + (k.seatsLeft <= 0 ? " full" : "");
+        var lbl = C.courses[k.course].name + ", " + fmtRange(k);
+        html += '<div class="' + cls + '" title="' + lbl + '" aria-label="' + d + ', ' + lbl + '">' + d + '</div>';
       } else html += '<div class="' + cls + '">' + d + '</div>';
     }
     $("#calGrid").innerHTML = html;
-    $$("#calGrid .has").forEach(function(b){ b.onclick = function(){ selected = C.classes[+b.dataset.i]; renderCalendar(); var el = $("#ci-" + b.dataset.i); if (el) el.scrollIntoView({ behavior: "smooth", block: "nearest" }) } });
     renderCalList();
   }
   function renderCalList(){
