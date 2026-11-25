@@ -1,0 +1,207 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- Black Friday Instagram ads, set 2. Open with ?ad=1..6&fmt=feed|story (&last=1 for the Nov 30 "ends tonight" version) and screenshot the .ad frame. -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--o:#ff6a00;--o2:#ff9a3c;--g:#22c55e;--gold:#ffc44d;--r:#ef4444;--bg:#0d0d0f;--muted:#c4c4cc}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000}
+.ad{position:relative;width:1080px;height:var(--h);overflow:hidden;background:var(--bg);color:#fff;font-family:Inter,sans-serif}
+.feed{--h:1350px}.story{--h:1920px}
+.H{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:.5px}
+.bgimg{position:absolute;inset:0;background-size:cover;background-position:var(--pos,center)}
+.layer{position:absolute;inset:0}
+.stack{position:absolute;left:56px;right:56px;top:var(--pt);bottom:var(--pb);display:flex;flex-direction:column}
+.grow{flex:1}
+.toprow{display:flex;justify-content:space-between;align-items:center}
+.logo{height:64px;filter:drop-shadow(0 4px 14px rgba(0,0,0,.6))}
+.logo-pill{background:#000;border-radius:16px;padding:14px 20px;display:inline-flex}
+.logo-pill .logo{height:54px;filter:none}
+.tag{display:inline-flex;align-items:center;gap:12px;background:#000;color:#fff;border:2px solid var(--o);font:900 24px/1 Inter;letter-spacing:3px;text-transform:uppercase;padding:14px 22px;border-radius:999px}
+.tag i{width:14px;height:14px;border-radius:50%;background:var(--r);box-shadow:0 0 0 5px rgba(239,68,68,.3)}
+s{text-decoration-color:var(--r);text-decoration-thickness:5px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:18px;background:var(--o);color:#000;border-radius:20px;padding:20px 24px 20px 28px}
+.bar .when{font:900 29px/1.1 Inter;text-transform:uppercase}
+.bar .when small{display:block;font:800 21px/1.25 Inter;letter-spacing:.5px;opacity:.78}
+.bar .cta{background:#000;color:#fff;font:900 28px/1 Inter;padding:20px 24px;border-radius:14px;white-space:nowrap}
+.bar.inv{background:#000;color:#fff}.bar.inv .cta{background:var(--o);color:#000}
+.bar.red{background:var(--r);color:#fff}.bar.red .cta{background:#fff;color:#000}
+/* 1: pro map */
+.a1 .layer{background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 46%,rgba(0,0,0,.85) 66%,#000 100%)}
+.a1 h1{margin-top:34px;font-size:118px}
+.a1 h1 span{display:inline-block;background:#000;padding:10px 20px 4px;margin-bottom:8px}
+.a1 h1 .o{color:var(--o)}
+.a1 .card{background:rgba(16,16,19,.94);border:2px solid rgba(255,255,255,.14);border-radius:22px;padding:24px 28px;margin-bottom:20px}
+.a1 .card p{font:800 29px/1.3 Inter;margin-bottom:14px}
+.a1 .card p b{color:var(--o2)}
+.a1 .pr{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap}
+.a1 .pr .now{font-size:108px;line-height:.86}
+.a1 .pr .was{font:800 32px/1.2 Inter;color:var(--muted);padding-bottom:6px}
+.a1 .pr .save{margin-left:auto;background:var(--g);color:#000;font:900 28px/1 Inter;padding:14px 16px;border-radius:12px;text-transform:uppercase;align-self:center}
+/* 2: ticket */
+.a2{background:radial-gradient(120% 60% at 50% 100%,#3a1a05 0%,var(--bg) 60%)}
+.a2 .photo{position:absolute;left:0;right:0;top:0;height:var(--ph);background-size:cover;background-position:var(--pos)}
+.a2 .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0) 60%,var(--bg) 100%)}
+.a2 h1{font-size:92px;margin-bottom:22px}
+.a2 h1 .o{color:var(--o)}
+.ticket{position:relative;display:flex;background:linear-gradient(135deg,#ffd36b,#ff9a3c 55%,#ff6a00);color:#000;border-radius:22px;margin-bottom:18px;box-shadow:0 30px 70px -25px rgba(255,106,0,.8)}
+.ticket::before,.ticket::after{content:"";position:absolute;top:50%;width:44px;height:44px;margin-top:-22px;border-radius:50%;background:#170d07}
+.ticket::before{left:-22px}.ticket::after{right:-22px}
+.ticket .stub{width:110px;border-right:4px dashed rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center}
+.ticket .stub span{writing-mode:vertical-rl;transform:rotate(180deg);font:900 24px/1 Inter;letter-spacing:5px}
+.ticket .main{flex:1;padding:26px 28px 24px}
+.ticket .k{font:900 22px/1 Inter;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;opacity:.8}
+.ticket .n{font:900 34px/1.1 Inter;margin-bottom:10px}
+.ticket .row{display:flex;align-items:flex-end;gap:18px}
+.ticket .now{font-size:104px;line-height:.86}
+.ticket .was{font:900 30px/1.1 Inter;padding-bottom:4px}
+.ticket .was s{text-decoration-color:#000}
+.ticket .off{width:200px;padding-right:18px;border-left:4px dashed rgba(0,0,0,.45);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ticket .off b{font-family:Anton;font-weight:400;font-size:78px;line-height:.9}
+.ticket .off small{font:900 30px/1 Inter;letter-spacing:4px}
+.a2 .fine{font:800 25px/1.35 Inter;color:var(--muted);margin-bottom:22px}
+.a2 .fine b{color:#fff}
+/* 3: tint */
+.a3 .layer{background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 38%,rgba(0,0,0,.9) 58%,#000 100%)}
+.ribbon{position:absolute;right:-118px;top:var(--rt);transform:rotate(38deg);background:var(--r);color:#fff;width:520px;text-align:center;padding:16px 0 12px;box-shadow:0 10px 30px rgba(0,0,0,.5);font-family:Anton;font-size:48px;letter-spacing:1px}
+.a3 .kick{display:inline-block;background:var(--o);color:#000;font:900 25px/1 Inter;letter-spacing:3px;text-transform:uppercase;padding:12px 16px;border-radius:8px;margin-bottom:16px}
+.a3 h1{font-size:120px;margin-bottom:18px}
+.a3 h1 .o{color:var(--o)}
+.a3 .pr{display:flex;align-items:center;gap:26px;margin-bottom:20px}
+.a3 .pr .now{font-size:150px;line-height:.82}
+.a3 .pr .was{font:900 36px/1.15 Inter;color:var(--muted)}
+.a3 .pr .was b{display:block;color:var(--g);font-size:30px}
+.checks{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+.checks span{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.2);font:800 25px/1 Inter;padding:13px 16px;border-radius:12px}
+.checks span::before{content:"✓ ";color:var(--g);font-weight:900}
+/* 4: big number on orange */
+.a4{background:var(--o);color:#000}
+.a4 .burst{position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 80% 30%,rgba(255,255,255,.08) 0deg 8deg,rgba(255,255,255,0) 8deg 16deg)}
+.a4 .k{font:900 30px/1 Inter;letter-spacing:4px;text-transform:uppercase;margin:30px 0 4px}
+.a4 .big{font-size:250px;line-height:.86;letter-spacing:-2px}
+.a4 .big small{font-size:120px;margin-left:10px}
+.a4 .sub{font:900 34px/1.2 Inter;margin:14px 0 26px}
+.a4 .frame{position:relative;flex:1;min-height:0;border:10px solid #fff;border-radius:10px;background-size:cover;background-position:var(--pos);transform:rotate(-1.6deg);box-shadow:0 24px 50px -10px rgba(0,0,0,.55);margin:0 6px 28px}
+.a4 .frame .stk{position:absolute;right:-26px;top:-30px;transform:rotate(8deg);background:#000;color:#fff;border-radius:50%;width:190px;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font:900 22px/1.1 Inter;text-transform:uppercase;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.a4 .frame .stk b{font-family:Anton;font-weight:400;font-size:62px;color:var(--o);line-height:1}
+.a4 .deal{display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:18px;padding:18px 24px;margin-bottom:16px}
+.a4 .deal .n{font:900 30px/1.15 Inter}
+.a4 .deal .n small{display:block;font:800 22px/1.3 Inter;color:#444}
+.a4 .deal .p{text-align:right}
+.a4 .deal .p b{font-size:74px;line-height:.9}
+.a4 .deal .p s{display:block;font:900 24px/1 Inter;color:#555;margin-top:8px}
+/* 5: four seats */
+.a5 .photo{position:absolute;left:0;right:0;top:0;height:var(--ph);background-size:cover;background-position:var(--pos)}
+.a5 .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,.1) 55%,var(--bg) 100%)}
+.a5 h1{font-size:128px;margin-bottom:22px}
+.a5 h1 .o{color:var(--o)}
+.seats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.seat{background:#18181c;border:2px solid var(--o);border-radius:18px;padding:16px 0 12px;text-align:center}
+.seat svg{width:70px;height:70px;fill:var(--o)}
+.seat div{font:900 20px/1 Inter;letter-spacing:3px;color:var(--o2);margin-top:6px}
+.a5 .copy{font:800 29px/1.35 Inter;color:#e4e4ea;margin-bottom:20px}
+.a5 .copy b{color:#fff}
+.prices{display:flex;gap:12px;margin-bottom:22px}
+.prices div{flex:1;background:#18181c;border:1.5px solid #2e2e34;border-radius:14px;padding:14px 16px}
+.prices div.best{border-color:var(--o);background:linear-gradient(180deg,rgba(255,106,0,.22),#18181c)}
+.prices small{display:block;font:800 21px/1.2 Inter;color:var(--muted);margin-bottom:6px}
+.prices b{font-family:Anton;font-weight:400;font-size:56px;line-height:1}
+.prices s{font:800 20px/1 Inter;color:#9a9aa3;margin-left:6px;text-decoration-thickness:3px}
+/* 6: last call */
+.a6 .layer{background:linear-gradient(180deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.45) 30%,rgba(0,0,0,.88) 55%,#000 100%)}
+.tape{height:46px;margin:0 -56px;background:repeating-linear-gradient(-45deg,#ffc400 0 34px,#000 34px 68px);box-shadow:0 6px 20px rgba(0,0,0,.5)}
+.tape.t1{transform:rotate(-3deg);margin-top:30px}
+.tape.t2{transform:rotate(2deg);margin-bottom:26px}
+.a6 h1{font-size:150px;margin:26px 0 18px;text-shadow:0 8px 40px rgba(0,0,0,.7)}
+.a6 h1 .y{color:#ffc400}
+.a6 .copy{font:800 31px/1.35 Inter;margin-bottom:24px}
+.a6 .copy b{color:#ffc400}
+.a6 .list{background:rgba(16,16,19,.94);border:2px solid rgba(255,196,0,.5);border-radius:20px;padding:8px 26px;margin-bottom:22px}
+.a6 .li{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1.5px solid #2e2e34;font:900 30px/1 Inter}
+.a6 .li:last-child{border:0}
+.a6 .li span b{font-family:Anton;font-weight:400;font-size:52px;color:#ffc400;margin-left:12px}
+.a6 .li s{font:800 24px/1 Inter;color:#9a9aa3;text-decoration-thickness:3px}
+</style></head><body>
+<div id="root"></div>
+<script>
+const q=new URLSearchParams(location.search), ad=q.get('ad')||'1', fmt=q.get('fmt')||'feed', LAST=q.get('last')==='1';
+const S=fmt==='story';
+// Stories/Reels: text stays out of the top ~14% and bottom ~20%, where Instagram's own UI sits.
+const PT=S?270:52, PB=S?390:52;
+const L='../../public/images/brand/vwt-logo-800.webp';
+const logo=`<img class="logo" src="${L}" alt="VWT">`;
+const tag=`<span class="tag"><i></i>${LAST?'Last day':'Black Friday'}</span>`;
+const TOPROW=`<div class="toprow">${logo}${tag}</div>`;
+const when=LAST?`Ends tonight<small>11:59 PM PT · Mon, Nov 30</small>`:`Ends Cyber Monday<small>Mon, Nov 30 · 11:59 PM PT</small>`;
+const bar=(cta,cls='')=>`<div class="bar ${cls}"><div class="when">${when}</div><div class="cta">${cta} →</div></div>`;
+const img=n=>`img2/${n}.jpg`;
+const wrap=(n,inner,style='')=>`<div class="ad ${fmt} a${n}" style="--pt:${PT}px;--pb:${PB}px;${style}">${inner}</div>`;
+const T={
+// 1. The pro's panel map
+'1':()=>wrap(1,`<div class="bgimg" style="background-image:url(${img('layout-map-mercedes')});--pos:${S?'63% 50%':'58% 50%'}"></div><div class="layer"></div>
+ <div class="stack">${TOPROW}
+  <h1 class="H"><span>This is how</span><br><span><i class="o" style="font-style:normal">pros</i> plan</span><br><span>every panel.</span></h1>
+  <div class="grow"></div>
+  <div class="card"><p>Learn it hands-on from a <b>16-year pro</b>. Tint + PPF, max 4 students per class.</p>
+   <div class="pr"><span class="now H">$1,297</span><span class="was">Reg. <s>$2,341</s></span><span class="save">Save $1,044</span></div></div>
+  ${bar('Claim my seat')}
+ </div>`),
+// 2. Black Friday pass (ticket)
+'2':()=>wrap(2,`<div class="photo" style="background-image:url(${img('ppf-two-students-vwt-wall')});--pos:${S?'40% 50%':'50% 45%'}"></div>
+ <div class="stack">${TOPROW}<div class="grow"></div>
+  <h1 class="H">Your Black Friday<br><span class="o">pass is here.</span></h1>
+  <div class="ticket"><div class="stub"><span>ADMIT ONE</span></div>
+   <div class="main"><div class="k">Film Pro Bundle</div><div class="n">Window Tint + Clear &amp; Color PPF</div>
+    <div class="row"><span class="now H">$1,297</span><span class="was">Reg. <s>$2,341</s></span></div></div>
+   <div class="off"><b>45%</b><small>OFF</small></div></div>
+  <p class="fine"><b>Only 4 students per class.</b> Lock in the price now, train on any date through 2027.</p>
+  ${bar('Get my pass')}
+ </div>`,`--ph:${S?1150:760}px`),
+// 3. Tint in 2 days
+'3':()=>wrap(3,`<div class="bgimg" style="background-image:url(${img('tint-heat-shrink')});--pos:${S?'62% 50%':'60% 40%'}"></div><div class="layer"></div>
+ <div class="ribbon" style="--rt:${S?PT+190:230}px">SAVE $398</div>
+ <div class="stack">${TOPROW}<div class="grow"></div>
+  <div><span class="kick">2-Day Window Tint Course</span></div>
+  <h1 class="H">Learn tint<br>in <span class="o">2 days.</span></h1>
+  <div class="pr"><span class="now H">$497</span><span class="was">Reg. <s>$895</s><b>Black Friday price</b></span></div>
+  <div class="checks"><span>Hands-on, real cars</span><span>Max 4 students</span><span>16-year pro</span></div>
+  ${bar('Book tint class')}
+ </div>`),
+// 4. Big number, orange
+'4':()=>wrap(4,`<div class="burst"></div>
+ <div class="stack"><div class="toprow"><span class="logo-pill"><img class="logo" src="${L}" alt="VWT"></span><span class="tag" style="border-color:#000"><i></i>${LAST?'Last day':'Black Friday'}</span></div>
+  <div class="k">Tint + PPF training</div>
+  <div class="big H">$1,044<small>off</small></div>
+  <div class="sub">Black Friday only. Then it's gone.</div>
+  <div class="frame" style="background-image:url(${img('student-green-bmw-fender')});--pos:${S?'62% 50%':'60% 50%'}"><div class="stk"><b>4</b>students<br>per class</div></div>
+  <div class="deal"><div class="n">Film Pro Bundle<small>Tint + Clear &amp; Color PPF</small></div><div class="p"><b class="H">$1,297</b><s>$2,341</s></div></div>
+  ${bar('Lock it in','inv')}
+ </div>`),
+// 5. Four seats
+'5':()=>{const chair='<svg viewBox="0 0 24 24"><path d="M7 3h10a1 1 0 011 1v7H6V4a1 1 0 011-1zm-3 9h16a1 1 0 011 1v2a1 1 0 01-1 1h-1v5h-2v-5H7v5H5v-5H4a1 1 0 01-1-1v-2a1 1 0 011-1z"/></svg>';
+ return wrap(5,`<div class="photo" style="background-image:url(${img('instructor-green-bmw-quarter')});--pos:${S?'38% 50%':'50% 40%'}"></div>
+ <div class="stack">${TOPROW}<div class="grow"></div>
+  <h1 class="H">4 seats.<br><span class="o">That's it.</span></h1>
+  <div class="seats">${[1,2,3,4].map(i=>`<div class="seat">${chair}<div>SEAT ${i}</div></div>`).join('')}</div>
+  <p class="copy">Every class is capped at 4 students, so you get <b>real one-on-one time</b> with a 16-year pro.</p>
+  <div class="prices"><div><small>Tint · 2 days</small><b>$497</b><s>$895</s></div><div><small>PPF · 3 days</small><b>$997</b><s>$1,446</s></div><div class="best"><small>Bundle · both</small><b>$1,297</b></div></div>
+  ${bar('Grab a seat')}
+ </div>`,`--ph:${S?1100:720}px`)},
+// 6. Last call
+'6':()=>wrap(6,`<div class="bgimg" style="background-image:url(${img('student-green-bmw-fender')});--pos:${S?'60% 50%':'55% 50%'}"></div><div class="layer"></div>
+ <div class="stack">${TOPROW}
+  <div class="grow"></div>
+  <div class="tape t1"></div>
+  <h1 class="H">${LAST?'Last <span class="y">day.</span>':'Don\'t miss<br><span class="y">this.</span>'}</h1>
+  <div class="tape t2"></div>
+  <p class="copy">Black Friday prices end <b>${LAST?'tonight at 11:59 PM PT':'Monday, Nov 30 at 11:59 PM PT'}</b>. After that, prices go back up.</p>
+  <div class="list">
+   <div class="li">Window Tint<span><s>$895</s><b>$497</b></span></div>
+   <div class="li">Clear &amp; Color PPF<span><s>$1,446</s><b>$997</b></span></div>
+   <div class="li">Tint + PPF Bundle<span><s>$2,341</s><b>$1,297</b></span></div>
+  </div>
+  ${bar(LAST?'Book before midnight':'Book now','red')}
+ </div>`)
+};
+document.getElementById('root').innerHTML=T[ad]();
+</script></body></html>
