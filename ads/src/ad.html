@@ -1,6 +1,6 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;600;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;500;600;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--orange:#ff6a00;--orange2:#ff9a3c;--green:#22c55e;--gold:#ffc44d;--red:#ef4444;--bg:#0d0d0f}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -73,8 +73,9 @@ s{text-decoration-color:var(--red);text-decoration-thickness:4px}
 .a3 .deal .t{font:900 30px/1.2 Inter;text-transform:uppercase}
 .a3 .deal .t small{display:block;font:800 24px/1.3 Inter;text-transform:none;color:#b4b4bd}
 .brand{display:inline-flex;align-items:center;gap:18px}
-.bname{font:300 20px/1 Inter,sans-serif;letter-spacing:3.5px;text-transform:uppercase;color:#fff;white-space:nowrap;text-shadow:0 0 8px rgba(0,0,0,.9),0 1px 3px rgba(0,0,0,.9)}
+.bname{font:500 20px/1 Inter,sans-serif;letter-spacing:3.5px;text-transform:uppercase;color:#fff;white-space:nowrap;text-shadow:0 0 8px rgba(0,0,0,.9),0 1px 3px rgba(0,0,0,.9)}
 .topfade{position:absolute;left:0;right:0;top:0;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.45) 60%,rgba(0,0,0,0));pointer-events:none}
+.course{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#000;font:900 30px/1 Inter,sans-serif;letter-spacing:2px;text-transform:uppercase;padding:14px 20px;border-radius:12px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 </style></head><body>
 <div id="root"></div>
 <script>
@@ -91,21 +92,23 @@ const T={
   <div class="top">${logo}${tag}</div>
   <div class="giant H">45%<small>OFF</small></div>
   <div class="body">
+    <div><span class="course">🎓 In-person training course</span></div>
     <h1 class="H">Learn Tint <span class="hl">+</span> PPF<br>from a <span class="hl">16-year pro</span></h1>
-    <div class="price"><div class="l"><div class="kick">Film Pro Bundle · Tint + PPF</div><div class="now H">$1,297</div><div class="reg">Reg. <s>$2,341</s></div></div>
+    <div class="price"><div class="l"><div class="kick">Film Pro Bundle · Tint + PPF courses</div><div class="now H">$1,297</div><div class="reg">Reg. <s>$2,341</s></div></div>
       <div class="save"><small>You save</small><b>$1,044</b></div></div>
-    <div class="chips"><span class="chip">👥 Only <b>4 students</b> per class</span><span class="chip">🔥 Hands-on</span><span class="chip">📍 San Leandro, CA</span></div>
+    <div class="chips"><span class="chip">👥 Only <b>4 students</b> per class</span><span class="chip">🔥 Hands-on class</span><span class="chip">📍 San Leandro, CA</span></div>
     ${bar('Claim my seat')}
   </div></div>`,
 '2':()=>`<div class="ad ${fmt} a2" style="--top:${TOP}px;--bot:${BOT}px">
   <div class="photo" style="background-image:url(img/${S?'stretching-portrait':'maserati'}.jpg);--pos:${S?'50% 20%':'50% 35%'}"></div><div class="shade"></div>
   <div class="top">${logo}${tag}</div>
   <div class="body">
+    <div><span class="course">🎓 In-person training course</span></div>
     <h1 class="H">Black Friday<br><span class="hl">course sale</span></h1>
     <p class="lead">Hands-on tint &amp; PPF training. Max 4 students per class.</p>
-    <div class="row"><div class="n">Window Tint<small>2-day course</small></div><div class="p"><b class="H">$497</b><s>$895</s></div></div>
-    <div class="row"><div class="n">Clear &amp; Color PPF<small>3-day course</small></div><div class="p"><b class="H">$997</b><s>$1,446</s></div></div>
-    <div class="row best"><div class="n">Film Pro Bundle<span class="badge">BEST VALUE</span><small>Tint + PPF · save $1,044</small></div><div class="p"><b class="H">$1,297</b><s>$2,341</s></div></div>
+    <div class="row"><div class="n">Window Tint Course<small>2 days, hands-on</small></div><div class="p"><b class="H">$497</b><s>$895</s></div></div>
+    <div class="row"><div class="n">Clear &amp; Color PPF Course<small>3 days, hands-on</small></div><div class="p"><b class="H">$997</b><s>$1,446</s></div></div>
+    <div class="row best"><div class="n">Film Pro Bundle<span class="badge">BEST VALUE</span><small>Both courses · save $1,044</small></div><div class="p"><b class="H">$1,297</b><s>$2,341</s></div></div>
     <p class="note">Lock in the price now. <b>Use it on any class date through 2027.</b></p>
     ${bar('Pick my course')}
   </div></div>`,
@@ -114,10 +117,11 @@ const T={
   <div class="shade"></div>
   <div class="top">${logo}${tag}</div>
   <div class="body">
+    <div><span class="course">🎓 In-person training course</span></div>
     <h1 class="H">Your new skill<br>starts <span class="hl">here.</span></h1>
     <p class="lead">Learn <b>window tint &amp; PPF</b> hands-on from a 16-year pro. Only <b>4 students</b> per class, so you get real one-on-one time.</p>
     <div class="rev"><span class="stars">★★★★★</span> 41 Google reviews</div>
-    <div class="deal"><div class="pct">45%</div><div class="t">Off the Film Pro Bundle<small>$1,297 (reg. $2,341) · Tint from $497</small></div></div>
+    <div class="deal"><div class="pct">45%</div><div class="t">Off the Tint + PPF course bundle<small>$1,297 (reg. $2,341) · Tint course from $497</small></div></div>
     ${bar('Enroll now')}
   </div></div>`
 };

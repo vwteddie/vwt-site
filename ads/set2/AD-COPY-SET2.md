@@ -4,15 +4,15 @@ Six styles, each in **Feed 4:5 (1080×1350)** and **Stories/Reels 9:16 (1080×19
 Prices match the landing page. The deal ends **Mon, Nov 30, 2026, 11:59 PM PT**.
 
 **Website URL:** your landing page with UTMs, e.g. `…/?utm_source=instagram&utm_medium=paid&utm_campaign=bf2026&utm_content=pass`. Change `utm_content` per ad so you can see which style wins.
-**Button:** `Book Now`
+**Button:** `Learn More` or `Book Now`. Every image now shows an **"In-person training course"** badge so nobody mistakes this for an install service.
 
 | # | Style | Best for |
 |---|---|---|
-| 1 | **Pro panel map**: "This is how pros plan every panel." | Scroll-stopper. Shows real expertise. |
-| 2 | **Black Friday pass**: an "Admit One" ticket | Makes the bundle feel exclusive. |
+| 1 | **Pro panel map**: "Learn how pros plan every panel." | Scroll-stopper. Shows real expertise. |
+| 2 | **Seat in class**: "Your seat in class is 45% off." with an "Admit One" ticket | Makes the bundle feel exclusive. |
 | 3 | **Tint in 2 days**: $497, "Save $398" ribbon | People who only want tint (lowest price). |
 | 4 | **$1,044 off**: bright orange, big number | Stands out in a dark feed. Pure deal. |
-| 5 | **4 seats. That's it.** | Scarcity: small classes. |
+| 5 | **4 seats per class. That's it.** | Scarcity: small classes. |
 | 6 | **Don't miss this** / **Last day** (caution tape) | Retargeting site visitors; run "Last day" only on Nov 30. |
 
 ---
@@ -21,7 +21,7 @@ Prices match the landing page. The deal ends **Mon, Nov 30, 2026, 11:59 PM PT**.
 **Primary text**
 > Every line on this fender is a plan. That's how pros wrap without wasting film or leaving seams where they don't belong. 📐
 >
-> Learn it hands-on at VWT in San Leandro. Tint + PPF, taught by a 16-year pro, max 4 students per class.
+> Learn it in person at our training center in San Leandro. This is a hands-on course where YOU learn to install. Tint + PPF, taught by a 16-year pro, max 4 students per class.
 >
 > 🔥 Black Friday: $1,297 (reg. $2,341). You save $1,044.
 > ⏰ Ends Cyber Monday at 11:59 PM PT.
@@ -29,9 +29,11 @@ Prices match the landing page. The deal ends **Mon, Nov 30, 2026, 11:59 PM PT**.
 **Headline:** Learn Tint + PPF: Save $1,044
 **Description:** Max 4 students · Ends Cyber Monday
 
-### 2 · Black Friday pass
+### 2 · Seat in class
 **Primary text**
-> 🎟️ Your Black Friday pass is here.
+> 🎟️ Your seat in class is 45% off.
+>
+> This is an in-person training course: you learn to install window tint and PPF yourself, hands-on.
 >
 > The Film Pro Bundle gets you BOTH courses: 2-Day Window Tint + 3-Day Clear & Color PPF. Normally $2,341. This week only: $1,297.
 >
@@ -46,7 +48,7 @@ Prices match the landing page. The deal ends **Mon, Nov 30, 2026, 11:59 PM PT**.
 
 ### 3 · Tint in 2 days
 **Primary text**
-> Learn window tint in 2 days. 🔥
+> Learn window tint in 2 days. 🔥 In-person training course in San Leandro.
 >
 > Hands-on on real cars, not just slides. Max 4 students, so the instructor is right next to you the whole time.
 >
@@ -58,7 +60,7 @@ Prices match the landing page. The deal ends **Mon, Nov 30, 2026, 11:59 PM PT**.
 
 ### 4 · $1,044 off
 **Primary text**
-> $1,044 off. Not a typo. 🧡
+> $1,044 off. Not a typo. 🧡 This is a hands-on training course, not an install service: you learn to do the work yourself.
 >
 > Learn tint AND PPF from a 16-year pro in San Leandro. Film Pro Bundle: $1,297 (reg. $2,341).
 >
@@ -87,7 +89,7 @@ Prices match the landing page. The deal ends **Mon, Nov 30, 2026, 11:59 PM PT**.
 
 ### 6 · Don't miss this (Nov 25–29)
 **Primary text**
-> 🚨 Black Friday prices end Monday at 11:59 PM PT. After that, they go back up.
+> 🚨 Black Friday prices on our hands-on training courses end Monday at 11:59 PM PT. After that, they go back up.
 >
 > • Window Tint: $497 (reg. $895)
 > • Clear & Color PPF: $997 (reg. $1,446)

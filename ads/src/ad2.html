@@ -1,7 +1,7 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <!-- Black Friday Instagram ads, set 2. Open with ?ad=1..6&fmt=feed|story (&last=1 for the Nov 30 "ends tonight" version) and screenshot the .ad frame. -->
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;600;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;500;600;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--o:#ff6a00;--o2:#ff9a3c;--g:#22c55e;--gold:#ffc44d;--r:#ef4444;--bg:#0d0d0f;--muted:#c4c4cc}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -28,7 +28,8 @@ s{text-decoration-color:var(--r);text-decoration-thickness:5px}
 .bar.red{background:var(--r);color:#fff}.bar.red .cta{background:#fff;color:#000}
 /* 1: pro map */
 .a1 .layer{background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 46%,rgba(0,0,0,.85) 66%,#000 100%)}
-.a1 h1{margin-top:34px;font-size:118px}
+.a1 h1{font-size:118px}
+.a1 .stack>div:nth-child(2){margin-top:30px}
 .a1 h1 span{display:inline-block;background:#000;padding:10px 20px 4px;margin-bottom:8px}
 .a1 h1 .o{color:var(--o)}
 .a1 .card{background:rgba(16,16,19,.94);border:2px solid rgba(255,255,255,.14);border-radius:22px;padding:24px 28px;margin-bottom:20px}
@@ -77,8 +78,8 @@ s{text-decoration-color:var(--r);text-decoration-thickness:5px}
 /* 4: big number on orange */
 .a4{background:var(--o);color:#000}
 .a4 .burst{position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 80% 30%,rgba(255,255,255,.08) 0deg 8deg,rgba(255,255,255,0) 8deg 16deg)}
-.a4 .k{font:900 30px/1 Inter;letter-spacing:4px;text-transform:uppercase;margin:30px 0 4px}
-.a4 .big{font-size:250px;line-height:.86;letter-spacing:-2px}
+.a4 .k{font:900 30px/1 Inter;letter-spacing:4px;text-transform:uppercase;margin:18px 0 4px}
+.a4 .big{font-size:220px;line-height:.86;letter-spacing:-2px}
 .a4 .big small{font-size:120px;margin-left:10px}
 .a4 .sub{font:900 34px/1.2 Inter;margin:14px 0 26px}
 .a4 .frame{position:relative;flex:1;min-height:0;border:10px solid #fff;border-radius:10px;background-size:cover;background-position:var(--pos);transform:rotate(-1.6deg);box-shadow:0 24px 50px -10px rgba(0,0,0,.55);margin:0 6px 28px}
@@ -93,7 +94,7 @@ s{text-decoration-color:var(--r);text-decoration-thickness:5px}
 /* 5: four seats */
 .a5 .photo{position:absolute;left:0;right:0;top:0;height:var(--ph);background-size:cover;background-position:var(--pos)}
 .a5 .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,.1) 55%,var(--bg) 100%)}
-.a5 h1{font-size:128px;margin-bottom:22px}
+.a5 h1{font-size:108px;margin-bottom:22px}
 .a5 h1 .o{color:var(--o)}
 .seats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
 .seat{background:#18181c;border:2px solid var(--o);border-radius:18px;padding:16px 0 12px;text-align:center}
@@ -122,8 +123,9 @@ s{text-decoration-color:var(--r);text-decoration-thickness:5px}
 .a6 .li span b{font-family:Anton;font-weight:400;font-size:52px;color:#ffc400;margin-left:12px}
 .a6 .li s{font:800 24px/1 Inter;color:#9a9aa3;text-decoration-thickness:3px}
 .brand{display:inline-flex;align-items:center;gap:18px}
-.bname{font:300 20px/1 Inter,sans-serif;letter-spacing:3.5px;text-transform:uppercase;color:#fff;white-space:nowrap;text-shadow:0 0 8px rgba(0,0,0,.9),0 1px 3px rgba(0,0,0,.9)}
+.bname{font:500 20px/1 Inter,sans-serif;letter-spacing:3.5px;text-transform:uppercase;color:#fff;white-space:nowrap;text-shadow:0 0 8px rgba(0,0,0,.9),0 1px 3px rgba(0,0,0,.9)}
 .topfade{position:absolute;left:0;right:0;top:0;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.45) 60%,rgba(0,0,0,0));pointer-events:none}
+.course{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#000;font:900 30px/1 Inter,sans-serif;letter-spacing:2px;text-transform:uppercase;padding:14px 20px;border-radius:12px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 </style></head><body>
 <div id="root"></div>
 <script>
@@ -143,28 +145,30 @@ const T={
 // 1. The pro's panel map
 '1':()=>wrap(1,`<div class="bgimg" style="background-image:url(${img('layout-map-mercedes')});--pos:${S?'63% 50%':'58% 50%'}"></div><div class="layer"></div>
  <div class="stack">${TOPROW}
-  <h1 class="H"><span>This is how</span><br><span><i class="o" style="font-style:normal">pros</i> plan</span><br><span>every panel.</span></h1>
+  <div><span class="course">🎓 In-person training course</span></div>
+  <h1 class="H"><span>Learn how</span><br><span><i class="o" style="font-style:normal">pros</i> plan</span><br><span>every panel.</span></h1>
   <div class="grow"></div>
-  <div class="card"><p>Learn it hands-on from a <b>16-year pro</b>. Tint + PPF, max 4 students per class.</p>
+  <div class="card"><p>Tint + PPF training courses taught by a <b>16-year pro</b>. Max 4 students per class.</p>
    <div class="pr"><span class="now H">$1,297</span><span class="was">Reg. <s>$2,341</s></span><span class="save">Save $1,044</span></div></div>
   ${bar('Claim my seat')}
  </div>`),
 // 2. Black Friday pass (ticket)
 '2':()=>wrap(2,`<div class="photo" style="background-image:url(${img('ppf-two-students-vwt-wall')});--pos:${S?'40% 50%':'50% 45%'}"></div>
  <div class="stack">${TOPROW}<div class="grow"></div>
-  <h1 class="H">Your Black Friday<br><span class="o">pass is here.</span></h1>
+  <div><span class="course">🎓 In-person training course</span></div>
+  <h1 class="H">Your seat in class<br><span class="o">is 45% off.</span></h1>
   <div class="ticket"><div class="stub"><span>ADMIT ONE</span></div>
-   <div class="main"><div class="k">Film Pro Bundle</div><div class="n">Window Tint + Clear &amp; Color PPF</div>
+   <div class="main"><div class="k">Film Pro Bundle · 2 courses</div><div class="n">Window Tint + PPF Training</div>
     <div class="row"><span class="now H">$1,297</span><span class="was">Reg. <s>$2,341</s></span></div></div>
    <div class="off"><b>45%</b><small>OFF</small></div></div>
   <p class="fine"><b>Only 4 students per class.</b> Lock in the price now, train on any date through 2027.</p>
-  ${bar('Get my pass')}
+  ${bar('Save my seat')}
  </div>`,`--ph:${S?1150:760}px`),
 // 3. Tint in 2 days
 '3':()=>wrap(3,`<div class="bgimg" style="background-image:url(${img('tint-heat-shrink')});--pos:${S?'62% 50%':'60% 40%'}"></div><div class="layer"></div>
  <div class="ribbon" style="--rt:${S?PT+190:230}px">SAVE $398</div>
  <div class="stack">${TOPROW}<div class="grow"></div>
-  <div><span class="kick">2-Day Window Tint Course</span></div>
+  <div><span class="course">🎓 2-day in-person tint course</span></div>
   <h1 class="H">Learn tint<br>in <span class="o">2 days.</span></h1>
   <div class="pr"><span class="now H">$497</span><span class="was">Reg. <s>$895</s><b>Black Friday price</b></span></div>
   <div class="checks"><span>Hands-on, real cars</span><span>Max 4 students</span><span>16-year pro</span></div>
@@ -173,37 +177,40 @@ const T={
 // 4. Big number, orange
 '4':()=>wrap(4,`<div class="burst"></div>
  <div class="stack"><div class="toprow"><span class="logo-pill brand"><img class="logo" src="${L}" alt="VWT"><span class="bname" style="text-shadow:none">Vehicle Wrap Training</span></span><span class="tag" style="border-color:#000"><i></i>${LAST?'Last day':'Black Friday'}</span></div>
-  <div class="k">Tint + PPF training</div>
+  <div><span class="course" style="margin:26px 0 0">🎓 In-person training course</span></div>
+  <div class="k">Learn tint + PPF</div>
   <div class="big H">$1,044<small>off</small></div>
-  <div class="sub">Black Friday only. Then it's gone.</div>
+  <div class="sub">Learn to install it yourself. Black Friday only.</div>
   <div class="frame" style="background-image:url(${img('student-green-bmw-fender')});--pos:${S?'62% 50%':'60% 50%'}"><div class="stk"><b>4</b>students<br>per class</div></div>
-  <div class="deal"><div class="n">Film Pro Bundle<small>Tint + Clear &amp; Color PPF</small></div><div class="p"><b class="H">$1,297</b><s>$2,341</s></div></div>
-  ${bar('Lock it in','inv')}
+  <div class="deal"><div class="n">Film Pro Bundle<small>Tint + PPF training courses</small></div><div class="p"><b class="H">$1,297</b><s>$2,341</s></div></div>
+  ${bar('Enroll now','inv')}
  </div>`),
 // 5. Four seats
 '5':()=>{const chair='<svg viewBox="0 0 24 24"><path d="M7 3h10a1 1 0 011 1v7H6V4a1 1 0 011-1zm-3 9h16a1 1 0 011 1v2a1 1 0 01-1 1h-1v5h-2v-5H7v5H5v-5H4a1 1 0 01-1-1v-2a1 1 0 011-1z"/></svg>';
  return wrap(5,`<div class="photo" style="background-image:url(${img('instructor-green-bmw-quarter')});--pos:${S?'38% 50%':'50% 40%'}"></div>
  <div class="stack">${TOPROW}<div class="grow"></div>
-  <h1 class="H">4 seats.<br><span class="o">That's it.</span></h1>
+  <div><span class="course">🎓 In-person training course</span></div>
+  <h1 class="H">4 seats per class.<br><span class="o">That's it.</span></h1>
   <div class="seats">${[1,2,3,4].map(i=>`<div class="seat">${chair}<div>SEAT ${i}</div></div>`).join('')}</div>
   <p class="copy">Every class is capped at 4 students, so you get <b>real one-on-one time</b> with a 16-year pro.</p>
-  <div class="prices"><div><small>Tint · 2 days</small><b>$497</b><s>$895</s></div><div><small>PPF · 3 days</small><b>$997</b><s>$1,446</s></div><div class="best"><small>Bundle · both</small><b>$1,297</b></div></div>
+  <div class="prices"><div><small>Tint course · 2 days</small><b>$497</b><s>$895</s></div><div><small>PPF course · 3 days</small><b>$997</b><s>$1,446</s></div><div class="best"><small>Both courses</small><b>$1,297</b></div></div>
   ${bar('Grab a seat')}
  </div>`,`--ph:${S?1100:720}px`)},
 // 6. Last call
 '6':()=>wrap(6,`<div class="bgimg" style="background-image:url(${img('student-green-bmw-fender')});--pos:${S?'60% 50%':'55% 50%'}"></div><div class="layer"></div>
  <div class="stack">${TOPROW}
   <div class="grow"></div>
+  <div><span class="course">🎓 In-person training course</span></div>
   <div class="tape t1"></div>
   <h1 class="H">${LAST?'Last <span class="y">day.</span>':'Don\'t miss<br><span class="y">this.</span>'}</h1>
   <div class="tape t2"></div>
-  <p class="copy">Black Friday prices end <b>${LAST?'tonight at 11:59 PM PT':'Monday, Nov 30 at 11:59 PM PT'}</b>. After that, prices go back up.</p>
+  <p class="copy">Black Friday prices on our hands-on training courses end <b>${LAST?'tonight at 11:59 PM PT':'Monday, Nov 30 at 11:59 PM PT'}</b>. After that, prices go back up.</p>
   <div class="list">
-   <div class="li">Window Tint<span><s>$895</s><b>$497</b></span></div>
-   <div class="li">Clear &amp; Color PPF<span><s>$1,446</s><b>$997</b></span></div>
-   <div class="li">Tint + PPF Bundle<span><s>$2,341</s><b>$1,297</b></span></div>
+   <div class="li">Window Tint Course<span><s>$895</s><b>$497</b></span></div>
+   <div class="li">Clear &amp; Color PPF Course<span><s>$1,446</s><b>$997</b></span></div>
+   <div class="li">Tint + PPF Course Bundle<span><s>$2,341</s><b>$1,297</b></span></div>
   </div>
-  ${bar(LAST?'Book before midnight':'Book now','red')}
+  ${bar(LAST?'Enroll before midnight':'Enroll now','red')}
  </div>`)
 };
 document.getElementById('root').innerHTML=T[ad]();
