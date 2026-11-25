@@ -69,8 +69,20 @@ window.VWT = {
   //              Leave it out to use the course's checkout link from `links` above.
   // Example: { course: "tint", start: "2026-12-05", end: "2026-12-06", seatsLeft: 2 },
   //          { course: "ppf",  start: "2026-12-12", end: "2026-12-14", seatsLeft: 4, url: "https://vehiclewraptraining.myshopify.com/products/..." },
+  // Add seatsLeft: 0-4 to any class to show a real count ("2 of 4 seats left", or "Full" at 0).
   classes: [
-    // [LIST DATES, with seats left per class]
+    { course: "ppf",  start: "2026-12-14", end: "2026-12-16" },
+    { course: "tint", start: "2027-01-04", end: "2027-01-05" },
+    { course: "ppf",  start: "2027-01-11", end: "2027-01-13" },
+    { course: "tint", start: "2027-01-18", end: "2027-01-19" },
+    { course: "ppf",  start: "2027-01-25", end: "2027-01-27" },
+    { course: "tint", start: "2027-02-01", end: "2027-02-02" },
+    { course: "ppf",  start: "2027-02-08", end: "2027-02-10" },
+    { course: "tint", start: "2027-02-15", end: "2027-02-16" },
+    { course: "ppf",  start: "2027-02-22", end: "2027-02-24" },
+    { course: "tint", start: "2027-03-01", end: "2027-03-02" },
+    { course: "ppf",  start: "2027-03-08", end: "2027-03-10" },
+    { course: "tint", start: "2027-03-15", end: "2027-03-16" }
   ],
 
   // PHOTOS live in public/images/class/. Each photo has a -640.webp (phones) and -1280.webp (desktop) size.
@@ -196,6 +208,11 @@ section{padding:72px 0}
 .redeem-chip{display:flex;gap:8px;align-items:flex-start;font-size:13px;font-weight:600;color:var(--green);margin:-6px 0 14px}
 .redeem-chip .ck{width:16px;height:16px;flex:none;margin-top:1px}
 .live-dates{font-size:16px}
+.cal-block{margin-top:44px;text-align:left}
+.cal-block-head{text-align:center;max-width:640px;margin:0 auto}
+.cal-block-head h3{font-size:clamp(28px,4vw,40px);margin-bottom:8px}
+.cal-block-head p{color:var(--muted)}
+.cal-block .cal-wrap{margin-top:22px}
 .pcard .foot .btn{font-size:15px;padding-left:14px;padding-right:14px;letter-spacing:.3px;white-space:nowrap}
 .pcard .date-note{font-size:13px;line-height:1.45;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:2px}
 
@@ -577,7 +594,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Vehicle Wrap Training home"><img src="public/images/brand/vwt-logo-400.webp" srcset="public/images/brand/vwt-logo-400.webp 1x, public/images/brand/vwt-logo-800.webp 2x" width="182" height="40" alt="Vehicle Wrap Training"><span class="brand-name">Vehicle Wrap Training</span></a>
     <nav class="site-nav" aria-label="Page sections">
-      <a href="#pricing">Courses</a><a href="#location">Location</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
+      <a href="#pricing">Courses</a><a href="#calendar">Class Calendar</a><a href="#location">Location</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
     </nav>
     <a class="head-call" href="tel:+15109356111" data-lead><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.2 15.2 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.6a1 1 0 01-.25 1z"/></svg><span>510-935-6111</span></a>
     <a class="btn" href="#pricing">Claim My Seat</a>
@@ -708,6 +725,28 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     <h2>Pick your course</h2>
     <p class="lead">Lock in Black Friday pricing now and use it for any class date through the end of 2027. Pay in full or over time with Shop Pay, or reserve the PPF Course or the Film Pro Bundle with a $500 deposit.</p>
     <div class="prices" id="prices" style="text-align:left"></div>
+    <div class="cal-block" id="calendar">
+      <div class="cal-block-head">
+        <span class="eyebrow">Class calendar</span>
+        <h3>Open class dates</h3>
+        <p>Tap a highlighted date to see that class. Every class is capped at 4 students. You'll lock in your date on the next page.</p>
+      </div>
+      <div class="cal-wrap">
+        <div class="cal">
+          <div class="cal-head">
+            <button class="cal-nav" id="calPrev" aria-label="Previous month">‹</button>
+            <h3 id="calTitle">Month</h3>
+            <button class="cal-nav" id="calNext" aria-label="Next month">›</button>
+          </div>
+          <div class="cal-grid" id="calGrid" role="grid"></div>
+          <div class="cal-legend"><span><i class="c-tint"></i>Tint Course (2 days)</span><span><i class="c-ppf"></i>PPF Course (3 days)</span></div>
+          <p class="cal-bundle-note"><b>Film Pro Bundle:</b> pick one Tint date and one PPF date. They're separate classes on separate days.</p>
+        </div>
+        <div>
+          <div class="cal-list" id="calList" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
     <div class="cta-row"><a class="textlink live-dates" href="https://vehiclewraptraining.myshopify.com/products/film-pro-bundle-window-tint-clear-color-ppf-2-3-days?variant=68181014970685" data-shop="bundle">See live dates and open seats on the next page.</a></div>
   </div>
 </section>
@@ -1068,13 +1107,14 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     var after = c.afterPrice !== undefined ? c.afterPrice : c.regular;
     return { now: after ? money(after) : "Call", was: "", save: "" };
   }
+  function isOpen(k){ return k.seatsLeft == null || k.seatsLeft > 0 }
   function seatsFor(key){
     if (key === "bundle") return "Pick your tint and PPF dates at checkout";
-    var list = upcoming().filter(function(k){ return k.course === key && k.seatsLeft > 0 });
+    var list = upcoming().filter(function(k){ return k.course === key && isOpen(k) });
     if (!C.classes.length) return "4 seats max per class";
     if (!list.length) return "All current dates are full. Text Eddie for the waitlist";
     var n = list[0];
-    return "Next: " + fmtRange(n) + " · " + n.seatsLeft + " of 4 seats left";
+    return "Next class: " + fmtRange(n) + " · " + (n.seatsLeft == null ? "4 seats max" : n.seatsLeft + " of 4 seats left");
   }
 
   /* ---------- Payment rules ---------- */
@@ -1192,11 +1232,13 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       return;
     }
     el.innerHTML = list.map(function(k){
-      var i = C.classes.indexOf(k), c = C.courses[k.course], a = dParse(k.start), full = k.seatsLeft <= 0;
-      var pill = full ? '<span class="pill full">Full</span>' : '<span class="pill ' + (k.seatsLeft <= 2 ? "low" : "ok") + '">' + k.seatsLeft + ' of 4 seats left</span>';
+      var i = C.classes.indexOf(k), c = C.courses[k.course], a = dParse(k.start), full = !isOpen(k);
+      var pill = full ? '<span class="pill full">Full</span>'
+        : k.seatsLeft == null ? '<span class="pill ok">Open · 4 seats max</span>'
+        : '<span class="pill ' + (k.seatsLeft <= 2 ? "low" : "ok") + '">' + k.seatsLeft + ' of 4 seats left</span>';
       var btn = full
         ? '<a class="btn ghost" href="sms:+15109356111?&body=' + encodeURIComponent("Hi Eddie, please add me to the waitlist for the " + c.short + " on " + fmtRange(k)) + '" data-lead>Join the waitlist</a>'
-        : '<a class="btn" href="' + (bookUrl(k) || "#pricing") + '" data-book="' + i + '">Book ' + fmtRange(k) + ' · ' + priceFor(k.course).now + '</a>';
+        : '<a class="btn" href="' + (bookUrl(k) || "#pricing") + '" data-book="' + i + '">Pick ' + fmtRange(k) + ' · ' + priceFor(k.course).now + '</a>';
       return '<div class="cal-item k-' + k.course + (selected === k ? " hl" : "") + '" id="ci-' + i + '">' +
         '<div class="dt"><small>' + MON[a.getMonth()] + '</small><b>' + a.getDate() + '</b></div>' +
         '<div class="nm">' + c.name + '</div>' +
