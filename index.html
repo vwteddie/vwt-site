@@ -204,15 +204,31 @@ section{padding:72px 0}
 .hero h1{font-size:clamp(38px,7vw,80px);margin-bottom:14px;text-shadow:0 4px 40px rgba(0,0,0,.6)}
 .hero h1 .hl{background:linear-gradient(180deg,#ffd29a,var(--orange) 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .sub{font-size:clamp(17px,2.2vw,21px);color:#e2e2e8;max-width:620px;margin-bottom:20px}
-.offer{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 14px;margin-bottom:20px}
-.offer .upto{font:800 14px/1 Inter,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--gold);align-self:center;writing-mode:vertical-rl;transform:rotate(180deg)}
-.offer .pct{font-family:Anton,sans-serif;font-size:clamp(52px,8vw,84px);line-height:.9;color:var(--gold);text-shadow:0 0 30px rgba(255,196,77,.35)}
-.offer .pct small{font-size:.45em}
-.offer .from{color:var(--muted);font-weight:600}
-.offer .from s{color:var(--dim)}
-.offer .from b{color:#fff;font-size:22px}
+/* Hero offer card */
+.offer{display:flex;align-items:stretch;max-width:660px;margin-bottom:26px;background:rgba(10,10,12,.62);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 20px 50px -25px rgba(0,0,0,.8)}
+.offer-pct{display:flex;flex-direction:column;justify-content:center;gap:4px;padding:18px 26px;border-right:1px solid rgba(255,255,255,.12)}
+.offer .upto{font:800 12px/1 Inter,sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.offer .pct{font-family:Anton,Impact,sans-serif;font-size:clamp(56px,6.5vw,78px);line-height:.9;color:var(--gold);text-shadow:0 0 30px rgba(255,196,77,.35);white-space:nowrap}
+.offer .pct small{font-size:.42em;margin-left:6px}
+.offer-deal{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:16px 24px}
+.offer-kicker{font:800 13px/1.2 Inter,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:#fff}
+.offer-price{display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap}
+.offer-was{display:flex;flex-direction:column;gap:3px;line-height:1.1}
+.offer-was s{color:var(--dim);font-size:18px;font-weight:600;text-decoration-color:var(--red)}
+.offer-was em{font-style:normal;font:800 12px/1 Inter,sans-serif;letter-spacing:.5px;color:var(--green);background:rgba(34,197,94,.14);padding:4px 7px;border-radius:6px}
+.redeem-line{display:flex;gap:8px;align-items:flex-start;color:#d4d4dc;font-size:14px;line-height:1.35;margin:0}
+.redeem-line .ck{width:16px;height:16px;flex:none;margin-top:1px}
+.offer .over-note{padding:16px 22px;color:#fff;font-weight:700}
 /* Hero bundle price: pulsing aura */
-.offer .from b.hero-price{position:relative;display:inline-block;margin:0 10px 0 6px;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(34px,5vw,46px);line-height:1;letter-spacing:.5px;vertical-align:middle;isolation:isolate}
+.offer b.hero-price{position:relative;display:inline-block;margin-right:.32em;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(44px,5vw,56px);line-height:1;letter-spacing:.5px;isolation:isolate}
+@media (max-width:640px){
+  .offer{flex-direction:column;max-width:none}
+  .offer-pct{flex-direction:row;justify-content:flex-start;align-items:baseline;gap:10px;padding:12px 18px;border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .offer .pct{font-size:50px}
+  .offer-deal{padding:14px 18px 16px}
+  .offer b.hero-price{font-size:46px}
+  .offer-deal{gap:6px}
+}
 .hero-price span{display:inline-block;transform-origin:0 60%;color:#fff;animation:pricePulse 1.8s ease-in-out infinite}
 .hero-price::before{content:"";position:absolute;inset:-35% -30%;z-index:-1;border-radius:50%;
   background:radial-gradient(closest-side,rgba(198,255,0,.55),rgba(198,255,0,.18) 55%,transparent 75%);
@@ -221,15 +237,11 @@ section{padding:72px 0}
   0%,100%{transform:scale(1);color:#fff;text-shadow:0 0 0 rgba(198,255,0,0)}
   50%{transform:scale(1.2);color:#c6ff00;text-shadow:0 0 12px rgba(198,255,0,.85),0 0 30px rgba(198,255,0,.55),0 0 60px rgba(198,255,0,.3)}
 }
-@media (max-width:640px){.offer .from b.hero-price{display:block;width:max-content;margin:10px 0 4px;font-size:44px}.hero-price span{transform-origin:0 60%}.hero-price::before{inset:-35% -20% -35% -15%}}
 @keyframes priceAura{0%,100%{opacity:.25;transform:scale(.75)}50%{opacity:1;transform:scale(1.15)}}
 @media (prefers-reduced-motion:reduce){
   .hero-price span{animation:none;color:#c6ff00;text-shadow:0 0 14px rgba(198,255,0,.7)}
   .hero-price::before{animation:none;opacity:.6;transform:none}
 }
-.offer .bundle-name{color:#fff;font-weight:800}
-.redeem-line{display:flex;gap:10px;align-items:flex-start;color:#e2e2e8;font-size:16px;margin:-6px 0 22px;max-width:620px}
-.redeem-line .ck{width:20px;height:20px;flex:none;margin-top:2px}
 .redeem-chip{display:flex;gap:8px;align-items:flex-start;font-size:13px;font-weight:600;color:var(--green);margin:-6px 0 14px}
 .redeem-chip .ck{width:16px;height:16px;flex:none;margin-top:1px}
 .live-dates{font-size:16px}
@@ -612,7 +624,6 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
   .topbar{font-size:12px}.topbar .wrap{flex-wrap:nowrap;gap:8px;min-height:40px}
   .bf-tag{margin-bottom:14px;font-size:11px;letter-spacing:1.5px}
   .hero .sub{margin-bottom:16px}
-  .offer{margin-bottom:14px}
   .countdown{margin-bottom:18px}
   .countdown .u{padding:8px 4px 6px}
   .countdown .n{font-size:32px}
@@ -669,10 +680,19 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
       <p class="sub">Hands-on training in San Leandro, CA. Your hands on real cars, not watching from the back.</p>
 
       <div class="offer" id="heroOffer">
-        <span class="upto">Up to</span><span class="pct">45%<small> OFF</small></span>
-        <span class="from"><span class="bundle-name">Film Pro Bundle · Tint + PPF</span> <s>$2,341</s> <b class="hero-price"><span>$1,297</span></b></span>
+        <div class="offer-pct">
+          <span class="upto">Up to</span>
+          <span class="pct">45%<small>OFF</small></span>
+        </div>
+        <div class="offer-deal">
+          <span class="offer-kicker">Film Pro Bundle · Tint + PPF</span>
+          <div class="offer-price">
+            <b class="hero-price"><span>$1,297</span></b>
+            <span class="offer-was"><s>$2,341</s><em>Save $1,044</em></span>
+          </div>
+          <p class="redeem-line"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Reserve with $500 · good for any class date through 2027</span></p>
+        </div>
       </div>
-      <p class="redeem-line"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Reserve with $500. Lock in this price now and train on any class date through the end of 2027.</span></p>
 
       <div class="cd-label" id="cdLabel">Black Friday pricing ends in</div>
       <div class="countdown" data-countdown>
@@ -1364,8 +1384,7 @@ footer .legal{margin-top:28px;font-size:12px;line-height:1.6}
     $("#cdMini").style.display = "none";
     $("#cdLabel").textContent = "Black Friday pricing has ended";
     $$("[data-countdown]").forEach(function(el){ el.style.display = "none" });
-    $("#heroOffer").innerHTML = '<span class="from"><span class="bundle-name">Tint + PPF training</span> · Only 4 students per class</span>';
-    $(".redeem-line").hidden = true;
+    $("#heroOffer").innerHTML = '<p class="over-note">Tint + PPF training · Only 4 students per class</p>';
     $(".giant").style.display = "none";
     $(".bf-tag").innerHTML = "<i></i>Now enrolling · San Leandro, CA";
     $("#priceEyebrow").textContent = "Course pricing";
