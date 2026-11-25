@@ -1,7 +1,7 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <!-- Black Friday Instagram ads, set 2. Open with ?ad=1..6&fmt=feed|story (&last=1 for the Nov 30 "ends tonight" version) and screenshot the .ad frame. -->
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;600;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--o:#ff6a00;--o2:#ff9a3c;--g:#22c55e;--gold:#ffc44d;--r:#ef4444;--bg:#0d0d0f;--muted:#c4c4cc}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -121,6 +121,9 @@ s{text-decoration-color:var(--r);text-decoration-thickness:5px}
 .a6 .li:last-child{border:0}
 .a6 .li span b{font-family:Anton;font-weight:400;font-size:52px;color:#ffc400;margin-left:12px}
 .a6 .li s{font:800 24px/1 Inter;color:#9a9aa3;text-decoration-thickness:3px}
+.brand{display:inline-flex;align-items:center;gap:18px}
+.bname{font:300 20px/1 Inter,sans-serif;letter-spacing:3.5px;text-transform:uppercase;color:#fff;white-space:nowrap;text-shadow:0 0 8px rgba(0,0,0,.9),0 1px 3px rgba(0,0,0,.9)}
+.topfade{position:absolute;left:0;right:0;top:0;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.45) 60%,rgba(0,0,0,0));pointer-events:none}
 </style></head><body>
 <div id="root"></div>
 <script>
@@ -129,7 +132,7 @@ const S=fmt==='story';
 // Stories/Reels: text stays out of the top ~14% and bottom ~20%, where Instagram's own UI sits.
 const PT=S?270:52, PB=S?390:52;
 const L='../../public/images/brand/vwt-logo-800.webp';
-const logo=`<img class="logo" src="${L}" alt="VWT">`;
+const logo=`<span class="brand"><img class="logo" src="${L}" alt="VWT"><span class="bname">Vehicle Wrap Training</span></span>`;
 const tag=`<span class="tag"><i></i>${LAST?'Last day':'Black Friday'}</span>`;
 const TOPROW=`<div class="toprow">${logo}${tag}</div>`;
 const when=LAST?`Ends tonight<small>11:59 PM PT · Mon, Nov 30</small>`:`Ends Cyber Monday<small>Mon, Nov 30 · 11:59 PM PT</small>`;
@@ -169,7 +172,7 @@ const T={
  </div>`),
 // 4. Big number, orange
 '4':()=>wrap(4,`<div class="burst"></div>
- <div class="stack"><div class="toprow"><span class="logo-pill"><img class="logo" src="${L}" alt="VWT"></span><span class="tag" style="border-color:#000"><i></i>${LAST?'Last day':'Black Friday'}</span></div>
+ <div class="stack"><div class="toprow"><span class="logo-pill brand"><img class="logo" src="${L}" alt="VWT"><span class="bname" style="text-shadow:none">Vehicle Wrap Training</span></span><span class="tag" style="border-color:#000"><i></i>${LAST?'Last day':'Black Friday'}</span></div>
   <div class="k">Tint + PPF training</div>
   <div class="big H">$1,044<small>off</small></div>
   <div class="sub">Black Friday only. Then it's gone.</div>
@@ -204,4 +207,5 @@ const T={
  </div>`)
 };
 document.getElementById('root').innerHTML=T[ad]();
+(()=>{const a=document.querySelector('.ad');if(a.classList.contains('a4'))return;const t=a.querySelector('.stack,.top');const d=document.createElement('div');d.className='topfade';d.style.height=(PT+190)+'px';a.insertBefore(d,t);})();
 </script></body></html>
