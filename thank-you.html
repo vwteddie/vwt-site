@@ -40,6 +40,11 @@ footer a{color:var(--muted)}
 </style>
 <link rel="icon" type="image/png" sizes="32x32" href="public/images/brand/favicon-32.png">
 <link rel="apple-touch-icon" href="public/images/brand/apple-touch-icon.png">
+<!-- Meta Pixel: PageView only. Purchase is counted on Shopify's thank-you page, so it is not fired here. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3393802437360221'); fbq('track', 'PageView');
+</script>
 </head>
 <body>
 <div class="brandbar"><div class="in"><a class="brand" href="index.html" aria-label="Vehicle Wrap Training home"><img src="public/images/brand/vwt-logo-400.webp" srcset="public/images/brand/vwt-logo-400.webp 1x, public/images/brand/vwt-logo-800.webp 2x" width="154" height="34" alt="Vehicle Wrap Training"><span class="brand-name">Vehicle Wrap Training</span></a><a class="back" href="index.html">← Back to site</a></div></div>
